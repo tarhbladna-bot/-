@@ -25,7 +25,7 @@ body{
   line-height:1.8;
 }
 
-/* ===== بانر ===== */
+/* بانر */
 .top-banner{
   background:linear-gradient(90deg,#000,#2a0000,#000);
   text-align:center;
@@ -34,7 +34,7 @@ body{
   color:#fff;
 }
 
-/* ===== هيدر ===== */
+/* هيدر */
 header{
   position:sticky;
   top:0;
@@ -67,7 +67,7 @@ nav a{
 }
 nav a:hover{color:var(--red)}
 
-/* ===== هيرو ===== */
+/* هيرو */
 .hero{
   min-height:85vh;
   background:
@@ -83,7 +83,6 @@ nav a:hover{color:var(--red)}
 .hero h1{
   font-size:42px;
   font-weight:900;
-  color:#fff;
 }
 .hero span{color:var(--red)}
 .hero p{max-width:600px;margin:20px auto}
@@ -98,7 +97,7 @@ nav a:hover{color:var(--red)}
   display:inline-block;
 }
 
-/* ===== أقسام ===== */
+/* أقسام */
 section{
   padding:70px 20px;
   max-width:1200px;
@@ -113,7 +112,7 @@ section{
   font-weight:900;
 }
 
-/* ===== منتجات ===== */
+/* منتجات */
 .products{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
@@ -142,21 +141,38 @@ section{
 
 .product h3{color:var(--red);margin-bottom:10px}
 
-/* ===== ثقة ===== */
+/* لماذا نحن */
 .trust{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:20px;
-  text-align:center;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:25px;
 }
 
-.trust div{
+.trust-card{
   background:var(--dark);
   padding:30px;
-  border-radius:15px;
+  border-radius:18px;
+  text-align:center;
+  box-shadow:0 10px 30px rgba(0,0,0,.4);
+  transition:.3s;
 }
 
-/* ===== تواصل ===== */
+.trust-card:hover{
+  transform:translateY(-6px);
+}
+
+.trust-card h3{
+  color:var(--red);
+  margin-bottom:10px;
+  font-size:22px;
+}
+
+.trust-card p{
+  font-size:15px;
+  color:#ccc;
+}
+
+/* تواصل */
 .contact{
   background:var(--dark);
   border-radius:20px;
@@ -175,7 +191,7 @@ section{
   font-weight:900;
 }
 
-/* ===== فوتر ===== */
+/* فوتر */
 footer{
   background:#000;
   padding:25px;
@@ -183,7 +199,7 @@ footer{
   color:#888;
 }
 
-/* ===== موبايل ===== */
+/* موبايل */
 @media(max-width:768px){
   .hero h1{font-size:30px}
   nav{display:none}
@@ -193,14 +209,14 @@ footer{
 
 <body>
 
-<div class="top-banner">🌙 عروض خاصة — جودة نثق بها منذ أكثر من 15 عامًا</div>
+<div class="top-banner">🌙 جودة نثق بها منذ أكثر من 15 عامًا</div>
 
 <header>
   <div class="header-inner">
     <div class="logo">طرح بلدنا</div>
     <nav>
-      <a href="#about">من نحن</a>
       <a href="#products">المنتجات</a>
+      <a href="#why">لماذا نحن</a>
       <a href="#contact">اتصل بنا</a>
     </nav>
   </div>
@@ -208,8 +224,8 @@ footer{
 
 <section class="hero">
   <div>
-    <h1>خبرة <span>15 عامًا</span> في المحاصيل الزراعية</h1>
-    <p>نوفر أجود أنواع الفول السوداني للسوق المحلي والتجار بأفضل جودة وسعر.</p>
+    <h1>خبرة <span>15 عامًا</span> في تجارة المحاصيل الزراعية</h1>
+    <p>نوفر أجود أنواع الفول السوداني للسوق المحلي والتجار، بجودة ثابتة وأسعار عادلة.</p>
     <a class="btn" href="https://wa.me/201020508423">اطلب الآن</a>
   </div>
 </section>
@@ -236,7 +252,7 @@ footer{
     <div class="product">
       <img src="images/product3.jpg">
       <div class="info">
-        <h3>فول حلواني</h3>
+        <h3>فول سوداني حلواني</h3>
         <p>من 80 إلى 95</p>
       </div>
     </div>
@@ -244,20 +260,35 @@ footer{
     <div class="product">
       <img src="images/product4.jpg">
       <div class="info">
-        <h3>فول مجروش</h3>
+        <h3>فول سوداني مجروش</h3>
         <p>من 85 إلى 90</p>
       </div>
     </div>
   </div>
 </section>
 
-<section>
-  <h2 class="section-title">لماذا نحن؟</h2>
+<section id="why">
+  <h2 class="section-title">لماذا تختار طرح بلدنا؟</h2>
   <div class="trust">
-    <div>✔️ خبرة طويلة</div>
-    <div>✔️ جودة مضمونة</div>
-    <div>✔️ أسعار تنافسية</div>
-    <div>✔️ التزام في التوريد</div>
+    <div class="trust-card">
+      <h3>خبرة طويلة</h3>
+      <p>أكثر من 15 عامًا من الخبرة في تجارة وتوريد الفول السوداني، نفهم احتياجات السوق ونعرف كيف نلبيها بثبات.</p>
+    </div>
+
+    <div class="trust-card">
+      <h3>جودة مضمونة</h3>
+      <p>نحرص على اختيار المحصول بعناية، مع فرز وتخزين جيد يضمن جودة ثابتة ترضي التجار والمستهلكين.</p>
+    </div>
+
+    <div class="trust-card">
+      <h3>أسعار تنافسية</h3>
+      <p>نقدم أفضل سعر مقابل الجودة، مع مرونة في التعامل والكميات بما يناسب السوق المحلي.</p>
+    </div>
+
+    <div class="trust-card">
+      <h3>التزام في التوريد</h3>
+      <p>نلتزم بمواعيد التسليم والكميات المتفق عليها، لأن الثقة أساس التعامل المستمر.</p>
+    </div>
   </div>
 </section>
 
