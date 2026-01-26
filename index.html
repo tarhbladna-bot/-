@@ -9,23 +9,32 @@
     body {
       font-family: 'Cairo', sans-serif;
       margin: 0;
-      background: #FAF7F1;
-      color: #333;
+      background: #121212;
+      color: #DDDDDD;
+    }
+    .ramadan-banner {
+      background: url('ramadan-banner.jpg') no-repeat center center;
+      background-size: cover;
+      text-align: center;
+      padding: 20px;
+      color: #fff;
+      font-size: 20px;
+      font-weight: 700;
     }
     header {
-      background: #2E7D32;
-      color: #fff;
+      background: #1E1E1E;
+      color: #FF2A2A;
       padding: 20px;
       text-align: center;
     }
     header h1 { margin: 0; font-size: 28px; }
     nav {
-      background: #6D4C41;
+      background: #1E1E1E;
       padding: 10px;
       text-align: center;
     }
     nav a {
-      color: #fff;
+      color: #FF2A2A;
       margin: 0 10px;
       text-decoration: none;
       font-weight: 700;
@@ -33,16 +42,16 @@
     .hero {
       padding: 40px;
       text-align: center;
-      background: #fff;
+      background: #1E1E1E;
     }
-    .hero h2 { color: #2E7D32; }
+    .hero h2 { color: #FF2A2A; }
     .section {
       padding: 30px;
       max-width: 1000px;
       margin: auto;
     }
     .section h3 {
-      color: #6D4C41;
+      color: #FF2A2A;
       margin-bottom: 20px;
     }
     .products {
@@ -51,32 +60,44 @@
       gap: 20px;
     }
     .product {
-      background: #fff;
-      border: 1px solid #ddd;
+      background: #1E1E1E;
+      border: 1px solid #333;
       border-radius: 10px;
       padding: 15px;
       text-align: center;
     }
-    .product h4 { color: #2E7D32; margin: 10px 0; }
+    .product h4 { color: #FF2A2A; margin: 10px 0; }
     .contact {
-      background: #fff;
-      border: 1px solid #ddd;
+      background: #1E1E1E;
+      border: 1px solid #333;
       border-radius: 10px;
       padding: 20px;
     }
     .contact p { margin: 8px 0; }
     .btn {
       display: inline-block;
-      background: #D4AF37;
-      color: #000;
+      background: #FF2A2A;
+      color: #fff;
       padding: 10px 15px;
       border-radius: 8px;
       text-decoration: none;
       font-weight: 700;
+      margin-top: 10px;
+    }
+    .pdf-btn {
+      background: #FF2A2A;
+      color: #fff;
+      padding: 10px 15px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 700;
+      display: inline-block;
+      margin: 20px auto;
+      text-align: center;
     }
     footer {
-      background: #2E7D32;
-      color: #fff;
+      background: #1E1E1E;
+      color: #FF2A2A;
       text-align: center;
       padding: 15px;
       margin-top: 20px;
@@ -84,6 +105,10 @@
   </style>
 </head>
 <body>
+
+<div class="ramadan-banner">
+  🌙 رمضان كريم من شركة طرح بلدنا 🌙<br> عروض خاصة طوال الشهر المبارك
+</div>
 
 <header>
   <h1>شركة طرح بلدنا للمحاصيل الزراعية</h1>
@@ -121,6 +146,8 @@
       <p>السعر: من 85 إلى 90</p>
     </div>
   </div>
+
+  <a class="pdf-btn" href="prices.pdf" download>📄 تحميل ملف الأسعار PDF</a>
 </section>
 
 <section class="section" id="contact">
@@ -129,7 +156,7 @@
     <p><strong>العنوان:</strong> أبورواش، الجيزة</p>
     <p><strong>أرقام التواصل:</strong> 01126773698 / 01020508423</p>
     <p><strong>البريد الإلكتروني:</strong> tarhbladna@gmail.com</p>
-    <p><strong>إنستجرام:</strong> <a href="https://www.instagram.com/efyos820?igsh=MXhxam40dGpweW12ag==" target="_blank">صفحتنا على إنستجرام</a></p>
+    <p><strong>إنستجرام:</strong> <a href="https://www.instagram.com/efyos820?igsh=MXhxam40dGpweW12ag==" target="_blank" style="color:#FF2A2A;">صفحتنا على إنستجرام</a></p>
     <p><strong>واتساب مباشر:</strong></p>
     <a class="btn" target="_blank" href="https://wa.me/201020508423?text=أرغب%20في%20طلب%20منتجات%20طرح%20بلدنا">تواصل عبر واتساب</a>
   </div>
