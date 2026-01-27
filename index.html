@@ -141,6 +141,17 @@ section{
 
 .product h3{color:var(--red);margin-bottom:10px}
 
+.add-cart{
+  background:var(--red);
+  color:#fff;
+  padding:10px 20px;
+  border:none;
+  border-radius:20px;
+  cursor:pointer;
+  font-weight:700;
+  margin-top:10px;
+}
+
 /* صور إضافية */
 .product-gallery{
   display:flex;
@@ -155,6 +166,27 @@ section{
   border-radius:8px;
   border:1px solid #333;
   cursor:pointer;
+}
+
+/* السلة */
+.cart{
+  background:var(--dark);
+  padding:20px;
+  border-radius:20px;
+  margin-top:40px;
+}
+.cart h3{color:var(--red)}
+.cart ul{list-style:none;padding:0}
+.cart li{margin:8px 0}
+.cart button{
+  background:var(--red);
+  color:#fff;
+  padding:12px 25px;
+  border:none;
+  border-radius:30px;
+  cursor:pointer;
+  font-weight:900;
+  margin-top:15px;
 }
 
 /* لماذا نحن */
@@ -254,6 +286,7 @@ footer{
       <div class="info">
         <h3>فول سوداني بقشره</h3>
         <p>من 65 إلى 90</p>
+        <button class="add-cart">أضف للسلة</button>
       </div>
       <div class="product-gallery">
         <img src="images/product1-1.jpg" alt="">
@@ -267,6 +300,7 @@ footer{
       <div class="info">
         <h3>فول سوداني مقشر</h3>
         <p>من 70 إلى 105</p>
+        <button class="add-cart">أضف للسلة</button>
       </div>
       <div class="product-gallery">
         <img src="images/product2-1.jpg" alt="">
@@ -280,6 +314,7 @@ footer{
       <div class="info">
         <h3>فول سوداني حلواني</h3>
         <p>من 80 إلى 95</p>
+        <button class="add-cart">أضف للسلة</button>
       </div>
       <div class="product-gallery">
         <img src="images/product3-1.jpg" alt="">
@@ -293,6 +328,7 @@ footer{
       <div class="info">
         <h3>فول سوداني مجروش</h3>
         <p>من 85 إلى 90</p>
+        <button class="add-cart">أضف للسلة</button>
       </div>
       <div class="product-gallery">
         <img src="images/product4-1.jpg" alt="">
@@ -300,6 +336,13 @@ footer{
         <img src="images/product4-3.jpg" alt="">
       </div>
     </div>
+  </div>
+
+  <!-- السلة -->
+  <div class="cart">
+    <h3>🛒 السلة</h3>
+    <ul id="cart-items"></ul>
+    <button id="send-order">إرسال الطلب عبر واتساب</button>
   </div>
 </section>
 
@@ -343,20 +386,52 @@ footer{
 </footer>
 
 <script>
-// كود تبديل الصور عند الضغط
+// تبديل الصور عند الضغط
 document.querySelectorAll('.product').forEach(product => {
   const mainImg = product.querySelector('.main-img');
   const galleryImgs = product.querySelectorAll('.product-gallery img');
 
   galleryImgs.forEach(img => {
     img.addEventListener('click', () => {
-      // حفظ مصدر الصورة الرئيسية
       const tempSrc = mainImg.src;
-      // تبديل الصورة الرئيسية مع الصورة التي تم الضغط عليها
       mainImg.src = img.src;
       img.src = tempSrc;
     });
   });
+});
+
+// السلة
+const cartItems = document.getElementById('cart-items');
+const addButtons = document.querySelectorAll('.add-cart');
+const sendOrderBtn = document.getElementById('send-order');
+let cart = [];
+
+addButtons.forEach(btn => {
+  btn.addEventListener('click', () => {
+    const productName = btn.parentElement.querySelector('h3').innerText;
+    cart.push(productName);
+    renderCart();
+  });
+});
+
+function renderCart(){
+  cartItems.innerHTML = '';
+  cart.forEach(item => {
+    const li = document.createElement('li');
+    li.textContent = item;
+    cartItems.appendChild(li);
+  });
+}
+
+// إرسال الطلب عبر واتساب
+sendOrderBtn.addEventListener('click', () => {
+  if(cart.length === 0){
+    alert('السلة فارغة!');
+    return;
+  }
+  const message = `مرحبًا، أود طلب المنتجات التالية:\n- ${cart.join('\n- ')}`;
+  const url = `https://wa.me/201020508423?text=${encodeURIComponent(message)}`;
+  window.open(url, '_blank');
 });
 </script>
 
