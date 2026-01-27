@@ -125,6 +125,7 @@ section{
   overflow:hidden;
   box-shadow:0 15px 40px rgba(0,0,0,.5);
   transition:.3s;
+  position:relative; /* علشان العلامة المائية */
 }
 .product:hover{transform:translateY(-8px)}
 
@@ -166,6 +167,18 @@ section{
   border-radius:8px;
   border:1px solid #333;
   cursor:pointer;
+}
+
+/* العلامة المائية */
+.product::after {
+  content: "طرح بلدنا";
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  font-size: 18px;
+  font-weight: 900;
+  color: rgba(255,255,255,0.4);
+  pointer-events: none;
 }
 
 /* السلة */
@@ -281,6 +294,7 @@ footer{
 <section id="products">
   <h2 class="section-title">منتجاتنا</h2>
   <div class="products">
+    <!-- منتج 1 -->
     <div class="product">
       <img class="main-img" src="images/product1.jpg" alt="فول سوداني بقشره">
       <div class="info">
@@ -294,7 +308,7 @@ footer{
         <img src="images/product1-3.jpg" alt="">
       </div>
     </div>
-
+    <!-- منتج 2 -->
     <div class="product">
       <img class="main-img" src="images/product2.jpg" alt="فول سوداني مقشر">
       <div class="info">
@@ -308,7 +322,7 @@ footer{
         <img src="images/product2-3.jpg" alt="">
       </div>
     </div>
-
+    <!-- منتج 3 -->
     <div class="product">
       <img class="main-img" src="images/product3.jpg" alt="فول سوداني حلواني">
       <div class="info">
@@ -323,6 +337,7 @@ footer{
       </div>
     </div>
 
+    <!-- منتج 4 -->
     <div class="product">
       <img class="main-img" src="images/product4.jpg" alt="فول سوداني مجروش">
       <div class="info">
