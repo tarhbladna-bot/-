@@ -154,6 +154,7 @@ section{
   object-fit:cover;
   border-radius:8px;
   border:1px solid #333;
+  cursor:pointer;
 }
 
 /* لماذا نحن */
@@ -249,7 +250,7 @@ footer{
   <h2 class="section-title">منتجاتنا</h2>
   <div class="products">
     <div class="product">
-      <img src="images/product1.jpg" alt="فول سوداني بقشره">
+      <img class="main-img" src="images/product1.jpg" alt="فول سوداني بقشره">
       <div class="info">
         <h3>فول سوداني بقشره</h3>
         <p>من 65 إلى 90</p>
@@ -262,7 +263,7 @@ footer{
     </div>
 
     <div class="product">
-      <img src="images/product2.jpg" alt="فول سوداني مقشر">
+      <img class="main-img" src="images/product2.jpg" alt="فول سوداني مقشر">
       <div class="info">
         <h3>فول سوداني مقشر</h3>
         <p>من 70 إلى 105</p>
@@ -275,7 +276,7 @@ footer{
     </div>
 
     <div class="product">
-      <img src="images/product3.jpg" alt="فول سوداني حلواني">
+      <img class="main-img" src="images/product3.jpg" alt="فول سوداني حلواني">
       <div class="info">
         <h3>فول سوداني حلواني</h3>
         <p>من 80 إلى 95</p>
@@ -288,7 +289,7 @@ footer{
     </div>
 
     <div class="product">
-      <img src="images/product4.jpg" alt="فول سوداني مجروش">
+      <img class="main-img" src="images/product4.jpg" alt="فول سوداني مجروش">
       <div class="info">
         <h3>فول سوداني مجروش</h3>
         <p>من 85 إلى 90</p>
@@ -340,6 +341,24 @@ footer{
 <footer>
   © 2026 طرح بلدنا — جميع الحقوق محفوظة
 </footer>
+
+<script>
+// كود تبديل الصور عند الضغط
+document.querySelectorAll('.product').forEach(product => {
+  const mainImg = product.querySelector('.main-img');
+  const galleryImgs = product.querySelectorAll('.product-gallery img');
+
+  galleryImgs.forEach(img => {
+    img.addEventListener('click', () => {
+      // حفظ مصدر الصورة الرئيسية
+      const tempSrc = mainImg.src;
+      // تبديل الصورة الرئيسية مع الصورة التي تم الضغط عليها
+      mainImg.src = img.src;
+      img.src = tempSrc;
+    });
+  });
+});
+</script>
 
 </body>
 </html>
