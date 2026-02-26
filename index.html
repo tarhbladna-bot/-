@@ -363,27 +363,49 @@
       .card,.prod,.btn,.pill,.soc,.fab{transition:none}
       .card:hover,.prod:hover,.btn:hover,.pill:hover,.soc:hover,.fab:hover{transform:none}
     }
+
+    /* Hidden fallback image style */
+    .imgFallback{
+      display:grid;place-items:center;
+      width:100%;height:100%;
+      background: rgba(255,255,255,.04);
+      color: rgba(243,244,246,.65);
+      font-weight:900;
+      font-size:12px;
+      padding:10px;
+      text-align:center;
+    }
   </style>
 </head>
 
 <body>
-  <!-- CONFIG: replace these links with your hosted files (GitHub raw / hosting) -->
+  <!-- CONFIG -->
   <script>
-    // 1) HERO banner image URL:
-    const HERO_BANNER_URL = "PUT_YOUR_BANNER_URL_HERE"; // مثال: https://raw.githubusercontent.com/USER/REPO/main/banner.png
+    // --- Auto Base Path (works on GitHub Pages inside repo) ---
+    const BASE = (location.hostname.includes("github.io") && location.pathname.split("/").filter(Boolean).length > 0)
+      ? `/${location.pathname.split("/").filter(Boolean)[0]}/`
+      : "/";
 
-    // 2) Messenger page (your Facebook page chat):
-    const MESSENGER_URL = "https://m.me/"; // ضع لينك الماسنجر لصفحتك إن توفر
+    const withBase = (p) => {
+      if (!p) return "";
+      if (p.startsWith("http")) return p;
+      return (BASE + p.replace(/^\//, ""));
+    };
 
-    // 3) Product images (6 products × 4 images)
-    // ضع روابط GitHub RAW للصور هنا
+    // --- Banner (upload this file) ---
+    const HERO_BANNER_URL = "assets/banner/hero-banner.jpg";
+
+    // --- Messenger URL (optional) ---
+    const MESSENGER_URL = "https://m.me/"; // ضع لينك الشات لصفحتك لو عندك
+
+    // --- Product images (local paths) ---
     const PRODUCT_IMAGES = {
-      p1: ["P1_IMG1","P1_IMG2","P1_IMG3","P1_IMG4"],
-      p2: ["P2_IMG1","P2_IMG2","P2_IMG3","P2_IMG4"],
-      p3: ["P3_IMG1","P3_IMG2","P3_IMG3","P3_IMG4"],
-      p4: ["P4_IMG1","P4_IMG2","P4_IMG3","P4_IMG4"],
-      p5: ["P5_IMG1","P5_IMG2","P5_IMG3","P5_IMG4"],
-      p6: ["P6_IMG1","P6_IMG2","P6_IMG3","P6_IMG4"],
+      p1: ["products/p1/1.jpg","products/p1/2.jpg","products/p1/3.jpg","products/p1/4.jpg"],
+      p2: ["products/p2/1.jpg","products/p2/2.jpg","products/p2/3.jpg","products/p2/4.jpg"],
+      p3: ["products/p3/1.jpg","products/p3/2.jpg","products/p3/3.jpg","products/p3/4.jpg"],
+      p4: ["products/p4/1.jpg","products/p4/2.jpg","products/p4/3.jpg","products/p4/4.jpg"],
+      p5: ["products/p5/1.jpg","products/p5/2.jpg","products/p5/3.jpg","products/p5/4.jpg"],
+      p6: ["products/p6/1.jpg","products/p6/2.jpg","products/p6/3.jpg","products/p6/4.jpg"],
     };
   </script>
 
@@ -784,7 +806,7 @@
         heroTitle1: "Kaliteli Yer Fıstığı",
         heroTitle2: "Fabrika Standartlarında",
         heroTitle3: "… Garantili Kalite",
-        heroDesc: "50/25 kg çuvallar ve 10 kg kolide vakumlu ambalaj seçenekleri. Mısır genelinde teslimat ve tüm dünyaya ihracat. Fiyat teklifi ile.",
+        heroDesc: "50/25 kg çuvallar و 10 kg kolide vakumlu ambalaj seçenekleri. Mısır genelinde teslimat ve tüm dünyaya ihracat. Fiyat teklifi ile.",
         ctaProducts: "Ürünleri Gör",
         ctaQuote: "Teklif Al",
         ctaCall: "Satışı Ara",
@@ -798,20 +820,20 @@
         priceNote: "Fiyat teklifi ile",
         whyTitle: "Neden Biz?",
         whyDesc: "Tecrübe, kalite, rekabetçi fiyat ve güvenilir teslimat — yerel ve ihracat için kurumsal standartlar.",
-        w1t: "Uzun Tecrübe", w1d: "Fabrika ve şirketlere yönelik yer fıstığı işleme ve ticarette güçlü tecrübe.",
-        w2t: "Garantili Kalite", w2d: "Sıkı eleme, işleme ve paketleme standartları.",
-        w3t: "Rekabetçi Fiyat", w3d: "Esnek miktar ve anlaşmalarla en iyi değer (fiyat teklifi ile).",
-        w4t: "Hızlı Teslimat", w4t2: "Hızlı Teslimat", w4d: "Mısır içinde zamanında teslimat ve hızlı ihracata hazırlık.",
+        w1t: "Uzun Tecrübe", w1d: "Fabrika ve şirketlere yönelik yer fıstığı işleme و ticarette güçlü tecrübe.",
+        w2t: "Garantili Kalite", w2d: "Sıkı eleme, işleme و paketleme standartları.",
+        w3t: "Rekabetçi Fiyat", w3d: "Esnek miktar و anlaşmalarla en iyi değer (fiyat teklifi ile).",
+        w4t: "Hızlı Teslimat", w4d: "Mısır içinde zamanında teslimat و hızlı ihracata hazırlık.",
         prodTitle: "Ürünler",
-        prodDesc: "6 ürün — her ürün için 4 fotoğraf (GitHub). Fabrikalar, oteller ve mağazalar için uygun.",
-        p1t: "Kabuklu Yer Fıstığı", p1d: "Kavurma, paketleme ve ihracat için ideal.",
-        p2t: "Kabuksuz Yer Fıstığı", p2d: "Üretim ve paketleme için hazır.",
-        p3t: "Şekerleme Tipi Fıstık", p3d: "Tatlı ve premium gıda üretimi için.",
-        p4t: "Kırık Yer Fıstığı", p4d: "Kaplama, aroma ve tatlılar için.",
-        p5t: "Çikolata & Kaplama İçin", p5d: "Çikolata ve kaplama üretimi için ideal.",
+        prodDesc: "6 ürün — her ürün için 4 fotoğraf (GitHub). Fabrikalar, oteller و mağazalar için uygun.",
+        p1t: "Kabuklu Yer Fıstığı", p1d: "Kavurma, paketleme و ihracat için ideal.",
+        p2t: "Kabuksuz Yer Fıstığı", p2d: "Üretim و paketleme için hazır.",
+        p3t: "Şekerleme Tipi Fıstık", p3d: "Tatlı و premium gıda üretimi için.",
+        p4t: "Kırık Yer Fıstığı", p4d: "Kaplama, aroma و tatlılar için.",
+        p5t: "Çikolata & Kaplama İçin", p5d: "Çikolata و kaplama üretimi için ideal.",
         p6t: "Fıstık Ezmesi İçin Saf", p6d: "Fıstık ezmesi üretimi için %100 saf kalite.",
         contactTitle: "İletişim",
-        contactDesc: "Yerli sipariş ve ihracat için — fiyat teklifi ile.",
+        contactDesc: "Yerli sipariş و ihracat için — fiyat teklifi ile.",
         contactPhone2: "İletişim",
         serviceTitle: "Hizmetlerimiz",
         s1: "İşleme • Ambalaj • Tedarik",
@@ -823,14 +845,28 @@
     };
 
     // -----------------------------
+    // Helpers: images
+    // -----------------------------
+    function setImg(imgEl, url, label){
+      imgEl.loading = "lazy";
+      imgEl.decoding = "async";
+      imgEl.src = url;
+
+      imgEl.onerror = () => {
+        const wrap = imgEl.parentElement;
+        if (!wrap) return;
+        wrap.innerHTML = `<div class="imgFallback">الصورة غير متاحة<br/>${label || ""}<br/><small>${url}</small></div>`;
+      };
+    }
+
+    // -----------------------------
     // Init banner, messenger, year
     // -----------------------------
     document.getElementById("year").textContent = new Date().getFullYear();
     document.getElementById("messengerBtn").href = MESSENGER_URL || "#";
     document.getElementById("messengerFab").href = MESSENGER_URL || "#";
 
-    const heroImg = document.getElementById("heroBannerImg");
-    heroImg.src = HERO_BANNER_URL || "";
+    setImg(document.getElementById("heroBannerImg"), withBase(HERO_BANNER_URL), "Hero Banner");
 
     // -----------------------------
     // Fill product images
@@ -841,9 +877,7 @@
         const imgs = (PRODUCT_IMAGES[key] || []);
         const nodes = card.querySelectorAll(".gallery img");
         nodes.forEach((imgEl, idx)=>{
-          const url = imgs[idx] || "";
-          imgEl.src = url;
-          imgEl.loading = "lazy";
+          setImg(imgEl, withBase(imgs[idx] || ""), `${key}-${idx+1}`);
         });
       });
     }
@@ -852,12 +886,7 @@
     // -----------------------------
     // Language switch (AR/EN/TR)
     // -----------------------------
-    let currentLang = "ar";
-
     function applyLang(lang){
-      currentLang = lang;
-
-      // rtl/ltr switching
       const isRTL = (lang === "ar");
       document.documentElement.lang = lang;
       document.documentElement.dir = isRTL ? "rtl" : "ltr";
@@ -865,14 +894,12 @@
         ? '"Cairo","Inter",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif'
         : '"Inter","Cairo",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif';
 
-      // update texts
       const dict = I18N[lang] || I18N.ar;
       document.querySelectorAll("[data-i18n]").forEach(el=>{
         const key = el.getAttribute("data-i18n");
         if (dict[key]) el.textContent = dict[key];
       });
 
-      // active button
       document.querySelectorAll(".lang button").forEach(b=>{
         b.classList.toggle("active", b.getAttribute("data-lang") === lang);
       });
