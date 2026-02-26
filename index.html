@@ -6,20 +6,15 @@
   <title>شركة طرح بلدنا للمحاصيل الزراعية | أبو يوسف لتجارة الفول السوداني والمفروك</title>
   <meta name="description" content="تصنيع وتجهيز وتوريد وتصدير الفول السوداني بجميع أنواعه. توريد لجميع محافظات مصر وتصدير لأي مكان في العالم. السعر عند الطلب." />
 
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
-
-  <!-- Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
   <style>
     :root{
       --bg:#050508;
       --bg2:#07070a;
-      --surface: rgba(255,255,255,.06);
-      --surface2: rgba(255,255,255,.09);
       --border: rgba(255,255,255,.12);
       --text:#f3f4f6;
       --muted: rgba(243,244,246,.72);
@@ -39,7 +34,6 @@
     a{color:inherit}
     .wrap{max-width:1180px;margin:0 auto;padding:0 16px}
 
-    /* Topbar */
     .topbar{
       position:sticky;top:0;z-index:50;
       background: rgba(5,5,8,.72);
@@ -98,7 +92,6 @@
       border:1px solid rgba(225,29,72,.35);
     }
 
-    /* Hero */
     .hero{
       background:
         radial-gradient(900px 360px at 20% 0%, rgba(225,29,72,.18), transparent 60%),
@@ -108,7 +101,6 @@
       position:relative;
       overflow:hidden;
     }
-
     .heroBanner{
       margin: 14px auto 0;
       border-radius: 22px;
@@ -209,13 +201,11 @@
     .list li{display:flex;gap:10px;align-items:flex-start;margin:8px 0}
     .list i{color:#fff;opacity:.9;margin-top:4px}
 
-    /* Sections */
     .section{padding: 56px 0}
     .secHead{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;flex-wrap:wrap}
     .secTitle{margin:0;font-size: clamp(20px, 2.8vw, 34px);font-weight:950}
     .secDesc{margin:6px 0 0;color:var(--muted);line-height:1.9;font-weight:700;max-width:760px}
 
-    /* Why us (4 icons) */
     .grid4{
       display:grid;grid-template-columns: repeat(12, 1fr);
       gap:14px;margin-top:20px;
@@ -244,7 +234,6 @@
     .card h4{margin:6px 0 6px;font-size:18px;font-weight:950}
     .card p{margin:0;color:var(--muted);line-height:1.9;font-weight:700;font-size:14.5px}
 
-    /* Products */
     .productsGrid{
       display:grid;
       grid-template-columns: repeat(12, 1fr);
@@ -284,7 +273,33 @@
     }
     .shot img{width:100%;height:100%;object-fit:cover;display:block}
 
-    /* Contact */
+    /* Testimonials */
+    .testGrid{
+      display:grid;grid-template-columns: repeat(12, 1fr);
+      gap:14px;margin-top:20px;
+    }
+    .tcard{
+      grid-column: span 4;
+      border-radius: 20px;
+      border:1px solid rgba(255,255,255,.12);
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.04));
+      box-shadow: var(--shadow);
+      padding: 16px;
+      transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+    }
+    .tcard:hover{transform: translateY(-6px);border-color: rgba(225,29,72,.32);box-shadow: var(--shadow2)}
+    .thead{display:flex;align-items:center;gap:12px}
+    .avatar{
+      width:44px;height:44px;border-radius:14px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06);
+      object-fit:cover;
+    }
+    .tname{font-weight:950}
+    .tmeta{color:var(--muted);font-weight:800;font-size:13px;margin-top:2px}
+    .tstars{margin-top:10px;color:#fff;opacity:.95}
+    .ttext{margin:10px 0 0;color:var(--muted);font-weight:800;line-height:1.9}
+
     .contactBox{
       margin-top: 22px;
       display:grid;grid-template-columns: 1fr 1fr;gap:14px;
@@ -309,7 +324,6 @@
     }
     .soc:hover{transform: translateY(-2px);border-color: rgba(225,29,72,.32);background: rgba(255,255,255,.06)}
 
-    /* Floating buttons */
     .float{
       position:fixed;
       right:16px;
@@ -337,7 +351,6 @@
     .toTop{display:none}
     .toTop.show{display:grid}
 
-    /* Footer */
     footer{
       border-top:1px solid rgba(255,255,255,.08);
       padding: 18px 0;
@@ -346,11 +359,11 @@
       background: rgba(255,255,255,.02);
     }
 
-    /* Responsive */
     @media (max-width: 1024px){
       .heroGrid{grid-template-columns: 1fr}
       .card{grid-column: span 6}
       .prod{grid-column: span 6}
+      .tcard{grid-column: span 6}
       .contactBox{grid-template-columns: 1fr}
     }
     @media (max-width: 620px){
@@ -358,55 +371,36 @@
       .brand{min-width:auto}
       .card{grid-column: span 12}
       .prod{grid-column: span 12}
-    }
-    @media (prefers-reduced-motion: reduce){
-      .card,.prod,.btn,.pill,.soc,.fab{transition:none}
-      .card:hover,.prod:hover,.btn:hover,.pill:hover,.soc:hover,.fab:hover{transform:none}
-    }
-
-    /* Hidden fallback image style */
-    .imgFallback{
-      display:grid;place-items:center;
-      width:100%;height:100%;
-      background: rgba(255,255,255,.04);
-      color: rgba(243,244,246,.65);
-      font-weight:900;
-      font-size:12px;
-      padding:10px;
-      text-align:center;
+      .tcard{grid-column: span 12}
     }
   </style>
 </head>
 
 <body>
-  <!-- CONFIG -->
+
+  <!-- CONFIG (مظبوطة على مسارات الريبو) -->
   <script>
-    // --- Auto Base Path (works on GitHub Pages inside repo) ---
-    const BASE = (location.hostname.includes("github.io") && location.pathname.split("/").filter(Boolean).length > 0)
-      ? `/${location.pathname.split("/").filter(Boolean)[0]}/`
-      : "/";
+    const HERO_BANNER_URL = "./banner.png"; // غيّر اسم البانر حسب ملفك
 
-    const withBase = (p) => {
-      if (!p) return "";
-      if (p.startsWith("http")) return p;
-      return (BASE + p.replace(/^\//, ""));
-    };
+    // Messenger: لازم username أو Page ID (m.me/<username|id>) :contentReference[oaicite:2]{index=2}
+    const MESSENGER_URL = "https://m.me/"; // عدّلها بعد ما تجيبها
 
-    // --- Banner (upload this file) ---
-    const HERO_BANNER_URL = "assets/banner/hero-banner.jpg";
-
-    // --- Messenger URL (optional) ---
-    const MESSENGER_URL = "https://m.me/"; // ضع لينك الشات لصفحتك لو عندك
-
-    // --- Product images (local paths) ---
     const PRODUCT_IMAGES = {
-      p1: ["products/p1/1.jpg","products/p1/2.jpg","products/p1/3.jpg","products/p1/4.jpg"],
-      p2: ["products/p2/1.jpg","products/p2/2.jpg","products/p2/3.jpg","products/p2/4.jpg"],
-      p3: ["products/p3/1.jpg","products/p3/2.jpg","products/p3/3.jpg","products/p3/4.jpg"],
-      p4: ["products/p4/1.jpg","products/p4/2.jpg","products/p4/3.jpg","products/p4/4.jpg"],
-      p5: ["products/p5/1.jpg","products/p5/2.jpg","products/p5/3.jpg","products/p5/4.jpg"],
-      p6: ["products/p6/1.jpg","products/p6/2.jpg","products/p6/3.jpg","products/p6/4.jpg"],
+      p1: ["./products/p1/1.jpg","./products/p1/2.jpg","./products/p1/3.jpg","./products/p1/4.jpg"],
+      p2: ["./products/p2/1.jpg","./products/p2/2.jpg","./products/p2/3.jpg","./products/p2/4.jpg"],
+      p3: ["./products/p3/1.jpg","./products/p3/2.jpg","./products/p3/3.jpg","./products/p3/4.jpg"],
+      p4: ["./products/p4/1.jpg","./products/p4/2.jpg","./products/p4/3.jpg","./products/p4/4.jpg"],
+      p5: ["./products/p5/1.jpg","./products/p5/2.jpg","./products/p5/3.jpg","./products/p5/4.jpg"],
+      p6: ["./products/p6/1.jpg","./products/p6/2.jpg","./products/p6/3.jpg","./products/p6/4.jpg"],
     };
+
+    // آراء العملاء (بدّل الصور والتعليقات براحتك)
+    // لو عايز تجيبها تلقائيًا من فيسبوك: ده محتاج Widgets/خدمة أو API، مش مجرد كود HTML. :contentReference[oaicite:3]{index=3}
+    const TESTIMONIALS = [
+      { name:"محمد أحمد", meta:"مصنع حلويات", stars:5, text:"جودة ممتازة وتسليم في المعاد. التعامل محترم جدًا.", avatar:"./testimonials/1.jpg" },
+      { name:"أحمد السيد", meta:"تاجر جملة", stars:5, text:"أسعار تنافسية وكميات ثابتة. أنصح بالتعامل.", avatar:"./testimonials/2.jpg" },
+      { name:"محمود علي", meta:"محل مكسرات", stars:5, text:"الفول المقشر نظيف جدًا والتعبئة ممتازة.", avatar:"./testimonials/3.jpg" },
+    ];
   </script>
 
   <!-- TOPBAR -->
@@ -415,8 +409,8 @@
       <div class="brand">
         <div class="logo" aria-hidden="true"></div>
         <div>
-          <div class="brandName" data-i18n="brandName">شركة طرح بلدنا للمحاصيل الزراعية</div>
-          <div class="brandSub" data-i18n="brandSub">أبو يوسف لتجارة الفول السوداني والمفروك</div>
+          <div class="brandName">شركة طرح بلدنا للمحاصيل الزراعية</div>
+          <div class="brandSub">أبو يوسف لتجارة الفول السوداني والمفروك</div>
         </div>
       </div>
 
@@ -429,12 +423,12 @@
 
         <a class="pill" href="tel:01126773698">
           <i class="fa-solid fa-phone"></i>
-          <span data-i18n="sales">المبيعات</span>: 01126773698
+          <span class="t-sales">المبيعات</span>: 01126773698
         </a>
 
         <a class="pill pillRed" href="https://wa.me/201126773698" target="_blank" rel="noopener">
           <i class="fa-brands fa-whatsapp"></i>
-          <span data-i18n="whatsApp">واتساب</span>
+          <span class="t-whats">واتساب</span>
         </a>
       </div>
     </div>
@@ -451,16 +445,16 @@
         <div>
           <span class="kicker">
             <i class="fa-solid fa-globe"></i>
-            <span data-i18n="kicker">توريد محلي • تصدير عالمي</span>
+            <span class="t-kicker">توريد محلي • تصدير عالمي</span>
           </span>
 
           <h1 class="title">
-            <span data-i18n="heroTitle1">فول سوداني</span>
-            <span class="accent" data-i18n="heroTitle2">بمواصفات مصانع</span>
-            <span data-i18n="heroTitle3">… وجودة مضمونة</span>
+            <span class="t-ht1">فول سوداني</span>
+            <span class="accent t-ht2">بمواصفات مصانع</span>
+            <span class="t-ht3">… وجودة مضمونة</span>
           </h1>
 
-          <p class="lead" data-i18n="heroDesc">
+          <p class="lead t-hdesc">
             تصنيع وتجهيز وتوريد شكاير 50/25 كجم، وعبوات فاكيوم داخل كرتونة 10 كجم.
             توريد لجميع محافظات مصر وتصدير لأي مكان في العالم. السعر عند الطلب.
           </p>
@@ -468,28 +462,29 @@
           <div class="ctas">
             <a class="btn btnPrimary" href="#products">
               <i class="fa-solid fa-boxes-stacked"></i>
-              <span data-i18n="ctaProducts">شاهد المنتجات</span>
+              <span class="t-ctaP">شاهد المنتجات</span>
             </a>
             <a class="btn" href="https://wa.me/201126773698" target="_blank" rel="noopener">
               <i class="fa-brands fa-whatsapp"></i>
-              <span data-i18n="ctaQuote">اطلب عرض سعر</span>
+              <span class="t-ctaQ">اطلب عرض سعر</span>
             </a>
           </div>
 
           <div class="badges">
-            <div class="badge"><i class="fa-solid fa-location-dot"></i><span data-i18n="location">أبورواش – الجيزة – مصر</span></div>
-            <div class="badge"><i class="fa-solid fa-truck-fast"></i><span data-i18n="delivery">سرعة توصيل</span></div>
-            <div class="badge"><i class="fa-solid fa-file-export"></i><span data-i18n="export">تصدير لأي مكان في العالم</span></div>
+            <div class="badge"><i class="fa-solid fa-location-dot"></i><span class="t-loc">أبورواش – الجيزة – مصر</span></div>
+            <div class="badge"><i class="fa-solid fa-truck-fast"></i><span class="t-del">سرعة توصيل</span></div>
+            <div class="badge"><i class="fa-solid fa-file-export"></i><span class="t-exp">تصدير لأي مكان في العالم</span></div>
+            <div class="badge"><i class="fa-solid fa-eye"></i><span>زيارات (على نفس الجهاز): <b id="visitorCount">0</b></span></div>
           </div>
         </div>
 
         <aside class="glass" aria-label="Quick info">
-          <h3 data-i18n="quickTitle">التعبئة والتجهيز</h3>
+          <h3 class="t-quick">التعبئة والتجهيز</h3>
           <ul class="list">
-            <li><i class="fa-solid fa-check"></i><span data-i18n="pack1">شكاير 50 كجم و25 كجم</span></li>
-            <li><i class="fa-solid fa-check"></i><span data-i18n="pack2">فاكيوم عبوات داخل كرتونة 10 كجم</span></li>
-            <li><i class="fa-solid fa-check"></i><span data-i18n="pack3">تجهيز حسب طلب العميل</span></li>
-            <li><i class="fa-solid fa-check"></i><span data-i18n="priceNote">السعر عند الطلب</span></li>
+            <li><i class="fa-solid fa-check"></i><span class="t-pack1">شكاير 50 كجم و25 كجم</span></li>
+            <li><i class="fa-solid fa-check"></i><span class="t-pack2">فاكيوم عبوات داخل كرتونة 10 كجم</span></li>
+            <li><i class="fa-solid fa-check"></i><span class="t-pack3">تجهيز حسب طلب العميل</span></li>
+            <li><i class="fa-solid fa-check"></i><span class="t-price">السعر عند الطلب</span></li>
           </ul>
         </aside>
       </div>
@@ -501,34 +496,34 @@
     <div class="wrap">
       <div class="secHead">
         <div>
-          <h2 class="secTitle" data-i18n="whyTitle">لماذا نحن؟</h2>
-          <p class="secDesc" data-i18n="whyDesc">خبرة وجودة وتسعير وتوصيل… بمعايير شركات كبيرة لخدمة السوق المحلي والتصدير.</p>
+          <h2 class="secTitle t-whyT">لماذا نحن؟</h2>
+          <p class="secDesc t-whyD">خبرة وجودة وتسعير وتوصيل… بمعايير شركات كبيرة لخدمة السوق المحلي والتصدير.</p>
         </div>
       </div>
 
       <div class="grid4">
         <article class="card">
           <div class="ico"><i class="fa-solid fa-medal"></i></div>
-          <h4 data-i18n="w1t">خبرة طويلة</h4>
-          <p data-i18n="w1d">خبرة كبيرة في تجارة وتصنيع الفول السوداني والمفروك والتعامل مع المصانع والشركات.</p>
+          <h4 class="t-w1t">خبرة طويلة</h4>
+          <p class="t-w1d">خبرة كبيرة في تجارة وتصنيع الفول السوداني والمفروك والتعامل مع المصانع والشركات.</p>
         </article>
 
         <article class="card">
           <div class="ico"><i class="fa-solid fa-shield-check"></i></div>
-          <h4 data-i18n="w2t">جودة مضمونة</h4>
-          <p data-i18n="w2d">فرز وتجهيز وتعبئة بمعايير دقيقة لضمان منتج نظيف ومطابق للمواصفات.</p>
+          <h4 class="t-w2t">جودة مضمونة</h4>
+          <p class="t-w2d">فرز وتجهيز وتعبئة بمعايير دقيقة لضمان منتج نظيف ومطابق للمواصفات.</p>
         </article>
 
         <article class="card">
           <div class="ico"><i class="fa-solid fa-tags"></i></div>
-          <h4 data-i18n="w3t">أسعار تنافسية</h4>
-          <p data-i18n="w3d">أفضل قيمة مقابل الجودة مع مرونة في الكميات والتعاقدات (السعر عند الطلب).</p>
+          <h4 class="t-w3t">أسعار تنافسية</h4>
+          <p class="t-w3d">أفضل قيمة مقابل الجودة مع مرونة في الكميات والتعاقدات (السعر عند الطلب).</p>
         </article>
 
         <article class="card">
           <div class="ico"><i class="fa-solid fa-truck-fast"></i></div>
-          <h4 data-i18n="w4t">سرعة توصيل</h4>
-          <p data-i18n="w4d">التزام بمواعيد التسليم داخل مصر وتجهيز سريع لطلبات التصدير لأي مكان في العالم.</p>
+          <h4 class="t-w4t">سرعة توصيل</h4>
+          <p class="t-w4d">التزام بمواعيد التسليم داخل مصر وتجهيز سريع لطلبات التصدير لأي مكان في العالم.</p>
         </article>
       </div>
     </div>
@@ -539,102 +534,98 @@
     <div class="wrap">
       <div class="secHead">
         <div>
-          <h2 class="secTitle" data-i18n="prodTitle">المنتجات</h2>
-          <p class="secDesc" data-i18n="prodDesc">6 منتجات — لكل منتج 4 صور (من GitHub). مناسب للمصانع، الفنادق، المحلات، والعطارين.</p>
+          <h2 class="secTitle t-prodT">المنتجات</h2>
+          <p class="secDesc t-prodD">6 منتجات — لكل منتج 4 صور. مناسب للمصانع، الفنادق، المحلات، والعطارين.</p>
         </div>
       </div>
 
       <div class="productsGrid">
-        <!-- Product 1 -->
         <article class="prod" data-product="p1">
           <div class="prodTop">
-            <h3 class="prodTitle" data-i18n="p1t">فول بقشره</h3>
-            <p class="prodSub" data-i18n="p1d">مناسب للتحميص والتعبئة والتصدير.</p>
-            <span class="price"><i class="fa-solid fa-circle-info"></i><span data-i18n="priceNote">السعر عند الطلب</span></span>
+            <h3 class="prodTitle t-p1t">فول بقشره</h3>
+            <p class="prodSub t-p1d">مناسب للتحميص والتعبئة والتصدير.</p>
+            <span class="price"><i class="fa-solid fa-circle-info"></i><span class="t-price">السعر عند الطلب</span></span>
           </div>
           <div class="gallery">
-            <div class="shot"><img alt="p1-1" /></div>
-            <div class="shot"><img alt="p1-2" /></div>
-            <div class="shot"><img alt="p1-3" /></div>
-            <div class="shot"><img alt="p1-4" /></div>
+            <div class="shot"><img alt="p1-1" /></div><div class="shot"><img alt="p1-2" /></div>
+            <div class="shot"><img alt="p1-3" /></div><div class="shot"><img alt="p1-4" /></div>
           </div>
         </article>
 
-        <!-- Product 2 -->
         <article class="prod" data-product="p2">
           <div class="prodTop">
-            <h3 class="prodTitle" data-i18n="p2t">فول مقشر</h3>
-            <p class="prodSub" data-i18n="p2d">جاهز للتصنيع أو التعبئة — مناسب للمكسرات والمقالى.</p>
-            <span class="price"><i class="fa-solid fa-circle-info"></i><span data-i18n="priceNote">السعر عند الطلب</span></span>
+            <h3 class="prodTitle t-p2t">فول مقشر</h3>
+            <p class="prodSub t-p2d">جاهز للتصنيع أو التعبئة — مناسب للمكسرات والمقالى.</p>
+            <span class="price"><i class="fa-solid fa-circle-info"></i><span class="t-price">السعر عند الطلب</span></span>
           </div>
           <div class="gallery">
-            <div class="shot"><img alt="p2-1" /></div>
-            <div class="shot"><img alt="p2-2" /></div>
-            <div class="shot"><img alt="p2-3" /></div>
-            <div class="shot"><img alt="p2-4" /></div>
+            <div class="shot"><img alt="p2-1" /></div><div class="shot"><img alt="p2-2" /></div>
+            <div class="shot"><img alt="p2-3" /></div><div class="shot"><img alt="p2-4" /></div>
           </div>
         </article>
 
-        <!-- Product 3 -->
         <article class="prod" data-product="p3">
           <div class="prodTop">
-            <h3 class="prodTitle" data-i18n="p3t">فول حلواني</h3>
-            <p class="prodSub" data-i18n="p3d">مخصص للحلويات والمنتجات الغذائية عالية الجودة.</p>
-            <span class="price"><i class="fa-solid fa-circle-info"></i><span data-i18n="priceNote">السعر عند الطلب</span></span>
+            <h3 class="prodTitle t-p3t">فول حلواني</h3>
+            <p class="prodSub t-p3d">مخصص للحلويات والمنتجات الغذائية عالية الجودة.</p>
+            <span class="price"><i class="fa-solid fa-circle-info"></i><span class="t-price">السعر عند الطلب</span></span>
           </div>
           <div class="gallery">
-            <div class="shot"><img alt="p3-1" /></div>
-            <div class="shot"><img alt="p3-2" /></div>
-            <div class="shot"><img alt="p3-3" /></div>
-            <div class="shot"><img alt="p3-4" /></div>
+            <div class="shot"><img alt="p3-1" /></div><div class="shot"><img alt="p3-2" /></div>
+            <div class="shot"><img alt="p3-3" /></div><div class="shot"><img alt="p3-4" /></div>
           </div>
         </article>
 
-        <!-- Product 4 -->
         <article class="prod" data-product="p4">
           <div class="prodTop">
-            <h3 class="prodTitle" data-i18n="p4t">فول مجروش</h3>
-            <p class="prodSub" data-i18n="p4d">مناسب للحلويات والطعوم والتغطية.</p>
-            <span class="price"><i class="fa-solid fa-circle-info"></i><span data-i18n="priceNote">السعر عند الطلب</span></span>
+            <h3 class="prodTitle t-p4t">فول مجروش</h3>
+            <p class="prodSub t-p4d">مناسب للحلويات والطعوم والتغطية.</p>
+            <span class="price"><i class="fa-solid fa-circle-info"></i><span class="t-price">السعر عند الطلب</span></span>
           </div>
           <div class="gallery">
-            <div class="shot"><img alt="p4-1" /></div>
-            <div class="shot"><img alt="p4-2" /></div>
-            <div class="shot"><img alt="p4-3" /></div>
-            <div class="shot"><img alt="p4-4" /></div>
+            <div class="shot"><img alt="p4-1" /></div><div class="shot"><img alt="p4-2" /></div>
+            <div class="shot"><img alt="p4-3" /></div><div class="shot"><img alt="p4-4" /></div>
           </div>
         </article>
 
-        <!-- Product 5 -->
         <article class="prod" data-product="p5">
           <div class="prodTop">
-            <h3 class="prodTitle" data-i18n="p5t">فول لشغل الطعوم والشيكولاتة</h3>
-            <p class="prodSub" data-i18n="p5d">مثالي للمصانع المتخصصة في الطعوم والشيكولاتة.</p>
-            <span class="price"><i class="fa-solid fa-circle-info"></i><span data-i18n="priceNote">السعر عند الطلب</span></span>
+            <h3 class="prodTitle t-p5t">فول لشغل الطعوم والشيكولاتة</h3>
+            <p class="prodSub t-p5d">مثالي للمصانع المتخصصة في الطعوم والشيكولاتة.</p>
+            <span class="price"><i class="fa-solid fa-circle-info"></i><span class="t-price">السعر عند الطلب</span></span>
           </div>
           <div class="gallery">
-            <div class="shot"><img alt="p5-1" /></div>
-            <div class="shot"><img alt="p5-2" /></div>
-            <div class="shot"><img alt="p5-3" /></div>
-            <div class="shot"><img alt="p5-4" /></div>
+            <div class="shot"><img alt="p5-1" /></div><div class="shot"><img alt="p5-2" /></div>
+            <div class="shot"><img alt="p5-3" /></div><div class="shot"><img alt="p5-4" /></div>
           </div>
         </article>
 
-        <!-- Product 6 -->
         <article class="prod" data-product="p6">
           <div class="prodTop">
-            <h3 class="prodTitle" data-i18n="p6t">فول بيور لعمل زبدة الفول</h3>
-            <p class="prodSub" data-i18n="p6d">جودة نقية 100% مناسبة لإنتاج زبدة الفول السوداني.</p>
-            <span class="price"><i class="fa-solid fa-circle-info"></i><span data-i18n="priceNote">السعر عند الطلب</span></span>
+            <h3 class="prodTitle t-p6t">فول بيور لعمل زبدة الفول</h3>
+            <p class="prodSub t-p6d">جودة نقية 100% مناسبة لإنتاج زبدة الفول السوداني.</p>
+            <span class="price"><i class="fa-solid fa-circle-info"></i><span class="t-price">السعر عند الطلب</span></span>
           </div>
           <div class="gallery">
-            <div class="shot"><img alt="p6-1" /></div>
-            <div class="shot"><img alt="p6-2" /></div>
-            <div class="shot"><img alt="p6-3" /></div>
-            <div class="shot"><img alt="p6-4" /></div>
+            <div class="shot"><img alt="p6-1" /></div><div class="shot"><img alt="p6-2" /></div>
+            <div class="shot"><img alt="p6-3" /></div><div class="shot"><img alt="p6-4" /></div>
           </div>
         </article>
       </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="section" id="reviews">
+    <div class="wrap">
+      <div class="secHead">
+        <div>
+          <h2 class="secTitle">آراء العملاء</h2>
+          <p class="secDesc">صور وتعليقات (يدويًا) — ويمكن لاحقًا تركيب Widget لمراجعات فيسبوك.</p>
+        </div>
+      </div>
+
+      <div class="testGrid" id="testGrid"></div>
     </div>
   </section>
 
@@ -643,41 +634,41 @@
     <div class="wrap">
       <div class="secHead">
         <div>
-          <h2 class="secTitle" data-i18n="contactTitle">التواصل</h2>
-          <p class="secDesc" data-i18n="contactDesc">للطلبات المحلية والتصدير — السعر عند الطلب.</p>
+          <h2 class="secTitle">التواصل</h2>
+          <p class="secDesc">للطلبات المحلية والتصدير — السعر عند الطلب.</p>
         </div>
       </div>
 
       <div class="contactBox">
         <div class="contactCard">
-          <div class="contactRow"><i class="fa-solid fa-building"></i><span data-i18n="brandName">شركة طرح بلدنا للمحاصيل الزراعية</span></div>
-          <div class="contactRow"><i class="fa-solid fa-user-tie"></i><span data-i18n="brandSub">أبو يوسف لتجارة الفول السوداني والمفروك</span></div>
-          <div class="contactRow"><i class="fa-solid fa-phone"></i><span data-i18n="sales">المبيعات</span>: <a href="tel:01126773698">01126773698</a></div>
-          <div class="contactRow"><i class="fa-solid fa-phone"></i><span data-i18n="contactPhone2">تواصل</span>: <a href="tel:01020508423">01020508423</a></div>
-          <div class="contactRow"><i class="fa-solid fa-location-dot"></i><span data-i18n="location">أبورواش – الجيزة – مصر</span></div>
-          <div class="contactRow"><i class="fa-solid fa-circle-info"></i><span data-i18n="priceNote">السعر عند الطلب</span></div>
+          <div class="contactRow"><i class="fa-solid fa-building"></i><span>شركة طرح بلدنا للمحاصيل الزراعية</span></div>
+          <div class="contactRow"><i class="fa-solid fa-user-tie"></i><span>أبو يوسف لتجارة الفول السوداني والمفروك</span></div>
+          <div class="contactRow"><i class="fa-solid fa-phone"></i>المبيعات: <a href="tel:01126773698">01126773698</a></div>
+          <div class="contactRow"><i class="fa-solid fa-phone"></i>تواصل: <a href="tel:01020508423">01020508423</a></div>
+          <div class="contactRow"><i class="fa-solid fa-location-dot"></i><span>أبورواش – الجيزة – مصر</span></div>
+          <div class="contactRow"><i class="fa-solid fa-circle-info"></i><span>السعر عند الطلب</span></div>
 
           <div class="socials">
             <a class="soc" href="https://wa.me/201126773698" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
-            <a class="soc" href="https://www.facebook.com/share/1D1AxJHFvW/" target="_blank" rel="noopener"><i class="fa-brands fa-facebook"></i> Facebook</a>
+            <a class="soc" href="https://www.facebook.com/share/18XrjFNJbY/" target="_blank" rel="noopener"><i class="fa-brands fa-facebook"></i> Facebook</a>
             <a class="soc" href="https://www.instagram.com/efyos820?igsh=MXhxam40dGpweW12ag==" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i> Instagram</a>
             <a class="soc" href="#" id="messengerBtn" target="_blank" rel="noopener"><i class="fa-brands fa-facebook-messenger"></i> Messenger</a>
           </div>
         </div>
 
         <div class="contactCard">
-          <h3 style="margin:0 0 10px;font-weight:950" data-i18n="serviceTitle">خدماتنا</h3>
-          <div class="contactRow"><i class="fa-solid fa-check"></i><span data-i18n="s1">تصنيع • تجهيز • توريد</span></div>
-          <div class="contactRow"><i class="fa-solid fa-check"></i><span data-i18n="s2">توريد لجميع محافظات مصر</span></div>
-          <div class="contactRow"><i class="fa-solid fa-check"></i><span data-i18n="s3">تصدير لأي مكان في العالم</span></div>
-          <div class="contactRow"><i class="fa-solid fa-check"></i><span data-i18n="s4">شكاير 50/25 كجم + فاكيوم 10 كجم</span></div>
+          <h3 style="margin:0 0 10px;font-weight:950">خدماتنا</h3>
+          <div class="contactRow"><i class="fa-solid fa-check"></i><span>تصنيع • تجهيز • توريد</span></div>
+          <div class="contactRow"><i class="fa-solid fa-check"></i><span>توريد لجميع محافظات مصر</span></div>
+          <div class="contactRow"><i class="fa-solid fa-check"></i><span>تصدير لأي مكان في العالم</span></div>
+          <div class="contactRow"><i class="fa-solid fa-check"></i><span>شكاير 50/25 كجم + فاكيوم 10 كجم</span></div>
 
           <div class="ctas" style="margin-top:12px">
             <a class="btn btnPrimary" href="https://wa.me/201126773698" target="_blank" rel="noopener">
-              <i class="fa-brands fa-whatsapp"></i><span data-i18n="ctaQuote">اطلب عرض سعر</span>
+              <i class="fa-brands fa-whatsapp"></i><span>اطلب عرض سعر</span>
             </a>
             <a class="btn" href="tel:01126773698">
-              <i class="fa-solid fa-phone"></i><span data-i18n="ctaCall">اتصال بالمبيعات</span>
+              <i class="fa-solid fa-phone"></i><span>اتصال بالمبيعات</span>
             </a>
           </div>
         </div>
@@ -696,223 +687,64 @@
   <footer>
     <div class="wrap">
       <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center">
-        <div>© <span id="year"></span> <span data-i18n="brandName">شركة طرح بلدنا للمحاصيل الزراعية</span></div>
-        <div><span data-i18n="footerNote">تصنيع • تجهيز • توريد • تصدير | السعر عند الطلب</span></div>
+        <div>© <span id="year"></span> شركة طرح بلدنا للمحاصيل الزراعية</div>
+        <div>تصنيع • تجهيز • توريد • تصدير | السعر عند الطلب</div>
       </div>
     </div>
   </footer>
 
   <script>
-    // -----------------------------
-    // i18n content (AR/EN/TR)
-    // -----------------------------
-    const I18N = {
-      ar: {
-        brandName: "شركة طرح بلدنا للمحاصيل الزراعية",
-        brandSub: "أبو يوسف لتجارة الفول السوداني والمفروك",
-        sales: "المبيعات",
-        whatsApp: "واتساب",
-        kicker: "توريد محلي • تصدير عالمي",
-        heroTitle1: "فول سوداني",
-        heroTitle2: "بمواصفات مصانع",
-        heroTitle3: "… وجودة مضمونة",
-        heroDesc: "تصنيع وتجهيز وتوريد شكاير 50/25 كجم، وعبوات فاكيوم داخل كرتونة 10 كجم. توريد لجميع محافظات مصر وتصدير لأي مكان في العالم. السعر عند الطلب.",
-        ctaProducts: "شاهد المنتجات",
-        ctaQuote: "اطلب عرض سعر",
-        ctaCall: "اتصال بالمبيعات",
-        location: "أبورواش – الجيزة – مصر",
-        delivery: "سرعة توصيل",
-        export: "تصدير لأي مكان في العالم",
-        quickTitle: "التعبئة والتجهيز",
-        pack1: "شكاير 50 كجم و25 كجم",
-        pack2: "فاكيوم عبوات داخل كرتونة 10 كجم",
-        pack3: "تجهيز حسب طلب العميل",
-        priceNote: "السعر عند الطلب",
-        whyTitle: "لماذا نحن؟",
-        whyDesc: "خبرة وجودة وتسعير وتوصيل… بمعايير شركات كبيرة لخدمة السوق المحلي والتصدير.",
-        w1t: "خبرة طويلة", w1d: "خبرة كبيرة في تجارة وتصنيع الفول السوداني والمفروك والتعامل مع المصانع والشركات.",
-        w2t: "جودة مضمونة", w2d: "فرز وتجهيز وتعبئة بمعايير دقيقة لضمان منتج نظيف ومطابق للمواصفات.",
-        w3t: "أسعار تنافسية", w3d: "أفضل قيمة مقابل الجودة مع مرونة في الكميات والتعاقدات (السعر عند الطلب).",
-        w4t: "سرعة توصيل", w4d: "التزام بمواعيد التسليم داخل مصر وتجهيز سريع لطلبات التصدير لأي مكان في العالم.",
-        prodTitle: "المنتجات",
-        prodDesc: "6 منتجات — لكل منتج 4 صور (من GitHub). مناسب للمصانع، الفنادق، المحلات، والعطارين.",
-        p1t: "فول بقشره", p1d: "مناسب للتحميص والتعبئة والتصدير.",
-        p2t: "فول مقشر", p2d: "جاهز للتصنيع أو التعبئة — مناسب للمكسرات والمقالى.",
-        p3t: "فول حلواني", p3d: "مخصص للحلويات والمنتجات الغذائية عالية الجودة.",
-        p4t: "فول مجروش", p4d: "مناسب للحلويات والطعوم والتغطية.",
-        p5t: "فول لشغل الطعوم والشيكولاتة", p5d: "مثالي للمصانع المتخصصة في الطعوم والشيكولاتة.",
-        p6t: "فول بيور لعمل زبدة الفول", p6d: "جودة نقية 100% مناسبة لإنتاج زبدة الفول السوداني.",
-        contactTitle: "التواصل",
-        contactDesc: "للطلبات المحلية والتصدير — السعر عند الطلب.",
-        contactPhone2: "تواصل",
-        serviceTitle: "خدماتنا",
-        s1: "تصنيع • تجهيز • توريد",
-        s2: "توريد لجميع محافظات مصر",
-        s3: "تصدير لأي مكان في العالم",
-        s4: "شكاير 50/25 كجم + فاكيوم 10 كجم",
-        footerNote: "تصنيع • تجهيز • توريد • تصدير | السعر عند الطلب"
-      },
-      en: {
-        brandName: "Tarh Bledna Agricultural Crops Company",
-        brandSub: "Abu Youssef – Peanuts & Crushed Peanuts Trading",
-        sales: "Sales",
-        whatsApp: "WhatsApp",
-        kicker: "Local Supply • Worldwide Export",
-        heroTitle1: "Premium Peanuts",
-        heroTitle2: "Factory-Grade Specs",
-        heroTitle3: "… Guaranteed Quality",
-        heroDesc: "Processing, packing, and supplying 50/25 kg bags and vacuum packs in 10 kg cartons. Nationwide delivery across Egypt and worldwide export. Price upon request.",
-        ctaProducts: "View Products",
-        ctaQuote: "Request a Quote",
-        ctaCall: "Call Sales",
-        location: "Abu Rawash – Giza – Egypt",
-        delivery: "Fast Delivery",
-        export: "Worldwide Export",
-        quickTitle: "Packaging & Processing",
-        pack1: "50 kg & 25 kg bags",
-        pack2: "Vacuum packs in 10 kg cartons",
-        pack3: "Custom packaging upon request",
-        priceNote: "Price upon request",
-        whyTitle: "Why Choose Us?",
-        whyDesc: "Experience, quality, competitive pricing, and reliable delivery — corporate standards for local & export markets.",
-        w1t: "Long Experience", w1d: "Extensive experience in peanut processing and trading for factories and companies.",
-        w2t: "Guaranteed Quality", w2d: "Strict sorting, processing, and packaging standards for premium-grade products.",
-        w3t: "Competitive Prices", w3d: "Best value with flexible quantities and contracts (price upon request).",
-        w4t: "Fast Delivery", w4d: "On-time delivery across Egypt and fast export readiness worldwide.",
-        prodTitle: "Products",
-        prodDesc: "6 products — each with 4 photos (from GitHub). Suitable for factories, hotels, stores, and spice shops.",
-        p1t: "Peanuts in Shell", p1d: "Ideal for roasting, packing, and export.",
-        p2t: "Shelled Peanuts", p2d: "Ready for manufacturing or packaging — perfect for nuts & roasting shops.",
-        p3t: "Confectionery Peanuts", p3d: "High-grade peanuts for sweets and premium food products.",
-        p4t: "Crushed Peanuts", p4d: "Perfect for toppings, flavors, and confectionery.",
-        p5t: "Peanuts for Coating & Chocolate", p5d: "Ideal for coating and chocolate factories.",
-        p6t: "Premium Peanuts for Peanut Butter", p6d: "100% pure quality for peanut butter production.",
-        contactTitle: "Contact",
-        contactDesc: "For local orders and export — price upon request.",
-        contactPhone2: "Contact",
-        serviceTitle: "Our Services",
-        s1: "Processing • Packaging • Supply",
-        s2: "Delivery across all Egypt governorates",
-        s3: "Worldwide export",
-        s4: "50/25 kg bags + 10 kg vacuum cartons",
-        footerNote: "Processing • Packaging • Supply • Export | Price upon request"
-      },
-      tr: {
-        brandName: "Tarh Bledna Tarımsal Ürünler Şirketi",
-        brandSub: "Abu Youssef – Yer Fıstığı ve Kırık Fıstık Ticareti",
-        sales: "Satış",
-        whatsApp: "WhatsApp",
-        kicker: "Yerli Tedarik • Dünya Çapında İhracat",
-        heroTitle1: "Kaliteli Yer Fıstığı",
-        heroTitle2: "Fabrika Standartlarında",
-        heroTitle3: "… Garantili Kalite",
-        heroDesc: "50/25 kg çuvallar و 10 kg kolide vakumlu ambalaj seçenekleri. Mısır genelinde teslimat ve tüm dünyaya ihracat. Fiyat teklifi ile.",
-        ctaProducts: "Ürünleri Gör",
-        ctaQuote: "Teklif Al",
-        ctaCall: "Satışı Ara",
-        location: "Abu Rawash – Giza – Mısır",
-        delivery: "Hızlı Teslimat",
-        export: "Dünya Çapında İhracat",
-        quickTitle: "Ambalaj & İşleme",
-        pack1: "50 kg & 25 kg çuvallar",
-        pack2: "10 kg kolide vakumlu ambalaj",
-        pack3: "Talebe göre özel ambalaj",
-        priceNote: "Fiyat teklifi ile",
-        whyTitle: "Neden Biz?",
-        whyDesc: "Tecrübe, kalite, rekabetçi fiyat ve güvenilir teslimat — yerel ve ihracat için kurumsal standartlar.",
-        w1t: "Uzun Tecrübe", w1d: "Fabrika ve şirketlere yönelik yer fıstığı işleme و ticarette güçlü tecrübe.",
-        w2t: "Garantili Kalite", w2d: "Sıkı eleme, işleme و paketleme standartları.",
-        w3t: "Rekabetçi Fiyat", w3d: "Esnek miktar و anlaşmalarla en iyi değer (fiyat teklifi ile).",
-        w4t: "Hızlı Teslimat", w4d: "Mısır içinde zamanında teslimat و hızlı ihracata hazırlık.",
-        prodTitle: "Ürünler",
-        prodDesc: "6 ürün — her ürün için 4 fotoğraf (GitHub). Fabrikalar, oteller و mağazalar için uygun.",
-        p1t: "Kabuklu Yer Fıstığı", p1d: "Kavurma, paketleme و ihracat için ideal.",
-        p2t: "Kabuksuz Yer Fıstığı", p2d: "Üretim و paketleme için hazır.",
-        p3t: "Şekerleme Tipi Fıstık", p3d: "Tatlı و premium gıda üretimi için.",
-        p4t: "Kırık Yer Fıstığı", p4d: "Kaplama, aroma و tatlılar için.",
-        p5t: "Çikolata & Kaplama İçin", p5d: "Çikolata و kaplama üretimi için ideal.",
-        p6t: "Fıstık Ezmesi İçin Saf", p6d: "Fıstık ezmesi üretimi için %100 saf kalite.",
-        contactTitle: "İletişim",
-        contactDesc: "Yerli sipariş و ihracat için — fiyat teklifi ile.",
-        contactPhone2: "İletişim",
-        serviceTitle: "Hizmetlerimiz",
-        s1: "İşleme • Ambalaj • Tedarik",
-        s2: "Mısır genelinde teslimat",
-        s3: "Dünya çapında ihracat",
-        s4: "50/25 kg çuval + 10 kg vakum kolisi",
-        footerNote: "İşleme • Ambalaj • Tedarik • İhracat | Fiyat teklifi ile"
-      }
-    };
-
-    // -----------------------------
-    // Helpers: images
-    // -----------------------------
-    function setImg(imgEl, url, label){
-      imgEl.loading = "lazy";
-      imgEl.decoding = "async";
-      imgEl.src = url;
-
-      imgEl.onerror = () => {
-        const wrap = imgEl.parentElement;
-        if (!wrap) return;
-        wrap.innerHTML = `<div class="imgFallback">الصورة غير متاحة<br/>${label || ""}<br/><small>${url}</small></div>`;
-      };
-    }
-
-    // -----------------------------
-    // Init banner, messenger, year
-    // -----------------------------
+    // Banner + year + messenger
     document.getElementById("year").textContent = new Date().getFullYear();
+    document.getElementById("heroBannerImg").src = HERO_BANNER_URL;
+
     document.getElementById("messengerBtn").href = MESSENGER_URL || "#";
     document.getElementById("messengerFab").href = MESSENGER_URL || "#";
 
-    setImg(document.getElementById("heroBannerImg"), withBase(HERO_BANNER_URL), "Hero Banner");
-
-    // -----------------------------
     // Fill product images
-    // -----------------------------
-    function fillProductImages(){
-      document.querySelectorAll(".prod").forEach(card=>{
-        const key = card.getAttribute("data-product");
-        const imgs = (PRODUCT_IMAGES[key] || []);
-        const nodes = card.querySelectorAll(".gallery img");
-        nodes.forEach((imgEl, idx)=>{
-          setImg(imgEl, withBase(imgs[idx] || ""), `${key}-${idx+1}`);
-        });
+    document.querySelectorAll(".prod").forEach(card=>{
+      const key = card.getAttribute("data-product");
+      const imgs = PRODUCT_IMAGES[key] || [];
+      const nodes = card.querySelectorAll(".gallery img");
+      nodes.forEach((imgEl, idx)=>{
+        imgEl.src = imgs[idx] || "";
+        imgEl.loading = "lazy";
       });
-    }
-    fillProductImages();
-
-    // -----------------------------
-    // Language switch (AR/EN/TR)
-    // -----------------------------
-    function applyLang(lang){
-      const isRTL = (lang === "ar");
-      document.documentElement.lang = lang;
-      document.documentElement.dir = isRTL ? "rtl" : "ltr";
-      document.body.style.fontFamily = isRTL
-        ? '"Cairo","Inter",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif'
-        : '"Inter","Cairo",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif';
-
-      const dict = I18N[lang] || I18N.ar;
-      document.querySelectorAll("[data-i18n]").forEach(el=>{
-        const key = el.getAttribute("data-i18n");
-        if (dict[key]) el.textContent = dict[key];
-      });
-
-      document.querySelectorAll(".lang button").forEach(b=>{
-        b.classList.toggle("active", b.getAttribute("data-lang") === lang);
-      });
-    }
-
-    document.querySelectorAll(".lang button").forEach(btn=>{
-      btn.addEventListener("click", ()=> applyLang(btn.getAttribute("data-lang")));
     });
-    applyLang("ar");
 
-    // -----------------------------
-    // ToTop button show/hide
-    // -----------------------------
+    // Testimonials render
+    const testGrid = document.getElementById("testGrid");
+    function starIcons(n){
+      let s = "";
+      for(let i=0;i<5;i++){
+        s += `<i class="fa-solid fa-star" style="opacity:${i<n?1:.25}"></i>`;
+      }
+      return s;
+    }
+    TESTIMONIALS.forEach(t=>{
+      const el = document.createElement("div");
+      el.className = "tcard";
+      el.innerHTML = `
+        <div class="thead">
+          <img class="avatar" src="${t.avatar}" alt="${t.name}" onerror="this.style.display='none'"/>
+          <div>
+            <div class="tname">${t.name}</div>
+            <div class="tmeta">${t.meta}</div>
+          </div>
+        </div>
+        <div class="tstars">${starIcons(t.stars)}</div>
+        <div class="ttext">${t.text}</div>
+      `;
+      testGrid.appendChild(el);
+    });
+
+    // Visitor counter (local on same device)
+    const key = "tarh_bledna_visits_v1";
+    const visits = (parseInt(localStorage.getItem(key) || "0", 10) + 1);
+    localStorage.setItem(key, String(visits));
+    document.getElementById("visitorCount").textContent = String(visits);
+
+    // ToTop show/hide
     const toTop = document.getElementById("toTop");
     window.addEventListener("scroll", ()=>{
       if (window.scrollY > 700) toTop.classList.add("show");
