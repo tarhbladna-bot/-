@@ -1,454 +1,896 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>طرح بلدنا | للمحاصيل الزراعية</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>شركة طرح بلدنا للمحاصيل الزراعية | أبو يوسف لتجارة الفول السوداني والمفروك</title>
+  <meta name="description" content="تصنيع وتجهيز وتوريد وتصدير الفول السوداني بجميع أنواعه. توريد لجميع محافظات مصر وتصدير لأي مكان في العالم. السعر عند الطلب." />
 
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
 
-<style>
-:root{
-  --black:#0d0d0d;
-  --dark:#161616;
-  --red:#c40000;
-  --light:#e5e5e5;
-}
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
-*{box-sizing:border-box}
+  <style>
+    :root{
+      --bg:#050508;
+      --bg2:#07070a;
+      --surface: rgba(255,255,255,.06);
+      --surface2: rgba(255,255,255,.09);
+      --border: rgba(255,255,255,.12);
+      --text:#f3f4f6;
+      --muted: rgba(243,244,246,.72);
+      --red:#e11d48;
+      --red2:#ff2d55;
+      --shadow: 0 18px 48px rgba(0,0,0,.55);
+      --shadow2: 0 26px 70px rgba(0,0,0,.62);
+      --radius: 18px;
+    }
 
-body{
-  margin:0;
-  font-family:'Cairo',sans-serif;
-  background:var(--black);
-  color:var(--light);
-  line-height:1.8;
-}
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--text)}
+    body{
+      font-family: "Cairo","Inter",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      overflow-x:hidden;
+    }
+    a{color:inherit}
+    .wrap{max-width:1180px;margin:0 auto;padding:0 16px}
 
-/* بانر */
-.top-banner{
-  background:linear-gradient(90deg,#000,#2a0000,#000);
-  text-align:center;
-  padding:12px;
-  font-weight:700;
-  color:#fff;
-}
+    /* Topbar */
+    .topbar{
+      position:sticky;top:0;z-index:50;
+      background: rgba(5,5,8,.72);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+    .topbarIn{
+      display:flex;align-items:center;justify-content:space-between;
+      padding:12px 0;gap:12px;
+    }
+    .brand{display:flex;align-items:center;gap:12px;min-width:260px}
+    .logo{
+      width:44px;height:44px;border-radius:14px;
+      border:1px solid rgba(225,29,72,.35);
+      background: radial-gradient(20px 20px at 30% 30%, rgba(255,45,85,.35), transparent 70%),
+                  linear-gradient(135deg, rgba(255,255,255,.08), rgba(255,255,255,.03));
+      box-shadow: 0 14px 36px rgba(225,29,72,.12);
+      position:relative;overflow:hidden;
+    }
+    .logo:after{
+      content:""; position:absolute; inset:-2px;
+      background: radial-gradient(260px 90px at 50% 0%, rgba(225,29,72,.22), transparent 60%);
+      opacity:.9;
+    }
+    .brandName{font-weight:900;letter-spacing:.2px;line-height:1.15}
+    .brandSub{color:var(--muted);font-weight:700;font-size:13px;margin-top:2px}
 
-/* هيدر */
-header{
-  position:sticky;
-  top:0;
-  z-index:1000;
-  background:rgba(0,0,0,.9);
-  backdrop-filter:blur(6px);
-  border-bottom:1px solid #222;
-}
+    .actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:flex-end}
+    .pill{
+      display:inline-flex;align-items:center;gap:10px;
+      padding:10px 12px;border-radius:999px;text-decoration:none;
+      border:1px solid var(--border);background: rgba(255,255,255,.04);
+      font-weight:800;
+      transition: transform .2s ease, border-color .2s ease, background .2s ease;
+    }
+    .pill:hover{transform: translateY(-1px);border-color: rgba(225,29,72,.32);background: rgba(255,255,255,.06)}
+    .pillRed{
+      background: linear-gradient(90deg, var(--red), var(--red2));
+      border-color: rgba(225,29,72,.35);
+      box-shadow: 0 18px 40px rgba(225,29,72,.18);
+    }
+    .pillRed:hover{box-shadow: 0 26px 60px rgba(225,29,72,.24)}
+    .lang{
+      display:inline-flex;gap:6px;padding:6px;border-radius:999px;
+      border:1px solid rgba(255,255,255,.10);background: rgba(255,255,255,.03);
+    }
+    .lang button{
+      border:0;cursor:pointer;
+      padding:8px 10px;border-radius:999px;
+      background:transparent;color:var(--text);
+      font-weight:900;letter-spacing:.2px;
+      transition: background .2s ease, transform .2s ease;
+    }
+    .lang button.active{
+      background: rgba(225,29,72,.18);
+      border:1px solid rgba(225,29,72,.35);
+    }
 
-.header-inner{
-  max-width:1200px;
-  margin:auto;
-  padding:15px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
+    /* Hero */
+    .hero{
+      background:
+        radial-gradient(900px 360px at 20% 0%, rgba(225,29,72,.18), transparent 60%),
+        radial-gradient(700px 280px at 80% 20%, rgba(255,45,85,.10), transparent 55%),
+        linear-gradient(180deg, #050508, var(--bg2));
+      padding: 18px 0 50px;
+      position:relative;
+      overflow:hidden;
+    }
 
-.logo{
-  font-size:22px;
-  font-weight:900;
-  color:var(--red);
-}
+    .heroBanner{
+      margin: 14px auto 0;
+      border-radius: 22px;
+      border: 1px solid rgba(255,255,255,.10);
+      overflow:hidden;
+      box-shadow: var(--shadow2);
+      position:relative;
+      max-width:1180px;
+    }
+    .heroBanner img{width:100%;display:block;max-height:420px;object-fit:cover}
+    .heroBanner:after{
+      content:"";
+      position:absolute;inset:0;
+      background: linear-gradient(180deg, rgba(5,5,8,.15), rgba(5,5,8,.50));
+      pointer-events:none;
+    }
 
-nav a{
-  color:#fff;
-  text-decoration:none;
-  margin-right:15px;
-  font-weight:700;
-}
-nav a:hover{color:var(--red)}
+    .heroGrid{
+      display:grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap:18px;
+      align-items:stretch;
+      margin-top:18px;
+    }
+    .kicker{
+      display:inline-flex;align-items:center;gap:10px;
+      padding:8px 12px;border-radius:999px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.03);
+      color: var(--muted);
+      font-weight:800;
+      width:fit-content;
+    }
+    .title{
+      margin: 14px 0 10px;
+      font-size: clamp(24px, 3.6vw, 44px);
+      line-height: 1.18;
+      font-weight: 950;
+      letter-spacing: .2px;
+    }
+    .accent{
+      position:relative;
+      padding:0 .15em;
+      color: var(--text);
+    }
+    .accent:after{
+      content:"";position:absolute;left:0;right:0;bottom:.08em;height:.30em;
+      background: linear-gradient(90deg, rgba(225,29,72,.0), rgba(225,29,72,.78), rgba(225,29,72,.0));
+      border-radius:999px;z-index:-1;
+    }
+    .lead{
+      color: var(--muted);
+      font-size: 16px;line-height:1.9;margin:0;
+      max-width: 820px;
+    }
+    .ctas{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+    .btn{
+      display:inline-flex;align-items:center;gap:10px;
+      padding:12px 16px;border-radius:14px;
+      text-decoration:none;font-weight:950;letter-spacing:.2px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.04);
+      transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease, background .2s ease;
+    }
+    .btn:hover{transform: translateY(-2px);border-color: rgba(225,29,72,.32);background: rgba(255,255,255,.06)}
+    .btnPrimary{
+      background: linear-gradient(90deg, var(--red), var(--red2));
+      border-color: rgba(225,29,72,.35);
+      box-shadow: 0 18px 40px rgba(225,29,72,.20);
+    }
+    .btnPrimary:hover{box-shadow: 0 26px 60px rgba(225,29,72,.26)}
+    .badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+    .badge{
+      display:inline-flex;align-items:center;gap:10px;
+      padding:10px 12px;border-radius:999px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+      color: var(--muted);
+      font-weight:800;
+    }
 
-/* هيرو */
-.hero{
-  min-height:85vh;
-  background:
-  linear-gradient(to left,rgba(0,0,0,.8),rgba(0,0,0,.6)),
-  url("images/hero.jpg") center/cover no-repeat;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  padding:20px;
-}
+    .glass{
+      border-radius: 20px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.04));
+      box-shadow: var(--shadow);
+      padding: 16px;
+      position:relative;
+      overflow:hidden;
+    }
+    .glass:before{
+      content:"";position:absolute;inset:-2px;
+      background: radial-gradient(420px 160px at 40% 0%, rgba(225,29,72,.20), transparent 60%);
+      opacity:.9;pointer-events:none;
+    }
+    .glass h3{margin:0 0 8px;font-weight:950}
+    .list{margin:0;padding:0;list-style:none;color:var(--muted);line-height:1.95;font-weight:700}
+    .list li{display:flex;gap:10px;align-items:flex-start;margin:8px 0}
+    .list i{color:#fff;opacity:.9;margin-top:4px}
 
-.hero h1{
-  font-size:42px;
-  font-weight:900;
-}
-.hero span{color:var(--red)}
-.hero p{max-width:600px;margin:20px auto}
+    /* Sections */
+    .section{padding: 56px 0}
+    .secHead{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;flex-wrap:wrap}
+    .secTitle{margin:0;font-size: clamp(20px, 2.8vw, 34px);font-weight:950}
+    .secDesc{margin:6px 0 0;color:var(--muted);line-height:1.9;font-weight:700;max-width:760px}
 
-.hero .btn{
-  background:var(--red);
-  padding:14px 30px;
-  color:#fff;
-  text-decoration:none;
-  border-radius:40px;
-  font-weight:900;
-  display:inline-block;
-}
+    /* Why us (4 icons) */
+    .grid4{
+      display:grid;grid-template-columns: repeat(12, 1fr);
+      gap:14px;margin-top:20px;
+    }
+    .card{
+      grid-column: span 3;
+      border-radius: var(--radius);
+      border:1px solid var(--border);
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.04));
+      box-shadow: var(--shadow);
+      padding: 18px 16px;
+      position:relative;
+      overflow:hidden;
+      transition: transform .25s ease, border-color .25s ease, background .25s ease, box-shadow .25s ease;
+    }
+    .card:hover{transform: translateY(-6px);border-color: rgba(225,29,72,.35);background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.05));box-shadow: var(--shadow2)}
+    .ico{
+      width:44px;height:44px;border-radius:14px;
+      display:grid;place-items:center;
+      background: rgba(225,29,72,.12);
+      border:1px solid rgba(225,29,72,.25);
+      box-shadow: 0 10px 26px rgba(225,29,72,.12);
+      margin-bottom:10px;
+    }
+    .ico i{font-size:18px;color:#fff;text-shadow: 0 0 18px rgba(255,45,85,.35)}
+    .card h4{margin:6px 0 6px;font-size:18px;font-weight:950}
+    .card p{margin:0;color:var(--muted);line-height:1.9;font-weight:700;font-size:14.5px}
 
-/* أقسام */
-section{
-  padding:70px 20px;
-  max-width:1200px;
-  margin:auto;
-}
+    /* Products */
+    .productsGrid{
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap:14px;
+      margin-top: 20px;
+    }
+    .prod{
+      grid-column: span 4;
+      border-radius: 20px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.04));
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      position:relative;
+      transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+    }
+    .prod:hover{transform: translateY(-6px);border-color: rgba(225,29,72,.32);box-shadow: var(--shadow2)}
+    .prodTop{padding:16px 16px 10px}
+    .prodTitle{margin:0;font-size:18px;font-weight:950}
+    .prodSub{margin:6px 0 0;color:var(--muted);font-weight:800;line-height:1.7;font-size:14px}
+    .price{display:inline-flex;align-items:center;gap:8px;margin-top:10px;
+      padding:8px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.03);color:var(--muted);font-weight:900;font-size:13px;
+    }
+    .gallery{
+      display:grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap:8px;
+      padding: 0 16px 16px;
+    }
+    .shot{
+      border-radius: 14px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.25);
+      aspect-ratio: 4/3;
+    }
+    .shot img{width:100%;height:100%;object-fit:cover;display:block}
 
-.section-title{
-  text-align:center;
-  font-size:32px;
-  color:var(--red);
-  margin-bottom:40px;
-  font-weight:900;
-}
+    /* Contact */
+    .contactBox{
+      margin-top: 22px;
+      display:grid;grid-template-columns: 1fr 1fr;gap:14px;
+    }
+    .contactCard{
+      border-radius: 20px;
+      border:1px solid rgba(255,255,255,.12);
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.04));
+      box-shadow: var(--shadow);
+      padding: 16px;
+    }
+    .contactRow{display:flex;align-items:center;gap:10px;color:var(--muted);font-weight:850;line-height:1.9;margin:10px 0}
+    .contactRow i{color:#fff;opacity:.95}
+    .socials{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+    .soc{
+      display:inline-flex;align-items:center;gap:10px;
+      padding:10px 12px;border-radius:14px;text-decoration:none;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+      font-weight:950;
+      transition: transform .2s ease, border-color .2s ease, background .2s ease;
+    }
+    .soc:hover{transform: translateY(-2px);border-color: rgba(225,29,72,.32);background: rgba(255,255,255,.06)}
 
-/* منتجات */
-.products{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-  gap:25px;
-}
+    /* Floating buttons */
+    .float{
+      position:fixed;
+      right:16px;
+      bottom:16px;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      z-index:80;
+    }
+    .fab{
+      width:52px;height:52px;border-radius:16px;
+      display:grid;place-items:center;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06);
+      box-shadow: var(--shadow);
+      text-decoration:none;
+      transition: transform .2s ease, border-color .2s ease, background .2s ease;
+    }
+    .fab:hover{transform: translateY(-2px);border-color: rgba(225,29,72,.35);background: rgba(255,255,255,.08)}
+    .fab.red{
+      background: linear-gradient(135deg, var(--red), var(--red2));
+      border-color: rgba(225,29,72,.35);
+    }
+    .fab i{font-size:18px;color:#fff}
+    .toTop{display:none}
+    .toTop.show{display:grid}
 
-.product{
-  background:var(--dark);
-  border-radius:18px;
-  overflow:hidden;
-  box-shadow:0 15px 40px rgba(0,0,0,.5);
-  transition:.3s;
-  position:relative; /* علشان العلامة المائية */
-}
-.product:hover{transform:translateY(-8px)}
+    /* Footer */
+    footer{
+      border-top:1px solid rgba(255,255,255,.08);
+      padding: 18px 0;
+      color: var(--muted);
+      font-weight:800;
+      background: rgba(255,255,255,.02);
+    }
 
-.product img{
-  width:100%;
-  height:200px;
-  object-fit:cover;
-}
-
-.product .info{
-  padding:20px;
-  text-align:center;
-}
-
-.product h3{color:var(--red);margin-bottom:10px}
-
-.add-cart{
-  background:var(--red);
-  color:#fff;
-  padding:10px 20px;
-  border:none;
-  border-radius:20px;
-  cursor:pointer;
-  font-weight:700;
-  margin-top:10px;
-}
-
-/* صور إضافية */
-.product-gallery{
-  display:flex;
-  gap:10px;
-  padding:10px;
-  justify-content:center;
-}
-.product-gallery img{
-  width:30%;
-  height:100px;
-  object-fit:cover;
-  border-radius:8px;
-  border:1px solid #333;
-  cursor:pointer;
-}
-
-/* العلامة المائية */
-.product::after {
-  content: "طرح بلدنا";
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
-  font-size: 18px;
-  font-weight: 900;
-  color: rgba(255,255,255,0.4);
-  pointer-events: none;
-}
-
-/* السلة */
-.cart{
-  background:var(--dark);
-  padding:20px;
-  border-radius:20px;
-  margin-top:40px;
-}
-.cart h3{color:var(--red)}
-.cart ul{list-style:none;padding:0}
-.cart li{margin:8px 0}
-.cart button{
-  background:var(--red);
-  color:#fff;
-  padding:12px 25px;
-  border:none;
-  border-radius:30px;
-  cursor:pointer;
-  font-weight:900;
-  margin-top:15px;
-}
-
-/* لماذا نحن */
-.trust{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-  gap:25px;
-}
-
-.trust-card{
-  background:var(--dark);
-  padding:30px;
-  border-radius:18px;
-  text-align:center;
-  box-shadow:0 10px 30px rgba(0,0,0,.4);
-  transition:.3s;
-}
-
-.trust-card:hover{
-  transform:translateY(-6px);
-}
-
-.trust-card h3{
-  color:var(--red);
-  margin-bottom:10px;
-  font-size:22px;
-}
-
-.trust-card p{
-  font-size:15px;
-  color:#ccc;
-}
-
-/* تواصل */
-.contact{
-  background:var(--dark);
-  border-radius:20px;
-  padding:40px;
-  text-align:center;
-}
-
-.contact a{
-  display:inline-block;
-  margin-top:15px;
-  background:var(--red);
-  padding:12px 25px;
-  border-radius:30px;
-  color:#fff;
-  text-decoration:none;
-  font-weight:900;
-}
-
-/* فوتر */
-footer{
-  background:#000;
-  padding:25px;
-  text-align:center;
-  color:#888;
-}
-
-/* موبايل */
-@media(max-width:768px){
-  .hero h1{font-size:30px}
-  nav{display:none}
-}
-</style>
+    /* Responsive */
+    @media (max-width: 1024px){
+      .heroGrid{grid-template-columns: 1fr}
+      .card{grid-column: span 6}
+      .prod{grid-column: span 6}
+      .contactBox{grid-template-columns: 1fr}
+    }
+    @media (max-width: 620px){
+      .actions{justify-content:flex-start}
+      .brand{min-width:auto}
+      .card{grid-column: span 12}
+      .prod{grid-column: span 12}
+    }
+    @media (prefers-reduced-motion: reduce){
+      .card,.prod,.btn,.pill,.soc,.fab{transition:none}
+      .card:hover,.prod:hover,.btn:hover,.pill:hover,.soc:hover,.fab:hover{transform:none}
+    }
+  </style>
 </head>
 
 <body>
+  <!-- CONFIG: replace these links with your hosted files (GitHub raw / hosting) -->
+  <script>
+    // 1) HERO banner image URL:
+    const HERO_BANNER_URL = "PUT_YOUR_BANNER_URL_HERE"; // مثال: https://raw.githubusercontent.com/USER/REPO/main/banner.png
 
-<div class="top-banner">🌙 جودة نثق بها منذ أكثر من 15 عامًا</div>
+    // 2) Messenger page (your Facebook page chat):
+    const MESSENGER_URL = "https://m.me/"; // ضع لينك الماسنجر لصفحتك إن توفر
 
-<header>
-  <div class="header-inner">
-    <div class="logo">طرح بلدنا</div>
-    <nav>
-      <a href="#products">المنتجات</a>
-      <a href="#why">لماذا نحن</a>
-      <a href="#contact">اتصل بنا</a>
-    </nav>
+    // 3) Product images (6 products × 4 images)
+    // ضع روابط GitHub RAW للصور هنا
+    const PRODUCT_IMAGES = {
+      p1: ["P1_IMG1","P1_IMG2","P1_IMG3","P1_IMG4"],
+      p2: ["P2_IMG1","P2_IMG2","P2_IMG3","P2_IMG4"],
+      p3: ["P3_IMG1","P3_IMG2","P3_IMG3","P3_IMG4"],
+      p4: ["P4_IMG1","P4_IMG2","P4_IMG3","P4_IMG4"],
+      p5: ["P5_IMG1","P5_IMG2","P5_IMG3","P5_IMG4"],
+      p6: ["P6_IMG1","P6_IMG2","P6_IMG3","P6_IMG4"],
+    };
+  </script>
+
+  <!-- TOPBAR -->
+  <header class="topbar">
+    <div class="wrap topbarIn">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <div>
+          <div class="brandName" data-i18n="brandName">شركة طرح بلدنا للمحاصيل الزراعية</div>
+          <div class="brandSub" data-i18n="brandSub">أبو يوسف لتجارة الفول السوداني والمفروك</div>
+        </div>
+      </div>
+
+      <div class="actions">
+        <div class="lang" aria-label="Language switcher">
+          <button class="active" data-lang="ar">AR</button>
+          <button data-lang="en">EN</button>
+          <button data-lang="tr">TR</button>
+        </div>
+
+        <a class="pill" href="tel:01126773698">
+          <i class="fa-solid fa-phone"></i>
+          <span data-i18n="sales">المبيعات</span>: 01126773698
+        </a>
+
+        <a class="pill pillRed" href="https://wa.me/201126773698" target="_blank" rel="noopener">
+          <i class="fa-brands fa-whatsapp"></i>
+          <span data-i18n="whatsApp">واتساب</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="wrap">
+      <div class="heroBanner">
+        <img id="heroBannerImg" src="" alt="Tarh Bledna Banner" />
+      </div>
+
+      <div class="heroGrid">
+        <div>
+          <span class="kicker">
+            <i class="fa-solid fa-globe"></i>
+            <span data-i18n="kicker">توريد محلي • تصدير عالمي</span>
+          </span>
+
+          <h1 class="title">
+            <span data-i18n="heroTitle1">فول سوداني</span>
+            <span class="accent" data-i18n="heroTitle2">بمواصفات مصانع</span>
+            <span data-i18n="heroTitle3">… وجودة مضمونة</span>
+          </h1>
+
+          <p class="lead" data-i18n="heroDesc">
+            تصنيع وتجهيز وتوريد شكاير 50/25 كجم، وعبوات فاكيوم داخل كرتونة 10 كجم.
+            توريد لجميع محافظات مصر وتصدير لأي مكان في العالم. السعر عند الطلب.
+          </p>
+
+          <div class="ctas">
+            <a class="btn btnPrimary" href="#products">
+              <i class="fa-solid fa-boxes-stacked"></i>
+              <span data-i18n="ctaProducts">شاهد المنتجات</span>
+            </a>
+            <a class="btn" href="https://wa.me/201126773698" target="_blank" rel="noopener">
+              <i class="fa-brands fa-whatsapp"></i>
+              <span data-i18n="ctaQuote">اطلب عرض سعر</span>
+            </a>
+          </div>
+
+          <div class="badges">
+            <div class="badge"><i class="fa-solid fa-location-dot"></i><span data-i18n="location">أبورواش – الجيزة – مصر</span></div>
+            <div class="badge"><i class="fa-solid fa-truck-fast"></i><span data-i18n="delivery">سرعة توصيل</span></div>
+            <div class="badge"><i class="fa-solid fa-file-export"></i><span data-i18n="export">تصدير لأي مكان في العالم</span></div>
+          </div>
+        </div>
+
+        <aside class="glass" aria-label="Quick info">
+          <h3 data-i18n="quickTitle">التعبئة والتجهيز</h3>
+          <ul class="list">
+            <li><i class="fa-solid fa-check"></i><span data-i18n="pack1">شكاير 50 كجم و25 كجم</span></li>
+            <li><i class="fa-solid fa-check"></i><span data-i18n="pack2">فاكيوم عبوات داخل كرتونة 10 كجم</span></li>
+            <li><i class="fa-solid fa-check"></i><span data-i18n="pack3">تجهيز حسب طلب العميل</span></li>
+            <li><i class="fa-solid fa-check"></i><span data-i18n="priceNote">السعر عند الطلب</span></li>
+          </ul>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY US -->
+  <section class="section" id="why">
+    <div class="wrap">
+      <div class="secHead">
+        <div>
+          <h2 class="secTitle" data-i18n="whyTitle">لماذا نحن؟</h2>
+          <p class="secDesc" data-i18n="whyDesc">خبرة وجودة وتسعير وتوصيل… بمعايير شركات كبيرة لخدمة السوق المحلي والتصدير.</p>
+        </div>
+      </div>
+
+      <div class="grid4">
+        <article class="card">
+          <div class="ico"><i class="fa-solid fa-medal"></i></div>
+          <h4 data-i18n="w1t">خبرة طويلة</h4>
+          <p data-i18n="w1d">خبرة كبيرة في تجارة وتصنيع الفول السوداني والمفروك والتعامل مع المصانع والشركات.</p>
+        </article>
+
+        <article class="card">
+          <div class="ico"><i class="fa-solid fa-shield-check"></i></div>
+          <h4 data-i18n="w2t">جودة مضمونة</h4>
+          <p data-i18n="w2d">فرز وتجهيز وتعبئة بمعايير دقيقة لضمان منتج نظيف ومطابق للمواصفات.</p>
+        </article>
+
+        <article class="card">
+          <div class="ico"><i class="fa-solid fa-tags"></i></div>
+          <h4 data-i18n="w3t">أسعار تنافسية</h4>
+          <p data-i18n="w3d">أفضل قيمة مقابل الجودة مع مرونة في الكميات والتعاقدات (السعر عند الطلب).</p>
+        </article>
+
+        <article class="card">
+          <div class="ico"><i class="fa-solid fa-truck-fast"></i></div>
+          <h4 data-i18n="w4t">سرعة توصيل</h4>
+          <p data-i18n="w4d">التزام بمواعيد التسليم داخل مصر وتجهيز سريع لطلبات التصدير لأي مكان في العالم.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCTS -->
+  <section class="section" id="products">
+    <div class="wrap">
+      <div class="secHead">
+        <div>
+          <h2 class="secTitle" data-i18n="prodTitle">المنتجات</h2>
+          <p class="secDesc" data-i18n="prodDesc">6 منتجات — لكل منتج 4 صور (من GitHub). مناسب للمصانع، الفنادق، المحلات، والعطارين.</p>
+        </div>
+      </div>
+
+      <div class="productsGrid">
+        <!-- Product 1 -->
+        <article class="prod" data-product="p1">
+          <div class="prodTop">
+            <h3 class="prodTitle" data-i18n="p1t">فول بقشره</h3>
+            <p class="prodSub" data-i18n="p1d">مناسب للتحميص والتعبئة والتصدير.</p>
+            <span class="price"><i class="fa-solid fa-circle-info"></i><span data-i18n="priceNote">السعر عند الطلب</span></span>
+          </div>
+          <div class="gallery">
+            <div class="shot"><img alt="p1-1" /></div>
+            <div class="shot"><img alt="p1-2" /></div>
+            <div class="shot"><img alt="p1-3" /></div>
+            <div class="shot"><img alt="p1-4" /></div>
+          </div>
+        </article>
+
+        <!-- Product 2 -->
+        <article class="prod" data-product="p2">
+          <div class="prodTop">
+            <h3 class="prodTitle" data-i18n="p2t">فول مقشر</h3>
+            <p class="prodSub" data-i18n="p2d">جاهز للتصنيع أو التعبئة — مناسب للمكسرات والمقالى.</p>
+            <span class="price"><i class="fa-solid fa-circle-info"></i><span data-i18n="priceNote">السعر عند الطلب</span></span>
+          </div>
+          <div class="gallery">
+            <div class="shot"><img alt="p2-1" /></div>
+            <div class="shot"><img alt="p2-2" /></div>
+            <div class="shot"><img alt="p2-3" /></div>
+            <div class="shot"><img alt="p2-4" /></div>
+          </div>
+        </article>
+
+        <!-- Product 3 -->
+        <article class="prod" data-product="p3">
+          <div class="prodTop">
+            <h3 class="prodTitle" data-i18n="p3t">فول حلواني</h3>
+            <p class="prodSub" data-i18n="p3d">مخصص للحلويات والمنتجات الغذائية عالية الجودة.</p>
+            <span class="price"><i class="fa-solid fa-circle-info"></i><span data-i18n="priceNote">السعر عند الطلب</span></span>
+          </div>
+          <div class="gallery">
+            <div class="shot"><img alt="p3-1" /></div>
+            <div class="shot"><img alt="p3-2" /></div>
+            <div class="shot"><img alt="p3-3" /></div>
+            <div class="shot"><img alt="p3-4" /></div>
+          </div>
+        </article>
+
+        <!-- Product 4 -->
+        <article class="prod" data-product="p4">
+          <div class="prodTop">
+            <h3 class="prodTitle" data-i18n="p4t">فول مجروش</h3>
+            <p class="prodSub" data-i18n="p4d">مناسب للحلويات والطعوم والتغطية.</p>
+            <span class="price"><i class="fa-solid fa-circle-info"></i><span data-i18n="priceNote">السعر عند الطلب</span></span>
+          </div>
+          <div class="gallery">
+            <div class="shot"><img alt="p4-1" /></div>
+            <div class="shot"><img alt="p4-2" /></div>
+            <div class="shot"><img alt="p4-3" /></div>
+            <div class="shot"><img alt="p4-4" /></div>
+          </div>
+        </article>
+
+        <!-- Product 5 -->
+        <article class="prod" data-product="p5">
+          <div class="prodTop">
+            <h3 class="prodTitle" data-i18n="p5t">فول لشغل الطعوم والشيكولاتة</h3>
+            <p class="prodSub" data-i18n="p5d">مثالي للمصانع المتخصصة في الطعوم والشيكولاتة.</p>
+            <span class="price"><i class="fa-solid fa-circle-info"></i><span data-i18n="priceNote">السعر عند الطلب</span></span>
+          </div>
+          <div class="gallery">
+            <div class="shot"><img alt="p5-1" /></div>
+            <div class="shot"><img alt="p5-2" /></div>
+            <div class="shot"><img alt="p5-3" /></div>
+            <div class="shot"><img alt="p5-4" /></div>
+          </div>
+        </article>
+
+        <!-- Product 6 -->
+        <article class="prod" data-product="p6">
+          <div class="prodTop">
+            <h3 class="prodTitle" data-i18n="p6t">فول بيور لعمل زبدة الفول</h3>
+            <p class="prodSub" data-i18n="p6d">جودة نقية 100% مناسبة لإنتاج زبدة الفول السوداني.</p>
+            <span class="price"><i class="fa-solid fa-circle-info"></i><span data-i18n="priceNote">السعر عند الطلب</span></span>
+          </div>
+          <div class="gallery">
+            <div class="shot"><img alt="p6-1" /></div>
+            <div class="shot"><img alt="p6-2" /></div>
+            <div class="shot"><img alt="p6-3" /></div>
+            <div class="shot"><img alt="p6-4" /></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section" id="contact">
+    <div class="wrap">
+      <div class="secHead">
+        <div>
+          <h2 class="secTitle" data-i18n="contactTitle">التواصل</h2>
+          <p class="secDesc" data-i18n="contactDesc">للطلبات المحلية والتصدير — السعر عند الطلب.</p>
+        </div>
+      </div>
+
+      <div class="contactBox">
+        <div class="contactCard">
+          <div class="contactRow"><i class="fa-solid fa-building"></i><span data-i18n="brandName">شركة طرح بلدنا للمحاصيل الزراعية</span></div>
+          <div class="contactRow"><i class="fa-solid fa-user-tie"></i><span data-i18n="brandSub">أبو يوسف لتجارة الفول السوداني والمفروك</span></div>
+          <div class="contactRow"><i class="fa-solid fa-phone"></i><span data-i18n="sales">المبيعات</span>: <a href="tel:01126773698">01126773698</a></div>
+          <div class="contactRow"><i class="fa-solid fa-phone"></i><span data-i18n="contactPhone2">تواصل</span>: <a href="tel:01020508423">01020508423</a></div>
+          <div class="contactRow"><i class="fa-solid fa-location-dot"></i><span data-i18n="location">أبورواش – الجيزة – مصر</span></div>
+          <div class="contactRow"><i class="fa-solid fa-circle-info"></i><span data-i18n="priceNote">السعر عند الطلب</span></div>
+
+          <div class="socials">
+            <a class="soc" href="https://wa.me/201126773698" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+            <a class="soc" href="https://www.facebook.com/share/1D1AxJHFvW/" target="_blank" rel="noopener"><i class="fa-brands fa-facebook"></i> Facebook</a>
+            <a class="soc" href="https://www.instagram.com/efyos820?igsh=MXhxam40dGpweW12ag==" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i> Instagram</a>
+            <a class="soc" href="#" id="messengerBtn" target="_blank" rel="noopener"><i class="fa-brands fa-facebook-messenger"></i> Messenger</a>
+          </div>
+        </div>
+
+        <div class="contactCard">
+          <h3 style="margin:0 0 10px;font-weight:950" data-i18n="serviceTitle">خدماتنا</h3>
+          <div class="contactRow"><i class="fa-solid fa-check"></i><span data-i18n="s1">تصنيع • تجهيز • توريد</span></div>
+          <div class="contactRow"><i class="fa-solid fa-check"></i><span data-i18n="s2">توريد لجميع محافظات مصر</span></div>
+          <div class="contactRow"><i class="fa-solid fa-check"></i><span data-i18n="s3">تصدير لأي مكان في العالم</span></div>
+          <div class="contactRow"><i class="fa-solid fa-check"></i><span data-i18n="s4">شكاير 50/25 كجم + فاكيوم 10 كجم</span></div>
+
+          <div class="ctas" style="margin-top:12px">
+            <a class="btn btnPrimary" href="https://wa.me/201126773698" target="_blank" rel="noopener">
+              <i class="fa-brands fa-whatsapp"></i><span data-i18n="ctaQuote">اطلب عرض سعر</span>
+            </a>
+            <a class="btn" href="tel:01126773698">
+              <i class="fa-solid fa-phone"></i><span data-i18n="ctaCall">اتصال بالمبيعات</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Floating Buttons -->
+  <div class="float" aria-label="Floating actions">
+    <a class="fab red" href="https://wa.me/201126773698" target="_blank" rel="noopener" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+    <a class="fab" href="tel:01126773698" title="Call"><i class="fa-solid fa-phone"></i></a>
+    <a class="fab" id="messengerFab" href="#" target="_blank" rel="noopener" title="Messenger"><i class="fa-brands fa-facebook-messenger"></i></a>
+    <a class="fab toTop" id="toTop" href="#home" title="Top"><i class="fa-solid fa-arrow-up"></i></a>
   </div>
-</header>
 
-<section class="hero">
-  <div>
-    <h1>خبرة أكثر من<span>15 عامًا</span> في تجارة المحاصيل الزراعية</h1>
-    <p>نوفر أجود أنواع الفول السوداني للسوق المحلي والتصديرر، بجودة ثابتة وأسعار عادلة.</p>
-    <a class="btn" href="https://wa.me/201020508423">اطلب الآن</a>
-  </div>
-</section>
-
-<section id="products">
-  <h2 class="section-title">منتجاتنا</h2>
-  <div class="products">
-    <!-- منتج 1 -->
-    <div class="product">
-      <img class="main-img" src="images/product1.jpg" alt="فول سوداني بقشره">
-      <div class="info">
-        <h3>فول سوداني بقشره</h3>
-        <p>من 65 إلى 90</p>
-        <button class="add-cart">أضف للسلة</button>
-      </div>
-      <div class="product-gallery">
-        <img src="images/product1-1.jpg" alt="">
-        <img src="images/product1-2.jpg" alt="">
-        <img src="images/product1-3.jpg" alt="">
+  <footer>
+    <div class="wrap">
+      <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center">
+        <div>© <span id="year"></span> <span data-i18n="brandName">شركة طرح بلدنا للمحاصيل الزراعية</span></div>
+        <div><span data-i18n="footerNote">تصنيع • تجهيز • توريد • تصدير | السعر عند الطلب</span></div>
       </div>
     </div>
-    <!-- منتج 2 -->
-    <div class="product">
-      <img class="main-img" src="images/product2.jpg" alt="فول سوداني مقشر">
-      <div class="info">
-        <h3>فول سوداني مقشر</h3>
-        <p>من 70 إلى 105</p>
-        <button class="add-cart">أضف للسلة</button>
-      </div>
-      <div class="product-gallery">
-        <img src="images/product2-1.jpg" alt="">
-        <img src="images/product2-2.jpg" alt="">
-        <img src="images/product2-3.jpg" alt="">
-      </div>
-    </div>
-    <!-- منتج 3 -->
-    <div class="product">
-      <img class="main-img" src="images/product3.jpg" alt="فول سوداني حلواني">
-      <div class="info">
-        <h3>فول سوداني حلواني</h3>
-        <p>من 80 إلى 95</p>
-        <button class="add-cart">أضف للسلة</button>
-      </div>
-      <div class="product-gallery">
-        <img src="images/product3-1.jpg" alt="">
-        <img src="images/product3-2.jpg" alt="">
-        <img src="images/product3-3.jpg" alt="">
-      </div>
-    </div>
+  </footer>
 
-    <!-- منتج 4 -->
-    <div class="product">
-      <img class="main-img" src="images/product4.jpg" alt="فول سوداني مجروش">
-      <div class="info">
-        <h3>فول سوداني مجروش</h3>
-        <p>من 85 إلى 90</p>
-        <button class="add-cart">أضف للسلة</button>
-      </div>
-      <div class="product-gallery">
-        <img src="images/product4-1.jpg" alt="">
-        <img src="images/product4-2.jpg" alt="">
-        <img src="images/product4-3.jpg" alt="">
-      </div>
-    </div>
-  </div>
+  <script>
+    // -----------------------------
+    // i18n content (AR/EN/TR)
+    // -----------------------------
+    const I18N = {
+      ar: {
+        brandName: "شركة طرح بلدنا للمحاصيل الزراعية",
+        brandSub: "أبو يوسف لتجارة الفول السوداني والمفروك",
+        sales: "المبيعات",
+        whatsApp: "واتساب",
+        kicker: "توريد محلي • تصدير عالمي",
+        heroTitle1: "فول سوداني",
+        heroTitle2: "بمواصفات مصانع",
+        heroTitle3: "… وجودة مضمونة",
+        heroDesc: "تصنيع وتجهيز وتوريد شكاير 50/25 كجم، وعبوات فاكيوم داخل كرتونة 10 كجم. توريد لجميع محافظات مصر وتصدير لأي مكان في العالم. السعر عند الطلب.",
+        ctaProducts: "شاهد المنتجات",
+        ctaQuote: "اطلب عرض سعر",
+        ctaCall: "اتصال بالمبيعات",
+        location: "أبورواش – الجيزة – مصر",
+        delivery: "سرعة توصيل",
+        export: "تصدير لأي مكان في العالم",
+        quickTitle: "التعبئة والتجهيز",
+        pack1: "شكاير 50 كجم و25 كجم",
+        pack2: "فاكيوم عبوات داخل كرتونة 10 كجم",
+        pack3: "تجهيز حسب طلب العميل",
+        priceNote: "السعر عند الطلب",
+        whyTitle: "لماذا نحن؟",
+        whyDesc: "خبرة وجودة وتسعير وتوصيل… بمعايير شركات كبيرة لخدمة السوق المحلي والتصدير.",
+        w1t: "خبرة طويلة", w1d: "خبرة كبيرة في تجارة وتصنيع الفول السوداني والمفروك والتعامل مع المصانع والشركات.",
+        w2t: "جودة مضمونة", w2d: "فرز وتجهيز وتعبئة بمعايير دقيقة لضمان منتج نظيف ومطابق للمواصفات.",
+        w3t: "أسعار تنافسية", w3d: "أفضل قيمة مقابل الجودة مع مرونة في الكميات والتعاقدات (السعر عند الطلب).",
+        w4t: "سرعة توصيل", w4d: "التزام بمواعيد التسليم داخل مصر وتجهيز سريع لطلبات التصدير لأي مكان في العالم.",
+        prodTitle: "المنتجات",
+        prodDesc: "6 منتجات — لكل منتج 4 صور (من GitHub). مناسب للمصانع، الفنادق، المحلات، والعطارين.",
+        p1t: "فول بقشره", p1d: "مناسب للتحميص والتعبئة والتصدير.",
+        p2t: "فول مقشر", p2d: "جاهز للتصنيع أو التعبئة — مناسب للمكسرات والمقالى.",
+        p3t: "فول حلواني", p3d: "مخصص للحلويات والمنتجات الغذائية عالية الجودة.",
+        p4t: "فول مجروش", p4d: "مناسب للحلويات والطعوم والتغطية.",
+        p5t: "فول لشغل الطعوم والشيكولاتة", p5d: "مثالي للمصانع المتخصصة في الطعوم والشيكولاتة.",
+        p6t: "فول بيور لعمل زبدة الفول", p6d: "جودة نقية 100% مناسبة لإنتاج زبدة الفول السوداني.",
+        contactTitle: "التواصل",
+        contactDesc: "للطلبات المحلية والتصدير — السعر عند الطلب.",
+        contactPhone2: "تواصل",
+        serviceTitle: "خدماتنا",
+        s1: "تصنيع • تجهيز • توريد",
+        s2: "توريد لجميع محافظات مصر",
+        s3: "تصدير لأي مكان في العالم",
+        s4: "شكاير 50/25 كجم + فاكيوم 10 كجم",
+        footerNote: "تصنيع • تجهيز • توريد • تصدير | السعر عند الطلب"
+      },
+      en: {
+        brandName: "Tarh Bledna Agricultural Crops Company",
+        brandSub: "Abu Youssef – Peanuts & Crushed Peanuts Trading",
+        sales: "Sales",
+        whatsApp: "WhatsApp",
+        kicker: "Local Supply • Worldwide Export",
+        heroTitle1: "Premium Peanuts",
+        heroTitle2: "Factory-Grade Specs",
+        heroTitle3: "… Guaranteed Quality",
+        heroDesc: "Processing, packing, and supplying 50/25 kg bags and vacuum packs in 10 kg cartons. Nationwide delivery across Egypt and worldwide export. Price upon request.",
+        ctaProducts: "View Products",
+        ctaQuote: "Request a Quote",
+        ctaCall: "Call Sales",
+        location: "Abu Rawash – Giza – Egypt",
+        delivery: "Fast Delivery",
+        export: "Worldwide Export",
+        quickTitle: "Packaging & Processing",
+        pack1: "50 kg & 25 kg bags",
+        pack2: "Vacuum packs in 10 kg cartons",
+        pack3: "Custom packaging upon request",
+        priceNote: "Price upon request",
+        whyTitle: "Why Choose Us?",
+        whyDesc: "Experience, quality, competitive pricing, and reliable delivery — corporate standards for local & export markets.",
+        w1t: "Long Experience", w1d: "Extensive experience in peanut processing and trading for factories and companies.",
+        w2t: "Guaranteed Quality", w2d: "Strict sorting, processing, and packaging standards for premium-grade products.",
+        w3t: "Competitive Prices", w3d: "Best value with flexible quantities and contracts (price upon request).",
+        w4t: "Fast Delivery", w4d: "On-time delivery across Egypt and fast export readiness worldwide.",
+        prodTitle: "Products",
+        prodDesc: "6 products — each with 4 photos (from GitHub). Suitable for factories, hotels, stores, and spice shops.",
+        p1t: "Peanuts in Shell", p1d: "Ideal for roasting, packing, and export.",
+        p2t: "Shelled Peanuts", p2d: "Ready for manufacturing or packaging — perfect for nuts & roasting shops.",
+        p3t: "Confectionery Peanuts", p3d: "High-grade peanuts for sweets and premium food products.",
+        p4t: "Crushed Peanuts", p4d: "Perfect for toppings, flavors, and confectionery.",
+        p5t: "Peanuts for Coating & Chocolate", p5d: "Ideal for coating and chocolate factories.",
+        p6t: "Premium Peanuts for Peanut Butter", p6d: "100% pure quality for peanut butter production.",
+        contactTitle: "Contact",
+        contactDesc: "For local orders and export — price upon request.",
+        contactPhone2: "Contact",
+        serviceTitle: "Our Services",
+        s1: "Processing • Packaging • Supply",
+        s2: "Delivery across all Egypt governorates",
+        s3: "Worldwide export",
+        s4: "50/25 kg bags + 10 kg vacuum cartons",
+        footerNote: "Processing • Packaging • Supply • Export | Price upon request"
+      },
+      tr: {
+        brandName: "Tarh Bledna Tarımsal Ürünler Şirketi",
+        brandSub: "Abu Youssef – Yer Fıstığı ve Kırık Fıstık Ticareti",
+        sales: "Satış",
+        whatsApp: "WhatsApp",
+        kicker: "Yerli Tedarik • Dünya Çapında İhracat",
+        heroTitle1: "Kaliteli Yer Fıstığı",
+        heroTitle2: "Fabrika Standartlarında",
+        heroTitle3: "… Garantili Kalite",
+        heroDesc: "50/25 kg çuvallar ve 10 kg kolide vakumlu ambalaj seçenekleri. Mısır genelinde teslimat ve tüm dünyaya ihracat. Fiyat teklifi ile.",
+        ctaProducts: "Ürünleri Gör",
+        ctaQuote: "Teklif Al",
+        ctaCall: "Satışı Ara",
+        location: "Abu Rawash – Giza – Mısır",
+        delivery: "Hızlı Teslimat",
+        export: "Dünya Çapında İhracat",
+        quickTitle: "Ambalaj & İşleme",
+        pack1: "50 kg & 25 kg çuvallar",
+        pack2: "10 kg kolide vakumlu ambalaj",
+        pack3: "Talebe göre özel ambalaj",
+        priceNote: "Fiyat teklifi ile",
+        whyTitle: "Neden Biz?",
+        whyDesc: "Tecrübe, kalite, rekabetçi fiyat ve güvenilir teslimat — yerel ve ihracat için kurumsal standartlar.",
+        w1t: "Uzun Tecrübe", w1d: "Fabrika ve şirketlere yönelik yer fıstığı işleme ve ticarette güçlü tecrübe.",
+        w2t: "Garantili Kalite", w2d: "Sıkı eleme, işleme ve paketleme standartları.",
+        w3t: "Rekabetçi Fiyat", w3d: "Esnek miktar ve anlaşmalarla en iyi değer (fiyat teklifi ile).",
+        w4t: "Hızlı Teslimat", w4t2: "Hızlı Teslimat", w4d: "Mısır içinde zamanında teslimat ve hızlı ihracata hazırlık.",
+        prodTitle: "Ürünler",
+        prodDesc: "6 ürün — her ürün için 4 fotoğraf (GitHub). Fabrikalar, oteller ve mağazalar için uygun.",
+        p1t: "Kabuklu Yer Fıstığı", p1d: "Kavurma, paketleme ve ihracat için ideal.",
+        p2t: "Kabuksuz Yer Fıstığı", p2d: "Üretim ve paketleme için hazır.",
+        p3t: "Şekerleme Tipi Fıstık", p3d: "Tatlı ve premium gıda üretimi için.",
+        p4t: "Kırık Yer Fıstığı", p4d: "Kaplama, aroma ve tatlılar için.",
+        p5t: "Çikolata & Kaplama İçin", p5d: "Çikolata ve kaplama üretimi için ideal.",
+        p6t: "Fıstık Ezmesi İçin Saf", p6d: "Fıstık ezmesi üretimi için %100 saf kalite.",
+        contactTitle: "İletişim",
+        contactDesc: "Yerli sipariş ve ihracat için — fiyat teklifi ile.",
+        contactPhone2: "İletişim",
+        serviceTitle: "Hizmetlerimiz",
+        s1: "İşleme • Ambalaj • Tedarik",
+        s2: "Mısır genelinde teslimat",
+        s3: "Dünya çapında ihracat",
+        s4: "50/25 kg çuval + 10 kg vakum kolisi",
+        footerNote: "İşleme • Ambalaj • Tedarik • İhracat | Fiyat teklifi ile"
+      }
+    };
 
-  <!-- السلة -->
-  <div class="cart">
-    <h3>🛒 السلة</h3>
-    <ul id="cart-items"></ul>
-    <button id="send-order">إرسال الطلب عبر واتساب</button>
-  </div>
-</section>
+    // -----------------------------
+    // Init banner, messenger, year
+    // -----------------------------
+    document.getElementById("year").textContent = new Date().getFullYear();
+    document.getElementById("messengerBtn").href = MESSENGER_URL || "#";
+    document.getElementById("messengerFab").href = MESSENGER_URL || "#";
 
-<section id="why">
-  <h2 class="section-title">لماذا تختار طرح بلدنا؟</h2>
-  <div class="trust">
-    <div class="trust-card">
-      <h3>خبرة طويلة</h3>
-      <p>أكثر من 15 عامًا من الخبرة في تجارة وتوريد الفول السوداني، نفهم احتياجات السوق ونعرف كيف نلبيها بثبات.</p>
-    </div>
+    const heroImg = document.getElementById("heroBannerImg");
+    heroImg.src = HERO_BANNER_URL || "";
 
-    <div class="trust-card">
-      <h3>جودة مضمونة</h3>
-      <p>نحرص على اختيار المحصول بعناية، مع فرز وتخزين جيد يضمن جودة ثابتة ترضي التجار والمستهلكين.</p>
-    </div>
+    // -----------------------------
+    // Fill product images
+    // -----------------------------
+    function fillProductImages(){
+      document.querySelectorAll(".prod").forEach(card=>{
+        const key = card.getAttribute("data-product");
+        const imgs = (PRODUCT_IMAGES[key] || []);
+        const nodes = card.querySelectorAll(".gallery img");
+        nodes.forEach((imgEl, idx)=>{
+          const url = imgs[idx] || "";
+          imgEl.src = url;
+          imgEl.loading = "lazy";
+        });
+      });
+    }
+    fillProductImages();
 
-    <div class="trust-card">
-      <h3>أسعار تنافسية</h3>
-      <p>نقدم أفضل سعر مقابل الجودة، مع مرونة في التعامل والكميات بما يناسب السوق المحلي والتصدير.</p>
-    </div>
+    // -----------------------------
+    // Language switch (AR/EN/TR)
+    // -----------------------------
+    let currentLang = "ar";
 
-    <div class="trust-card">
-      <h3>التزام في التوريد</h3>
-      <p>نلتزم بمواعيد التسليم والكميات المتفق عليها، لأن الثقة أساس التعامل المستمر.</p>
-    </div>
-  </div>
-</section>
+    function applyLang(lang){
+      currentLang = lang;
 
-<section id="contact">
-  <h2 class="section-title">تواصل معنا</h2>
-  <div class="contact">
-    <p>📍 أبورواش – الجيزة</p>
-    <p>📞 01126773698 / 01020508423</p>
-    <p>📧 tarhbladna@gmail.com</p>
-    <a href="https://wa.me/201020508423">واتساب مباشر</a>
-  </div>
-</section>
+      // rtl/ltr switching
+      const isRTL = (lang === "ar");
+      document.documentElement.lang = lang;
+      document.documentElement.dir = isRTL ? "rtl" : "ltr";
+      document.body.style.fontFamily = isRTL
+        ? '"Cairo","Inter",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif'
+        : '"Inter","Cairo",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif';
 
-<footer>
-  © 2026 طرح بلدنا — جميع الحقوق محفوظة
-</footer>
+      // update texts
+      const dict = I18N[lang] || I18N.ar;
+      document.querySelectorAll("[data-i18n]").forEach(el=>{
+        const key = el.getAttribute("data-i18n");
+        if (dict[key]) el.textContent = dict[key];
+      });
 
-<script>
-// تبديل الصور عند الضغط
-document.querySelectorAll('.product').forEach(product => {
-  const mainImg = product.querySelector('.main-img');
-  const galleryImgs = product.querySelectorAll('.product-gallery img');
+      // active button
+      document.querySelectorAll(".lang button").forEach(b=>{
+        b.classList.toggle("active", b.getAttribute("data-lang") === lang);
+      });
+    }
 
-  galleryImgs.forEach(img => {
-    img.addEventListener('click', () => {
-      const tempSrc = mainImg.src;
-      mainImg.src = img.src;
-      img.src = tempSrc;
+    document.querySelectorAll(".lang button").forEach(btn=>{
+      btn.addEventListener("click", ()=> applyLang(btn.getAttribute("data-lang")));
     });
-  });
-});
+    applyLang("ar");
 
-// السلة
-const cartItems = document.getElementById('cart-items');
-const addButtons = document.querySelectorAll('.add-cart');
-const sendOrderBtn = document.getElementById('send-order');
-let cart = [];
-
-addButtons.forEach(btn => {
-  btn.addEventListener('click', () => {
-    const productName = btn.parentElement.querySelector('h3').innerText;
-    cart.push(productName);
-    renderCart();
-  });
-});
-
-function renderCart(){
-  cartItems.innerHTML = '';
-  cart.forEach(item => {
-    const li = document.createElement('li');
-    li.textContent = item;
-    cartItems.appendChild(li);
-  });
-}
-
-// إرسال الطلب عبر واتساب
-sendOrderBtn.addEventListener('click', () => {
-  if(cart.length === 0){
-    alert('السلة فارغة!');
-    return;
-  }
-  const message = `مرحبًا، أود طلب المنتجات التالية:\n- ${cart.join('\n- ')}`;
-  const url = `https://wa.me/201126773698?text=${encodeURIComponent(message)}`;
-  window.open(url, '_blank');
-});
-</script>
-
+    // -----------------------------
+    // ToTop button show/hide
+    // -----------------------------
+    const toTop = document.getElementById("toTop");
+    window.addEventListener("scroll", ()=>{
+      if (window.scrollY > 700) toTop.classList.add("show");
+      else toTop.classList.remove("show");
+    });
+  </script>
 </body>
 </html>
