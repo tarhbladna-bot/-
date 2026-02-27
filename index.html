@@ -28,22 +28,22 @@
       --shadow: 0 18px 48px rgba(0,0,0,.55);
       --shadow2: 0 26px 70px rgba(0,0,0,.62);
       --radius: 18px;
-      --ring: 0 0 0 3px rgba(225,29,72,.28);
+      --danger:#ff4d4d;
+      --ok:#37d67a;
     }
-
     *{box-sizing:border-box}
     html,body{margin:0;padding:0;background:var(--bg);color:var(--text)}
     body{
-      font-family: "Cairo","Inter",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      font-family:"Cairo","Inter",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
       overflow-x:hidden;
     }
     a{color:inherit}
+    img{max-width:100%}
     .wrap{max-width:1180px;margin:0 auto;padding:0 16px}
-    .hide{display:none !important}
 
     /* Topbar */
     .topbar{
-      position:sticky;top:0;z-index:80;
+      position:sticky;top:0;z-index:60;
       background: rgba(5,5,8,.72);
       backdrop-filter: blur(14px);
       border-bottom: 1px solid rgba(255,255,255,.08);
@@ -75,11 +75,10 @@
       padding:10px 12px;border-radius:999px;text-decoration:none;
       border:1px solid var(--border);background: rgba(255,255,255,.04);
       font-weight:900;
-      transition: transform .2s ease, border-color .2s ease, background .2s ease, box-shadow .2s ease;
-      cursor:pointer;
+      transition: transform .2s ease, border-color .2s ease, background .2s ease;
+      white-space:nowrap;
     }
     .pill:hover{transform: translateY(-1px);border-color: rgba(225,29,72,.32);background: rgba(255,255,255,.06)}
-    .pill:focus{outline:none; box-shadow: var(--ring)}
     .pillRed{
       background: linear-gradient(90deg, var(--red), var(--red2));
       border-color: rgba(225,29,72,.35);
@@ -101,22 +100,30 @@
       background: rgba(225,29,72,.18);
       border:1px solid rgba(225,29,72,.35);
     }
+
+    /* Cart button */
     .cartBtn{
+      display:inline-flex;align-items:center;gap:10px;
+      padding:10px 12px;border-radius:999px;text-decoration:none;
+      border:1px solid rgba(225,29,72,.25);
+      background: rgba(225,29,72,.10);
+      font-weight:950;
+      cursor:pointer;
+      transition: transform .2s ease, background .2s ease, border-color .2s ease;
       position:relative;
-      padding-inline:14px;
     }
+    .cartBtn:hover{transform: translateY(-1px);background: rgba(225,29,72,.14);border-color: rgba(225,29,72,.35)}
     .cartCount{
       position:absolute;
-      top:-6px;
-      inset-inline-end:-6px;
+      top:-6px;left:-6px;
       min-width:20px;height:20px;
+      padding:0 6px;
       border-radius:999px;
-      background: linear-gradient(135deg, var(--red), var(--red2));
-      border:1px solid rgba(255,255,255,.22);
+      background: linear-gradient(90deg, var(--red), var(--red2));
       display:grid;place-items:center;
       font-size:12px;font-weight:950;
-      padding:0 6px;
-      box-shadow: 0 16px 30px rgba(225,29,72,.22);
+      border:1px solid rgba(255,255,255,.18);
+      box-shadow: 0 10px 20px rgba(225,29,72,.25);
     }
 
     /* Hero */
@@ -129,6 +136,7 @@
       position:relative;
       overflow:hidden;
     }
+
     .heroBanner{
       margin: 14px auto 0;
       border-radius: 22px;
@@ -142,7 +150,7 @@
     .heroBanner:after{
       content:"";
       position:absolute;inset:0;
-      background: linear-gradient(180deg, rgba(5,5,8,.12), rgba(5,5,8,.55));
+      background: linear-gradient(180deg, rgba(5,5,8,.15), rgba(5,5,8,.52));
       pointer-events:none;
     }
 
@@ -175,7 +183,7 @@
       color: var(--text);
     }
     .accent:after{
-      content:"";position:absolute;left:0;right:0;bottom:.08em;height:.32em;
+      content:"";position:absolute;left:0;right:0;bottom:.08em;height:.30em;
       background: linear-gradient(90deg, rgba(225,29,72,.0), rgba(225,29,72,.78), rgba(225,29,72,.0));
       border-radius:999px;z-index:-1;
     }
@@ -189,10 +197,11 @@
     .btn{
       display:inline-flex;align-items:center;gap:10px;
       padding:12px 16px;border-radius:14px;
-      text-decoration:none;font-weight:950;letter-spacing:.2px;
+      text-decoration:none;font-weight:980;letter-spacing:.2px;
       border:1px solid var(--border);
       background: rgba(255,255,255,.04);
       transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease, background .2s ease;
+      cursor:pointer;
     }
     .btn:hover{transform: translateY(-2px);border-color: rgba(225,29,72,.32);background: rgba(255,255,255,.06)}
     .btnPrimary{
@@ -244,7 +253,7 @@
     .card{
       grid-column: span 3;
       border-radius: var(--radius);
-      border:1px solid var(--border);
+      border:1px solid rgba(225,29,72,.22);
       background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.04));
       box-shadow: var(--shadow);
       padding: 18px 16px;
@@ -252,12 +261,12 @@
       overflow:hidden;
       transition: transform .25s ease, border-color .25s ease, background .25s ease, box-shadow .25s ease;
     }
-    .card:hover{transform: translateY(-6px);border-color: rgba(225,29,72,.55);background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.05));box-shadow: var(--shadow2)}
+    .card:hover{transform: translateY(-6px);border-color: rgba(225,29,72,.45);background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.05));box-shadow: var(--shadow2)}
     .ico{
       width:44px;height:44px;border-radius:14px;
       display:grid;place-items:center;
       background: rgba(225,29,72,.12);
-      border:1px solid rgba(225,29,72,.35);
+      border:1px solid rgba(225,29,72,.25);
       box-shadow: 0 10px 26px rgba(225,29,72,.12);
       margin-bottom:10px;
     }
@@ -265,147 +274,87 @@
     .card h4{margin:6px 0 6px;font-size:18px;font-weight:980}
     .card p{margin:0;color:var(--muted);line-height:1.9;font-weight:850;font-size:14.5px}
 
-    /* Products */
-    .toolsRow{
-      display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:16px;
-    }
-    .searchBox{
-      flex:1;
-      min-width:220px;
-      display:flex;align-items:center;gap:10px;
-      border-radius: 14px;
-      border:1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.04);
-      padding: 10px 12px;
-      box-shadow: 0 10px 26px rgba(0,0,0,.25);
-    }
-    .searchBox input{
-      width:100%;
-      border:0;outline:none;
-      background:transparent;color:var(--text);
-      font-weight:850;
-      font-family: inherit;
-    }
-    .chip{
-      display:inline-flex;align-items:center;gap:8px;
-      padding:10px 12px;border-radius:999px;
-      border:1px solid rgba(225,29,72,.35);
-      background: rgba(225,29,72,.10);
-      font-weight:950;
-      cursor:pointer;
-      user-select:none;
-      transition: transform .2s ease, background .2s ease, border-color .2s ease;
-    }
-    .chip:hover{transform: translateY(-1px);border-color: rgba(225,29,72,.55);background: rgba(225,29,72,.16)}
-    .chip.active{background: linear-gradient(90deg, rgba(225,29,72,.28), rgba(255,45,85,.18));}
-
+    /* Products (Responsive auto fit) */
     .productsGrid{
       display:grid;
-      grid-template-columns: repeat(12, 1fr);
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap:14px;
-      margin-top: 18px;
+      margin-top: 20px;
     }
     .prod{
-      grid-column: span 4;
       border-radius: 22px;
-      border: 1px solid rgba(225,29,72,.45);
+      border: 1px solid rgba(225,29,72,.28);
       background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.04));
       box-shadow: var(--shadow);
       overflow:hidden;
       position:relative;
       transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
     }
-    .prod:before{
-      content:"";
-      position:absolute; inset:-2px;
-      background: radial-gradient(360px 140px at 30% 0%, rgba(225,29,72,.22), transparent 60%);
-      pointer-events:none;
-      opacity:.95;
-    }
-    .prod:hover{transform: translateY(-6px);border-color: rgba(225,29,72,.75);box-shadow: var(--shadow2)}
-    .prodTop{padding:16px 16px 12px; position:relative}
+    .prod:hover{transform: translateY(-6px);border-color: rgba(225,29,72,.55);box-shadow: var(--shadow2)}
+    .prodTop{padding:16px 16px 10px}
     .prodTitle{margin:0;font-size:18px;font-weight:980}
     .prodSub{margin:6px 0 0;color:var(--muted);font-weight:850;line-height:1.7;font-size:14px}
-    .priceRow{
-      margin-top:10px;
-      display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;
-    }
     .price{
-      display:inline-flex;align-items:center;gap:8px;
+      display:inline-flex;align-items:center;gap:8px;margin-top:10px;
       padding:8px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.12);
       background: rgba(255,255,255,.03);color:var(--muted);font-weight:950;font-size:13px;
     }
-    .addBtn{
-      display:inline-flex;align-items:center;gap:10px;
-      padding:10px 12px;border-radius:14px;
-      border:1px solid rgba(225,29,72,.42);
-      background: linear-gradient(90deg, rgba(225,29,72,.18), rgba(255,45,85,.10));
-      font-weight:980;
-      cursor:pointer;
-      transition: transform .2s ease, border-color .2s ease, background .2s ease, box-shadow .2s ease;
-    }
-    .addBtn:hover{transform: translateY(-1px);border-color: rgba(225,29,72,.70);box-shadow: 0 18px 40px rgba(225,29,72,.14)}
-    .addBtn i{color:#fff}
 
+    /* Gallery */
     .gallery{
       display:grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap:8px;
       padding: 0 16px 16px;
-      position:relative;
     }
     .shot{
       border-radius: 14px;
       overflow:hidden;
-      border:1px solid rgba(225,29,72,.32);
+      border:1px solid rgba(255,255,255,.10);
       background: rgba(0,0,0,.25);
-      aspect-ratio: 1/1;
+      aspect-ratio: 4/3;
       cursor:pointer;
-      transition: transform .2s ease, border-color .2s ease;
-    }
-    .shot:hover{transform: translateY(-2px);border-color: rgba(225,29,72,.70)}
-    .shot img{width:100%;height:100%;object-fit:cover;display:block}
-
-    /* Testimonials */
-    .testGrid{
-      display:grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap:14px;
-      margin-top:18px;
-    }
-    .tCard{
-      grid-column: span 4;
-      border-radius: 22px;
-      border:1px solid rgba(255,255,255,.12);
-      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.04));
-      box-shadow: var(--shadow);
-      padding: 16px;
       position:relative;
-      overflow:hidden;
     }
-    .tCard:before{
+    .shot:after{
       content:"";
-      position:absolute; inset:-2px;
-      background: radial-gradient(360px 140px at 30% 0%, rgba(225,29,72,.18), transparent 60%);
-      pointer-events:none;
-      opacity:.9;
+      position:absolute;inset:0;
+      background: radial-gradient(160px 120px at 60% 20%, rgba(225,29,72,.10), transparent 60%);
+      opacity:.9;pointer-events:none;
     }
-    .tTop{display:flex;align-items:center;gap:12px;position:relative}
-    .ava{
-      width:44px;height:44px;border-radius:16px;
-      border:1px solid rgba(225,29,72,.40);
-      background: rgba(225,29,72,.12);
-      display:grid;place-items:center;
+    .shot img{width:100%;height:100%;object-fit:cover;display:block;transition: transform .25s ease, filter .25s ease}
+    .shot:hover img{transform: scale(1.03);filter: contrast(1.06) saturate(1.06)}
+    .prodActions{
+      padding: 0 16px 16px;
+      display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:space-between;
+    }
+    .qty{
+      display:flex;align-items:center;gap:8px;
+      padding:8px;border-radius:14px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+    }
+    .qty button{
+      width:36px;height:36px;border-radius:12px;border:1px solid rgba(225,29,72,.25);
+      background: rgba(225,29,72,.10);color:#fff;cursor:pointer;
+      font-weight:980;font-size:16px;
+      transition: transform .15s ease, background .2s ease, border-color .2s ease;
+    }
+    .qty button:hover{transform: translateY(-1px);background: rgba(225,29,72,.16);border-color: rgba(225,29,72,.40)}
+    .qty span{
+      min-width:24px;text-align:center;font-weight:980;color:var(--text);
+    }
+    .addBtn{
+      flex:1;
+      display:inline-flex;align-items:center;justify-content:center;gap:10px;
+      padding:10px 12px;border-radius:14px;
+      border:1px solid rgba(225,29,72,.30);
+      background: linear-gradient(90deg, rgba(225,29,72,.20), rgba(255,45,85,.12));
+      cursor:pointer;
       font-weight:980;
-      box-shadow: 0 12px 28px rgba(225,29,72,.12);
-      overflow:hidden;
+      transition: transform .2s ease, border-color .2s ease, background .2s ease;
     }
-    .ava img{width:100%;height:100%;object-fit:cover;display:block}
-    .tName{font-weight:980}
-    .tMeta{color:var(--muted);font-weight:850;font-size:13px;margin-top:2px}
-    .stars{margin-inline-start:auto; display:flex; gap:3px; opacity:.95}
-    .stars i{color:#fff}
-    .tText{margin:12px 0 0;color:var(--muted);line-height:1.95;font-weight:850;position:relative}
+    .addBtn:hover{transform: translateY(-1px);border-color: rgba(225,29,72,.55);background: linear-gradient(90deg, rgba(225,29,72,.26), rgba(255,45,85,.16))}
 
     /* Contact */
     .contactBox{
@@ -413,13 +362,13 @@
       display:grid;grid-template-columns: 1fr 1fr;gap:14px;
     }
     .contactCard{
-      border-radius: 22px;
-      border:1px solid rgba(255,255,255,.12);
+      border-radius: 20px;
+      border:1px solid rgba(225,29,72,.22);
       background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.04));
       box-shadow: var(--shadow);
       padding: 16px;
     }
-    .contactRow{display:flex;align-items:center;gap:10px;color:var(--muted);font-weight:900;line-height:1.9;margin:10px 0;flex-wrap:wrap}
+    .contactRow{display:flex;align-items:center;gap:10px;color:var(--muted);font-weight:900;line-height:1.9;margin:10px 0}
     .contactRow i{color:#fff;opacity:.95}
     .socials{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
     .soc{
@@ -427,21 +376,38 @@
       padding:10px 12px;border-radius:14px;text-decoration:none;
       border:1px solid rgba(255,255,255,.12);
       background: rgba(255,255,255,.04);
-      font-weight:950;
+      font-weight:980;
       transition: transform .2s ease, border-color .2s ease, background .2s ease;
     }
     .soc:hover{transform: translateY(-2px);border-color: rgba(225,29,72,.32);background: rgba(255,255,255,.06)}
-    .miniKpi{
-      display:flex;gap:10px;flex-wrap:wrap;margin-top:10px
+
+    /* Testimonials */
+    .tGrid{
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap:14px;margin-top:18px;
     }
-    .kpi{
-      display:inline-flex;align-items:center;gap:10px;
-      padding:10px 12px;border-radius:14px;
-      border:1px solid rgba(225,29,72,.35);
-      background: rgba(225,29,72,.10);
-      font-weight:950;color:var(--text);
+    .tCard{
+      border-radius: 20px;
+      border:1px solid rgba(225,29,72,.20);
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.04));
+      box-shadow: var(--shadow);
+      padding: 16px;
+      position:relative;
+      overflow:hidden;
     }
-    .kpi span{color:var(--muted);font-weight:900}
+    .tHead{display:flex;gap:12px;align-items:center}
+    .avatar{
+      width:44px;height:44px;border-radius:16px;
+      border:1px solid rgba(225,29,72,.28);
+      background: radial-gradient(22px 22px at 30% 30%, rgba(255,45,85,.25), transparent 70%),
+                  rgba(255,255,255,.06);
+      display:grid;place-items:center;
+      font-weight:980;
+    }
+    .tName{font-weight:980}
+    .tStars{color:#ffd166;font-size:13px}
+    .tText{margin:10px 0 0;color:var(--muted);font-weight:850;line-height:1.9}
 
     /* Floating buttons */
     .float{
@@ -451,7 +417,7 @@
       display:flex;
       flex-direction:column;
       gap:10px;
-      z-index:90;
+      z-index:70;
     }
     .fab{
       width:52px;height:52px;border-radius:16px;
@@ -481,117 +447,91 @@
     }
 
     /* Lightbox */
-    .lb{
-      position:fixed; inset:0;
-      background: rgba(0,0,0,.72);
-      backdrop-filter: blur(10px);
-      z-index:200;
+    .lightboxOverlay{
+      position:fixed;inset:0;
+      background: rgba(0,0,0,.82);
+      backdrop-filter: blur(6px);
       display:none;
-      padding: 18px;
+      z-index:2000;
     }
-    .lb.show{display:grid; place-items:center}
-    .lbBox{
+    .lightboxOverlay.show{display:block}
+    .lightbox{
+      position:fixed;inset:0;
+      display:none;
+      z-index:2001;
+      padding: 18px;
+      align-items:center;justify-content:center;
+    }
+    .lightbox.show{display:flex}
+    .lightboxBox{
       width:min(980px, 96vw);
       border-radius: 22px;
-      border:1px solid rgba(255,255,255,.12);
-      background: rgba(10,10,14,.72);
+      border:1px solid rgba(225,29,72,.22);
+      background: rgba(10,10,14,.92);
       box-shadow: var(--shadow2);
       overflow:hidden;
       position:relative;
     }
     .lbTop{
-      display:flex; align-items:center; justify-content:space-between; gap:10px;
-      padding: 10px 12px;
-      border-bottom: 1px solid rgba(255,255,255,.08);
+      display:flex;align-items:center;justify-content:space-between;
+      gap:10px;
+      padding: 12px 12px;
+      border-bottom:1px solid rgba(255,255,255,.08);
       color: var(--muted);
       font-weight:900;
     }
-    .lbTop .x{
-      width:42px;height:42px;border-radius:14px;
-      border:1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.06);
+    .lbTop strong{color:var(--text)}
+    .lbClose{
+      width:40px;height:40px;border-radius:14px;
+      border:1px solid rgba(225,29,72,.25);
+      background: rgba(225,29,72,.12);
+      color:#fff;cursor:pointer;
       display:grid;place-items:center;
-      cursor:pointer;
     }
-    .lbMain{
-      position:relative;
-      aspect-ratio: 16/9;
+    .lbImg{
+      width:100%;
+      max-height: 75vh;
+      object-fit: contain;
       background: rgba(0,0,0,.35);
+      display:block;
     }
-    .lbMain img{width:100%;height:100%;object-fit:contain;display:block}
-    .lbNav{
-      position:absolute; inset:0;
-      display:flex; align-items:center; justify-content:space-between;
-      pointer-events:none;
-      padding: 0 10px;
-    }
-    .lbNav button{
-      pointer-events:auto;
-      width:44px;height:44px;border-radius:16px;
-      border:1px solid rgba(255,255,255,.14);
-      background: rgba(255,255,255,.06);
-      color: #fff;
-      cursor:pointer;
-      display:grid;place-items:center;
-      transition: transform .2s ease, background .2s ease, border-color .2s ease;
-    }
-    .lbNav button:hover{transform: translateY(-1px); border-color: rgba(225,29,72,.45); background: rgba(255,255,255,.09)}
-    .lbThumbs{
-      display:flex; gap:8px; padding: 12px;
-      overflow:auto;
-      border-top: 1px solid rgba(255,255,255,.08);
-      background: rgba(255,255,255,.02);
-    }
-    .lbThumb{
-      width:92px; height:62px;
-      border-radius: 14px;
-      border:1px solid rgba(255,255,255,.10);
-      overflow:hidden;
-      cursor:pointer;
-      flex: 0 0 auto;
-      opacity:.85;
-      transition: transform .2s ease, border-color .2s ease, opacity .2s ease;
-    }
-    .lbThumb:hover{transform: translateY(-1px); border-color: rgba(225,29,72,.45); opacity:1}
-    .lbThumb.active{border-color: rgba(225,29,72,.75); opacity:1}
-    .lbThumb img{width:100%;height:100%;object-fit:cover;display:block}
 
-    /* Cart Drawer */
+    /* Cart drawer (Responsive) */
     .overlay{
-      position:fixed; inset:0;
-      background: rgba(0,0,0,.55);
-      z-index:140;
+      position: fixed; inset:0;
+      background: rgba(0,0,0,.60);
+      backdrop-filter: blur(4px);
       display:none;
+      z-index:998;
     }
     .overlay.show{display:block}
     .drawer{
-      position:fixed;
-      top:0;
-      inset-inline-end:0;
-      width:min(460px, 92vw);
+      position: fixed;
+      top:0; right:0;
       height:100%;
-      z-index:150;
-      background: rgba(8,8,12,.86);
-      border-inline-start: 1px solid rgba(255,255,255,.10);
-      backdrop-filter: blur(14px);
-      transform: translateX(110%);
-      transition: transform .25s ease;
-      display:flex; flex-direction:column;
-      box-shadow: -22px 0 70px rgba(0,0,0,.55);
+      width:420px;
+      max-width:95%;
+      background:#0b0b0f;
+      border-left:1px solid rgba(225,29,72,.20);
+      box-shadow: -10px 0 40px rgba(0,0,0,.6);
+      transform: translateX(100%);
+      transition: transform .3s ease;
+      z-index:999;
+      display:flex;
+      flex-direction:column;
     }
-    [dir="ltr"] .drawer{transform: translateX(-110%)}
     .drawer.open{transform: translateX(0)}
     .drawerHead{
-      padding: 14px 14px 10px;
-      border-bottom: 1px solid rgba(255,255,255,.08);
-      display:flex; align-items:center; justify-content:space-between; gap:10px;
+      padding:14px 14px;
+      border-bottom:1px solid rgba(255,255,255,.08);
+      display:flex;align-items:center;justify-content:space-between;gap:12px;
     }
     .drawerHead h3{margin:0;font-weight:980}
-    .dClose{
-      width:44px;height:44px;border-radius:16px;
-      border:1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.06);
-      cursor:pointer;
+    .drawerClose{
+      width:40px;height:40px;border-radius:14px;
+      border:1px solid rgba(225,29,72,.25);
+      background: rgba(225,29,72,.12);
+      color:#fff;cursor:pointer;
       display:grid;place-items:center;
     }
     .drawerBody{
@@ -599,153 +539,121 @@
       overflow:auto;
       flex:1;
     }
-    .empty{
-      border:1px dashed rgba(225,29,72,.45);
-      border-radius: 18px;
-      padding: 16px;
-      color: var(--muted);
-      font-weight:900;
-      background: rgba(225,29,72,.06);
-    }
-    .cItem{
-      display:grid;
-      grid-template-columns: 70px 1fr;
-      gap:12px;
-      padding: 12px;
-      border-radius: 18px;
+    .cartItem{
       border:1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.04);
+      background: rgba(255,255,255,.03);
+      border-radius: 18px;
+      padding: 12px;
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
       margin-bottom:10px;
     }
-    .cImg{
-      width:70px;height:70px;border-radius:16px;
-      overflow:hidden;
-      border:1px solid rgba(225,29,72,.35);
+    .ciThumb{
+      width:56px;height:56px;border-radius:16px;
+      border:1px solid rgba(225,29,72,.22);
       background: rgba(0,0,0,.25);
+      overflow:hidden;
+      flex:0 0 auto;
     }
-    .cImg img{width:100%;height:100%;object-fit:cover;display:block}
-    .cTitle{font-weight:980}
-    .cMeta{color:var(--muted);font-weight:850;font-size:13px;margin-top:3px}
-    .cControls{
-      display:flex; gap:8px; flex-wrap:wrap; align-items:center;
-      margin-top:10px;
-    }
-    .qtyBox{
-      display:inline-flex; align-items:center; gap:8px;
-      padding: 8px 10px;
-      border-radius: 14px;
-      border:1px solid rgba(225,29,72,.35);
-      background: rgba(225,29,72,.10);
+    .ciThumb img{width:100%;height:100%;object-fit:cover;display:block}
+    .ciInfo{flex:1}
+    .ciTitle{font-weight:980}
+    .ciMeta{color:var(--muted);font-weight:850;font-size:13px;margin-top:4px}
+    .ciControls{display:flex;gap:8px;align-items:center;margin-top:10px;flex-wrap:wrap}
+    .miniBtn{
+      width:34px;height:34px;border-radius:12px;border:1px solid rgba(225,29,72,.25);
+      background: rgba(225,29,72,.10);color:#fff;cursor:pointer;
       font-weight:980;
     }
-    .qBtn{
-      width:36px;height:36px;border-radius:14px;
-      border:1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.06);
-      cursor:pointer;
-      display:grid;place-items:center;
-      transition: transform .15s ease, border-color .2s ease, background .2s ease;
+    .miniBtn.danger{border-color: rgba(255,77,77,.35); background: rgba(255,77,77,.12)}
+    .qtyNum{min-width:22px;text-align:center;font-weight:980}
+
+    .drawerFoot{
+      padding: 12px 14px;
+      border-top:1px solid rgba(255,255,255,.08);
+      display:grid;gap:10px;
     }
-    .qBtn:hover{transform: translateY(-1px); border-color: rgba(225,29,72,.45); background: rgba(255,255,255,.09)}
-    .rmBtn{
-      margin-inline-start:auto;
-      display:inline-flex; align-items:center; gap:8px;
-      padding: 8px 10px;
-      border-radius: 14px;
+    .note{
+      font-size:13px;
+      color:var(--muted);
+      font-weight:850;
+      line-height:1.7;
+    }
+    .drawerActions{
+      display:flex;gap:10px;flex-wrap:wrap;
+    }
+    .btnGhost{
+      flex:1;
+      display:inline-flex;align-items:center;justify-content:center;gap:10px;
+      padding:12px 12px;border-radius:14px;
       border:1px solid rgba(255,255,255,.12);
       background: rgba(255,255,255,.04);
-      cursor:pointer;
+      font-weight:980;cursor:pointer;
+    }
+    .btnDanger{
+      flex:1;
+      display:inline-flex;align-items:center;justify-content:center;gap:10px;
+      padding:12px 12px;border-radius:14px;
+      border:1px solid rgba(255,77,77,.30);
+      background: rgba(255,77,77,.12);
+      font-weight:980;cursor:pointer;
+    }
+
+    /* Visitor badge */
+    .vBadge{
+      display:inline-flex;align-items:center;gap:10px;
+      padding:10px 12px;border-radius:999px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+      color: var(--muted);
       font-weight:950;
     }
-    .rmBtn:hover{border-color: rgba(225,29,72,.45); background: rgba(255,255,255,.07)}
-    .drawerFoot{
-      border-top: 1px solid rgba(255,255,255,.08);
-      padding: 12px 14px 16px;
-      background: rgba(255,255,255,.02);
-    }
-    .sumRow{
-      display:flex; align-items:center; justify-content:space-between; gap:10px;
-      color: var(--muted);
-      font-weight:900;
-      margin-bottom:10px;
-    }
-    .sumRow strong{color: var(--text)}
-    .footBtns{display:flex; gap:10px; flex-wrap:wrap}
-    .fullBtn{
-      flex:1;
-      display:inline-flex; align-items:center; justify-content:center; gap:10px;
-      padding: 12px 14px;
-      border-radius: 16px;
-      border:1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.04);
-      font-weight:980;
-      cursor:pointer;
-      text-decoration:none;
-      transition: transform .2s ease, border-color .2s ease, background .2s ease, box-shadow .2s ease;
-    }
-    .fullBtn:hover{transform: translateY(-1px); border-color: rgba(225,29,72,.45); background: rgba(255,255,255,.06)}
-    .fullBtn.primary{
-      background: linear-gradient(90deg, var(--red), var(--red2));
-      border-color: rgba(225,29,72,.35);
-      box-shadow: 0 18px 40px rgba(225,29,72,.18);
-    }
-    .fullBtn.primary:hover{box-shadow: 0 26px 60px rgba(225,29,72,.24)}
-    .fullBtn.danger{
-      border-color: rgba(225,29,72,.45);
-      background: rgba(225,29,72,.10);
+    .vDot{
+      width:8px;height:8px;border-radius:99px;
+      background: var(--ok);
+      box-shadow: 0 0 0 6px rgba(55,214,122,.10);
     }
 
     /* Responsive */
     @media (max-width: 1024px){
       .heroGrid{grid-template-columns: 1fr}
       .card{grid-column: span 6}
-      .prod{grid-column: span 6}
-      .tCard{grid-column: span 6}
       .contactBox{grid-template-columns: 1fr}
-      .gallery{grid-template-columns: repeat(4, 1fr)}
+    }
+    @media (max-width: 768px){
+      .drawer{width:100%;max-width:100%}
+      .brand{min-width:auto}
+      .actions{justify-content:flex-start}
     }
     @media (max-width: 620px){
-      .actions{justify-content:flex-start}
-      .brand{min-width:auto}
       .card{grid-column: span 12}
-      .prod{grid-column: span 12}
-      .tCard{grid-column: span 12}
-      .gallery{grid-template-columns: repeat(4, 1fr)}
-      .lbMain{aspect-ratio: 4/3}
+      .pill{padding:9px 10px}
+      .btn{width:100%;justify-content:center}
+      .ctas{gap:10px}
     }
     @media (prefers-reduced-motion: reduce){
-      *{scroll-behavior:auto !important}
-      .card,.prod,.btn,.pill,.soc,.fab,.shot,.drawer{transition:none !important}
-      .card:hover,.prod:hover,.btn:hover,.pill:hover,.soc:hover,.fab:hover,.shot:hover{transform:none !important}
+      .card,.prod,.btn,.pill,.soc,.fab,.shot img,.drawer{transition:none}
+      .card:hover,.prod:hover,.btn:hover,.pill:hover,.soc:hover,.fab:hover{transform:none}
+      .shot:hover img{transform:none}
     }
   </style>
 </head>
 
 <body>
+  <!-- CONFIG -->
   <script>
-    // =============================
-    // CONFIG (للريبو بتاعك)
-    // =============================
     const CONFIG = {
-      brandAR: "شركة طرح بلدنا للمحاصيل الزراعية",
-      brandSubAR: "أبو يوسف لتجارة الفول السوداني والمفروك",
-      email: "tarhbladna@gmail.com",
+      // banner (ضع banner.png في نفس مكان index.html)
+      bannerUrl: "banner.png",
 
-      phoneSales: "01126773698",
-      phoneContact: "01020508423",
-
-      whatsappDigits: "201126773698", // +20 بدون +
-      addressAR: "أبورواش – الجيزة – مصر",
-
-      facebookUrl: "https://www.facebook.com/share/14b1DZ65PCg/",
-      instagramUrl: "https://www.instagram.com/efyos820?igsh=MXhxam40dGpweW12ag==",
+      // messenger chat link (لو عندك صفحة ماسنجر مباشرة حطها هنا)
+      // مثال: https://m.me/YOUR_PAGE_ID
       messengerUrl: "https://m.me/",
 
-      // banner في نفس فولدر index.html
-      heroBanner: "banner.png",
-
-      // صور المنتجات: نفس المسارات داخل الريبو
-      images: {
+      // IMPORTANT: GitHub Pages repo path is /tarehbaldna/
+      // لذلك نستخدم مسارات نسبية بدون "/" في البداية
+      productImages: {
         p1: ["products/p1/1.jpg","products/p1/2.jpg","products/p1/3.jpg","products/p1/4.jpg"],
         p2: ["products/p2/1.jpg","products/p2/2.jpg","products/p2/3.jpg","products/p2/4.jpg"],
         p3: ["products/p3/1.jpg","products/p3/2.jpg","products/p3/3.jpg","products/p3/4.jpg"],
@@ -754,9 +662,10 @@
         p6: ["products/p6/1.jpg","products/p6/2.jpg","products/p6/3.jpg","products/p6/4.jpg"],
       },
 
-      // عداد زيارات عالمي (CounterAPI) — غير الاسم لأي اسم فريد ليك
-      counterNamespace: "tarhbladna",
-      counterKey: "site_visits"
+      // Visitor counter (no server): local + simple "online" counter using CountAPI
+      // IMPORTANT: set repo identity
+      counterNamespace: "tarhbladna-bot",
+      counterKey: "tarehbaldna_visits"
     };
   </script>
 
@@ -778,21 +687,21 @@
           <button data-lang="tr">TR</button>
         </div>
 
-        <a class="pill" id="salesCall" href="#">
-          <i class="fa-solid fa-phone"></i>
-          <span data-i18n="sales">المبيعات</span>: <span id="salesPhoneTxt"></span>
-        </a>
-
-        <a class="pill pillRed" id="whatsTop" href="#" target="_blank" rel="noopener">
-          <i class="fa-brands fa-whatsapp"></i>
-          <span data-i18n="whatsApp">واتساب</span>
-        </a>
-
-        <button class="pill cartBtn" id="openCart" type="button" aria-label="Open cart">
+        <button class="cartBtn" id="openCartBtn" type="button" aria-label="Cart">
           <i class="fa-solid fa-cart-shopping"></i>
           <span data-i18n="cart">السلة</span>
           <span class="cartCount" id="cartCount">0</span>
         </button>
+
+        <a class="pill" href="tel:01126773698">
+          <i class="fa-solid fa-phone"></i>
+          <span data-i18n="sales">المبيعات</span>: 01126773698
+        </a>
+
+        <a class="pill pillRed" href="https://wa.me/201126773698" target="_blank" rel="noopener">
+          <i class="fa-brands fa-whatsapp"></i>
+          <span data-i18n="whatsApp">واتساب</span>
+        </a>
       </div>
     </div>
   </header>
@@ -827,9 +736,13 @@
               <i class="fa-solid fa-boxes-stacked"></i>
               <span data-i18n="ctaProducts">شاهد المنتجات</span>
             </a>
-            <button class="btn" id="openCart2" type="button">
+            <a class="btn" href="https://wa.me/201126773698" target="_blank" rel="noopener">
+              <i class="fa-brands fa-whatsapp"></i>
+              <span data-i18n="ctaQuote">اطلب عرض سعر</span>
+            </a>
+            <button class="btn" id="openCartHero" type="button">
               <i class="fa-solid fa-cart-shopping"></i>
-              <span data-i18n="ctaCart">افتح السلة</span>
+              <span data-i18n="openCart">افتح السلة</span>
             </button>
           </div>
 
@@ -837,6 +750,11 @@
             <div class="badge"><i class="fa-solid fa-location-dot"></i><span data-i18n="location">أبورواش – الجيزة – مصر</span></div>
             <div class="badge"><i class="fa-solid fa-truck-fast"></i><span data-i18n="delivery">سرعة توصيل</span></div>
             <div class="badge"><i class="fa-solid fa-file-export"></i><span data-i18n="export">تصدير لأي مكان في العالم</span></div>
+            <div class="vBadge" title="Visitors">
+              <span class="vDot"></span>
+              <span data-i18n="visitors">الزيارات</span>:
+              <span id="visitCount">—</span>
+            </div>
           </div>
         </div>
 
@@ -897,35 +815,29 @@
       <div class="secHead">
         <div>
           <h2 class="secTitle" data-i18n="prodTitle">المنتجات</h2>
-          <p class="secDesc" data-i18n="prodDesc">اختار الكمية واضف للسلة — وابعث طلبك فوراً على واتساب.</p>
+          <p class="secDesc" data-i18n="prodDesc">منتجات متنوعة بجودة عالية مناسبة للمصانع، الفنادق، المحلات، والعطارين.</p>
         </div>
       </div>
 
-      <div class="toolsRow">
-        <div class="searchBox" role="search">
-          <i class="fa-solid fa-magnifying-glass" style="opacity:.9"></i>
-          <input id="search" type="search" placeholder="ابحث عن منتج..." />
-        </div>
-        <div class="chip active" data-filter="all"><i class="fa-solid fa-layer-group"></i><span data-i18n="all">الكل</span></div>
-        <div class="chip" data-filter="export"><i class="fa-solid fa-file-export"></i><span data-i18n="chipExport">تصدير</span></div>
-        <div class="chip" data-filter="factory"><i class="fa-solid fa-industry"></i><span data-i18n="chipFactory">مصانع</span></div>
+      <div class="productsGrid" id="productsGrid">
+        <!-- injected by JS -->
       </div>
-
-      <div class="productsGrid" id="productsGrid"></div>
     </div>
   </section>
 
   <!-- TESTIMONIALS -->
-  <section class="section" id="reviews">
+  <section class="section" id="testimonials">
     <div class="wrap">
       <div class="secHead">
         <div>
-          <h2 class="secTitle" data-i18n="revTitle">آراء العملاء</h2>
-          <p class="secDesc" data-i18n="revDesc">شهادات حقيقية من عملاء تعاملوا مع شركة طرح بلدنا في السوق المحلي والتصدير.</p>
+          <h2 class="secTitle" data-i18n="tTitle">آراء العملاء</h2>
+          <p class="secDesc" data-i18n="tDesc">بعض آراء العملاء بعد تعاملهم مع شركة طرح بلدنا.</p>
         </div>
       </div>
 
-      <div class="testGrid" id="testGrid"></div>
+      <div class="tGrid" id="tGrid">
+        <!-- injected by JS -->
+      </div>
     </div>
   </section>
 
@@ -944,23 +856,17 @@
           <div class="contactRow"><i class="fa-solid fa-building"></i><span data-i18n="brandName">شركة طرح بلدنا للمحاصيل الزراعية</span></div>
           <div class="contactRow"><i class="fa-solid fa-user-tie"></i><span data-i18n="brandSub">أبو يوسف لتجارة الفول السوداني والمفروك</span></div>
 
-          <div class="contactRow"><i class="fa-solid fa-envelope"></i><span id="emailTxt"></span></div>
+          <div class="contactRow"><i class="fa-solid fa-phone"></i><span data-i18n="sales">المبيعات</span>: <a href="tel:01126773698">01126773698</a></div>
+          <div class="contactRow"><i class="fa-solid fa-phone"></i><span data-i18n="contactPhone2">تواصل</span>: <a href="tel:01020508423">01020508423</a></div>
 
-          <div class="contactRow"><i class="fa-solid fa-phone"></i><span data-i18n="sales">المبيعات</span>: <a id="salesPhoneLink" href="#">01126773698</a></div>
-          <div class="contactRow"><i class="fa-solid fa-phone"></i><span data-i18n="contactPhone2">تواصل</span>: <a id="contactPhoneLink" href="#">01020508423</a></div>
+          <div class="contactRow"><i class="fa-solid fa-envelope"></i><span>Email</span>: <a href="mailto:tarhbladna@gmail.com">tarhbladna@gmail.com</a></div>
           <div class="contactRow"><i class="fa-solid fa-location-dot"></i><span data-i18n="location">أبورواش – الجيزة – مصر</span></div>
-          <div class="contactRow"><i class="fa-solid fa-circle-info"></i><span data-i18n="priceNote">السعر عند الطلب</span></div>
-
-          <div class="miniKpi">
-            <div class="kpi"><i class="fa-solid fa-eye"></i><strong id="visitCount">—</strong> <span data-i18n="visits">زيارة</span></div>
-            <div class="kpi"><i class="fa-solid fa-cart-shopping"></i><strong id="cartMini">0</strong> <span data-i18n="items">عنصر بالسلة</span></div>
-          </div>
 
           <div class="socials">
-            <a class="soc" id="whatsContact" href="#" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
-            <a class="soc" id="fbLink" href="#" target="_blank" rel="noopener"><i class="fa-brands fa-facebook"></i> Facebook</a>
-            <a class="soc" id="igLink" href="#" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i> Instagram</a>
-            <a class="soc" id="msLink" href="#" target="_blank" rel="noopener"><i class="fa-brands fa-facebook-messenger"></i> Messenger</a>
+            <a class="soc" href="https://wa.me/201126773698" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+            <a class="soc" href="https://www.facebook.com/share/14b1DZ65PCg/" target="_blank" rel="noopener"><i class="fa-brands fa-facebook"></i> Facebook</a>
+            <a class="soc" href="https://www.instagram.com/efyos820?igsh=MXhxam40dGpweW12ag==" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i> Instagram</a>
+            <a class="soc" href="#" id="messengerBtn" target="_blank" rel="noopener"><i class="fa-brands fa-facebook-messenger"></i> Messenger</a>
           </div>
         </div>
 
@@ -972,13 +878,17 @@
           <div class="contactRow"><i class="fa-solid fa-check"></i><span data-i18n="s4">شكاير 50/25 كجم + فاكيوم 10 كجم</span></div>
 
           <div class="ctas" style="margin-top:12px">
-            <button class="btn btnPrimary" id="checkoutBtn" type="button">
-              <i class="fa-brands fa-whatsapp"></i><span data-i18n="ctaCheckout">اتمام الطلب على واتساب</span>
-            </button>
-            <button class="btn" id="openCart3" type="button">
-              <i class="fa-solid fa-cart-shopping"></i><span data-i18n="ctaCart">افتح السلة</span>
+            <a class="btn btnPrimary" href="https://wa.me/201126773698" target="_blank" rel="noopener">
+              <i class="fa-brands fa-whatsapp"></i><span data-i18n="ctaQuote">اطلب عرض سعر</span>
+            </a>
+            <a class="btn" href="tel:01126773698">
+              <i class="fa-solid fa-phone"></i><span data-i18n="ctaCall">اتصال بالمبيعات</span>
+            </a>
+            <button class="btn" id="openCartContact" type="button">
+              <i class="fa-solid fa-cart-shopping"></i><span data-i18n="openCart">افتح السلة</span>
             </button>
           </div>
+          <p class="note" data-i18n="cartNote">السلة تساعدك تختار المنتجات وتبعت طلبك مباشرة على واتساب.</p>
         </div>
       </div>
     </div>
@@ -986,8 +896,8 @@
 
   <!-- Floating Buttons -->
   <div class="float" aria-label="Floating actions">
-    <a class="fab red" id="whatsFab" href="#" target="_blank" rel="noopener" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
-    <a class="fab" id="callFab" href="#" title="Call"><i class="fa-solid fa-phone"></i></a>
+    <a class="fab red" href="https://wa.me/201126773698" target="_blank" rel="noopener" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+    <a class="fab" href="tel:01126773698" title="Call"><i class="fa-solid fa-phone"></i></a>
     <a class="fab" id="messengerFab" href="#" target="_blank" rel="noopener" title="Messenger"><i class="fa-brands fa-facebook-messenger"></i></a>
     <a class="fab toTop" id="toTop" href="#home" title="Top"><i class="fa-solid fa-arrow-up"></i></a>
   </div>
@@ -1002,581 +912,229 @@
   </footer>
 
   <!-- Lightbox -->
-  <div class="lb" id="lb" aria-hidden="true">
-    <div class="lbBox" role="dialog" aria-modal="true" aria-label="Image viewer">
+  <div class="lightboxOverlay" id="lbOverlay"></div>
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <div class="lightboxBox" role="dialog" aria-modal="true">
       <div class="lbTop">
-        <div id="lbTitle">—</div>
-        <div style="display:flex;gap:8px;align-items:center">
-          <div style="font-weight:950;color:rgba(243,244,246,.8)" id="lbIndex">—</div>
-          <div class="x" id="lbClose" title="Close"><i class="fa-solid fa-xmark"></i></div>
-        </div>
+        <div><strong id="lbTitle">—</strong></div>
+        <button class="lbClose" id="lbCloseBtn" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
       </div>
-
-      <div class="lbMain">
-        <img id="lbImg" alt="Preview" />
-        <div class="lbNav">
-          <button id="lbPrev" aria-label="Prev"><i class="fa-solid fa-chevron-left"></i></button>
-          <button id="lbNext" aria-label="Next"><i class="fa-solid fa-chevron-right"></i></button>
-        </div>
-      </div>
-
-      <div class="lbThumbs" id="lbThumbs"></div>
+      <img class="lbImg" id="lbImg" alt="Preview" />
     </div>
   </div>
 
   <!-- Cart Drawer -->
   <div class="overlay" id="overlay"></div>
-  <aside class="drawer" id="drawer" aria-label="Shopping cart">
+  <aside class="drawer" id="drawer" aria-label="Cart drawer">
     <div class="drawerHead">
-      <h3><i class="fa-solid fa-cart-shopping" style="margin-inline-end:8px;color:#fff"></i><span data-i18n="cart">السلة</span></h3>
-      <button class="dClose" id="closeCart" type="button" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+      <h3><i class="fa-solid fa-cart-shopping"></i> <span data-i18n="cart">السلة</span></h3>
+      <button class="drawerClose" id="closeCartBtn" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
     </div>
-
-    <div class="drawerBody" id="cartBody"></div>
-
+    <div class="drawerBody" id="cartItems"></div>
     <div class="drawerFoot">
-      <div class="sumRow">
-        <div><span data-i18n="totalItems">إجمالي العناصر</span></div>
-        <strong id="totalItems">0</strong>
-      </div>
-      <div class="footBtns">
-        <button class="fullBtn danger" id="clearCart" type="button"><i class="fa-solid fa-trash"></i><span data-i18n="clear">تفريغ السلة</span></button>
-        <button class="fullBtn primary" id="checkoutBtn2" type="button"><i class="fa-brands fa-whatsapp"></i><span data-i18n="ctaCheckout">اتمام الطلب على واتساب</span></button>
-      </div>
-      <div style="margin-top:10px;color:rgba(243,244,246,.65);font-weight:850;line-height:1.6">
-        <span data-i18n="notePrices">الأسعار عند الطلب — سيتم إرسال تفاصيل الطلب على واتساب لتأكيد الكميات والتعبئة.</span>
+      <div class="note" data-i18n="cartHint">اختر الكميات ثم اضغط "إرسال الطلب" وسيتم فتح واتساب برسالة جاهزة.</div>
+      <div class="drawerActions">
+        <button class="btnDanger" id="clearCart"><i class="fa-solid fa-trash"></i> <span data-i18n="clearCart">تفريغ السلة</span></button>
+        <button class="btnGhost" id="sendOrder"><i class="fa-brands fa-whatsapp"></i> <span data-i18n="sendOrder">إرسال الطلب</span></button>
       </div>
     </div>
   </aside>
 
   <script>
-    // =============================
-    // i18n (AR/EN/TR)
-    // =============================
+    // ---- i18n ----
     const I18N = {
       ar: {
-        brandName: CONFIG.brandAR,
-        brandSub: CONFIG.brandSubAR,
-        sales: "المبيعات",
-        whatsApp: "واتساب",
-        cart: "السلة",
-        ctaCart: "افتح السلة",
-        kicker: "توريد محلي • تصدير عالمي",
-        heroTitle1: "فول سوداني",
-        heroTitle2: "بمواصفات مصانع",
-        heroTitle3: "… وجودة مضمونة",
-        heroDesc: "تصنيع وتجهيز وتوريد شكاير 50/25 كجم، وعبوات فاكيوم داخل كرتونة 10 كجم. توريد لجميع محافظات مصر وتصدير لأي مكان في العالم. السعر عند الطلب.",
-        ctaProducts: "شاهد المنتجات",
-        location: CONFIG.addressAR,
-        delivery: "سرعة توصيل",
-        export: "تصدير لأي مكان في العالم",
-        quickTitle: "التعبئة والتجهيز",
-        pack1: "شكاير 50 كجم و25 كجم",
-        pack2: "فاكيوم عبوات داخل كرتونة 10 كجم",
-        pack3: "تجهيز حسب طلب العميل",
-        priceNote: "السعر عند الطلب",
-        whyTitle: "لماذا نحن؟",
-        whyDesc: "خبرة وجودة وتسعير وتوصيل… بمعايير شركات كبيرة لخدمة السوق المحلي والتصدير.",
-        w1t: "خبرة طويلة", w1d: "خبرة كبيرة في تجارة وتصنيع الفول السوداني والمفروك والتعامل مع المصانع والشركات.",
-        w2t: "جودة مضمونة", w2d: "فرز وتجهيز وتعبئة بمعايير دقيقة لضمان منتج نظيف ومطابق للمواصفات.",
-        w3t: "أسعار تنافسية", w3d: "أفضل قيمة مقابل الجودة مع مرونة في الكميات والتعاقدات (السعر عند الطلب).",
-        w4t: "سرعة توصيل", w4d: "التزام بمواعيد التسليم داخل مصر وتجهيز سريع لطلبات التصدير لأي مكان في العالم.",
-        prodTitle: "المنتجات",
-        prodDesc: "اختار الكمية واضف للسلة — وابعث طلبك فوراً على واتساب.",
-        all: "الكل",
-        chipExport: "تصدير",
-        chipFactory: "مصانع",
-        addToCart: "إضافة للسلة",
-        view: "عرض الصور",
-        totalItems: "إجمالي العناصر",
-        clear: "تفريغ السلة",
-        ctaCheckout: "اتمام الطلب على واتساب",
-        notePrices: "الأسعار عند الطلب — سيتم إرسال تفاصيل الطلب على واتساب لتأكيد الكميات والتعبئة.",
-        revTitle: "آراء العملاء",
-        revDesc: "شهادات حقيقية من عملاء تعاملوا مع شركة طرح بلدنا في السوق المحلي والتصدير.",
-        contactTitle: "التواصل",
-        contactDesc: "للطلبات المحلية والتصدير — السعر عند الطلب.",
-        contactPhone2: "تواصل",
-        serviceTitle: "خدماتنا",
-        s1: "تصنيع • تجهيز • توريد",
-        s2: "توريد لجميع محافظات مصر",
-        s3: "تصدير لأي مكان في العالم",
-        s4: "شكاير 50/25 كجم + فاكيوم 10 كجم",
-        visits: "زيارة",
-        items: "عنصر بالسلة",
-        footerNote: "تصنيع • تجهيز • توريد • تصدير | السعر عند الطلب"
+        brandName:"شركة طرح بلدنا للمحاصيل الزراعية",
+        brandSub:"أبو يوسف لتجارة الفول السوداني والمفروك",
+        sales:"المبيعات",
+        whatsApp:"واتساب",
+        cart:"السلة",
+        openCart:"افتح السلة",
+        kicker:"توريد محلي • تصدير عالمي",
+        heroTitle1:"فول سوداني",
+        heroTitle2:"بمواصفات مصانع",
+        heroTitle3:"… وجودة مضمونة",
+        heroDesc:"تصنيع وتجهيز وتوريد شكاير 50/25 كجم، وعبوات فاكيوم داخل كرتونة 10 كجم. توريد لجميع محافظات مصر وتصدير لأي مكان في العالم. السعر عند الطلب.",
+        ctaProducts:"شاهد المنتجات",
+        ctaQuote:"اطلب عرض سعر",
+        ctaCall:"اتصال بالمبيعات",
+        location:"أبورواش – الجيزة – مصر",
+        delivery:"سرعة توصيل",
+        export:"تصدير لأي مكان في العالم",
+        visitors:"الزيارات",
+        quickTitle:"التعبئة والتجهيز",
+        pack1:"شكاير 50 كجم و25 كجم",
+        pack2:"فاكيوم عبوات داخل كرتونة 10 كجم",
+        pack3:"تجهيز حسب طلب العميل",
+        priceNote:"السعر عند الطلب",
+        whyTitle:"لماذا نحن؟",
+        whyDesc:"خبرة وجودة وتسعير وتوصيل… بمعايير شركات كبيرة لخدمة السوق المحلي والتصدير.",
+        w1t:"خبرة طويلة", w1d:"خبرة كبيرة في تجارة وتصنيع الفول السوداني والمفروك والتعامل مع المصانع والشركات.",
+        w2t:"جودة مضمونة", w2d:"فرز وتجهيز وتعبئة بمعايير دقيقة لضمان منتج نظيف ومطابق للمواصفات.",
+        w3t:"أسعار تنافسية", w3d:"أفضل قيمة مقابل الجودة مع مرونة في الكميات والتعاقدات.",
+        w4t:"سرعة توصيل", w4d:"التزام بمواعيد التسليم داخل مصر وتجهيز سريع لطلبات التصدير لأي مكان في العالم.",
+        prodTitle:"المنتجات",
+        prodDesc:"منتجات متنوعة بجودة عالية مناسبة للمصانع، الفنادق، المحلات، والعطارين.",
+        contactTitle:"التواصل",
+        contactDesc:"للطلبات المحلية والتصدير — السعر عند الطلب.",
+        contactPhone2:"تواصل",
+        serviceTitle:"خدماتنا",
+        s1:"تصنيع • تجهيز • توريد",
+        s2:"توريد لجميع محافظات مصر",
+        s3:"تصدير لأي مكان في العالم",
+        s4:"شكاير 50/25 كجم + فاكيوم 10 كجم",
+        footerNote:"تصنيع • تجهيز • توريد • تصدير | السعر عند الطلب",
+        tTitle:"آراء العملاء",
+        tDesc:"بعض آراء العملاء بعد تعاملهم مع شركة طرح بلدنا.",
+        addToCart:"إضافة للسلة",
+        clearCart:"تفريغ السلة",
+        sendOrder:"إرسال الطلب",
+        cartHint:"اختر الكميات ثم اضغط \"إرسال الطلب\" وسيتم فتح واتساب برسالة جاهزة.",
+        cartNote:"السلة تساعدك تختار المنتجات وتبعت طلبك مباشرة على واتساب.",
+        cartEmpty:"السلة فارغة حالياً.",
+        added:"تمت الإضافة"
       },
       en: {
-        brandName: "Tarh Bledna Agricultural Crops Company",
-        brandSub: "Abu Youssef – Peanuts & Crushed Peanuts Trading",
-        sales: "Sales",
-        whatsApp: "WhatsApp",
-        cart: "Cart",
-        ctaCart: "Open Cart",
-        kicker: "Local Supply • Worldwide Export",
-        heroTitle1: "Premium Peanuts",
-        heroTitle2: "Factory-Grade Specs",
-        heroTitle3: "… Guaranteed Quality",
-        heroDesc: "Processing, packing, and supplying 50/25 kg bags and vacuum packs in 10 kg cartons. Nationwide delivery across Egypt and worldwide export. Price upon request.",
-        ctaProducts: "View Products",
-        location: "Abu Rawash – Giza – Egypt",
-        delivery: "Fast Delivery",
-        export: "Worldwide Export",
-        quickTitle: "Packaging & Processing",
-        pack1: "50 kg & 25 kg bags",
-        pack2: "Vacuum packs in 10 kg cartons",
-        pack3: "Custom packaging upon request",
-        priceNote: "Price upon request",
-        whyTitle: "Why Choose Us?",
-        whyDesc: "Experience, quality, competitive pricing, and reliable delivery — corporate standards for local & export markets.",
-        w1t: "Long Experience", w1d: "Extensive experience in peanut processing and trading for factories and companies.",
-        w2t: "Guaranteed Quality", w2d: "Strict sorting, processing, and packaging standards for premium-grade products.",
-        w3t: "Competitive Value", w3d: "Best value with flexible quantities and contracts (price upon request).",
-        w4t: "Fast Delivery", w4d: "On-time delivery across Egypt and fast export readiness worldwide.",
-        prodTitle: "Products",
-        prodDesc: "Choose quantity, add to cart, and send your order on WhatsApp.",
-        all: "All",
-        chipExport: "Export",
-        chipFactory: "Factories",
-        addToCart: "Add to Cart",
-        view: "View Photos",
-        totalItems: "Total items",
-        clear: "Clear cart",
-        ctaCheckout: "Checkout on WhatsApp",
-        notePrices: "Prices upon request — your order details will be sent via WhatsApp for confirmation.",
-        revTitle: "Customer Reviews",
-        revDesc: "Real feedback from clients who worked with Tarh Bledna locally and for export.",
-        contactTitle: "Contact",
-        contactDesc: "For local orders and export — price upon request.",
-        contactPhone2: "Contact",
-        serviceTitle: "Our Services",
-        s1: "Processing • Packaging • Supply",
-        s2: "Delivery across all Egypt governorates",
-        s3: "Worldwide export",
-        s4: "50/25 kg bags + 10 kg vacuum cartons",
-        visits: "visits",
-        items: "items in cart",
-        footerNote: "Processing • Packaging • Supply • Export | Price upon request"
+        brandName:"Tarh Bledna Agricultural Crops Company",
+        brandSub:"Abu Youssef – Peanuts & Crushed Peanuts Trading",
+        sales:"Sales",
+        whatsApp:"WhatsApp",
+        cart:"Cart",
+        openCart:"Open Cart",
+        kicker:"Local Supply • Worldwide Export",
+        heroTitle1:"Premium Peanuts",
+        heroTitle2:"Factory-Grade Specs",
+        heroTitle3:"… Guaranteed Quality",
+        heroDesc:"Processing, packing, and supplying 50/25 kg bags and vacuum packs in 10 kg cartons. Nationwide delivery across Egypt and worldwide export. Price upon request.",
+        ctaProducts:"View Products",
+        ctaQuote:"Request a Quote",
+        ctaCall:"Call Sales",
+        location:"Abu Rawash – Giza – Egypt",
+        delivery:"Fast Delivery",
+        export:"Worldwide Export",
+        visitors:"Visits",
+        quickTitle:"Packaging & Processing",
+        pack1:"50 kg & 25 kg bags",
+        pack2:"Vacuum packs in 10 kg cartons",
+        pack3:"Custom packing upon request",
+        priceNote:"Price upon request",
+        whyTitle:"Why Choose Us?",
+        whyDesc:"Experience, quality, competitive pricing, and reliable delivery — corporate standards for local & export markets.",
+        w1t:"Long Experience", w1d:"Extensive experience in peanut processing and trading for factories and companies.",
+        w2t:"Guaranteed Quality", w2d:"Strict sorting, processing, and packaging standards for premium-grade products.",
+        w3t:"Competitive Prices", w3d:"Best value with flexible quantities and contracts.",
+        w4t:"Fast Delivery", w4d:"On-time delivery across Egypt and fast export readiness worldwide.",
+        prodTitle:"Products",
+        prodDesc:"A variety of high-quality products suitable for factories, hotels, stores, and spice shops.",
+        contactTitle:"Contact",
+        contactDesc:"For local orders and export — price upon request.",
+        contactPhone2:"Contact",
+        serviceTitle:"Our Services",
+        s1:"Processing • Packaging • Supply",
+        s2:"Delivery across all Egypt governorates",
+        s3:"Worldwide export",
+        s4:"50/25 kg bags + 10 kg vacuum cartons",
+        footerNote:"Processing • Packaging • Supply • Export | Price upon request",
+        tTitle:"Customer Reviews",
+        tDesc:"A few customer opinions after dealing with Tarh Bledna.",
+        addToCart:"Add to Cart",
+        clearCart:"Clear Cart",
+        sendOrder:"Send Order",
+        cartHint:"Choose quantities then click \"Send Order\" to open WhatsApp with a ready message.",
+        cartNote:"Cart helps you select products and send your order directly on WhatsApp.",
+        cartEmpty:"Your cart is currently empty.",
+        added:"Added"
       },
       tr: {
-        brandName: "Tarh Bledna Tarımsal Ürünler Şirketi",
-        brandSub: "Abu Youssef – Yer Fıstığı ve Kırık Fıstık Ticareti",
-        sales: "Satış",
-        whatsApp: "WhatsApp",
-        cart: "Sepet",
-        ctaCart: "Sepeti Aç",
-        kicker: "Yerli Tedarik • Dünya Çapında İhracat",
-        heroTitle1: "Kaliteli Yer Fıstığı",
-        heroTitle2: "Fabrika Standartlarında",
-        heroTitle3: "… Garantili Kalite",
-        heroDesc: "50/25 kg çuvallar ve 10 kg kolide vakumlu ambalaj seçenekleri. Mısır genelinde teslimat ve tüm dünyaya ihracat. Fiyat teklifi ile.",
-        ctaProducts: "Ürünleri Gör",
-        location: "Abu Rawash – Giza – Mısır",
-        delivery: "Hızlı Teslimat",
-        export: "Dünya Çapında İhracat",
-        quickTitle: "Ambalaj & İşleme",
-        pack1: "50 kg & 25 kg çuvallar",
-        pack2: "10 kg kolide vakumlu ambalaj",
-        pack3: "Talebe göre özel ambalaj",
-        priceNote: "Fiyat teklifi ile",
-        whyTitle: "Neden Biz?",
-        whyDesc: "Tecrübe, kalite, rekabetçi değer ve güvenilir teslimat — yerel ve ihracat için kurumsal standartlar.",
-        w1t: "Uzun Tecrübe", w1d: "Fabrika ve şirketlere yönelik yer fıstığı işleme ve ticarette güçlü tecrübe.",
-        w2t: "Garantili Kalite", w2d: "Sıkı eleme, işleme ve paketleme standartları.",
-        w3t: "Rekabetçi Değer", w3d: "Esnek miktar ve anlaşmalarla en iyi değer (fiyat teklifi ile).",
-        w4t: "Hızlı Teslimat", w4d: "Mısır içinde zamanında teslimat ve hızlı ihracata hazırlık.",
-        prodTitle: "Ürünler",
-        prodDesc: "Miktarı seçin, sepete ekleyin ve WhatsApp ile sipariş gönderin.",
-        all: "Tümü",
-        chipExport: "İhracat",
-        chipFactory: "Fabrikalar",
-        addToCart: "Sepete Ekle",
-        view: "Fotoğraflar",
-        totalItems: "Toplam ürün",
-        clear: "Sepeti temizle",
-        ctaCheckout: "WhatsApp ile tamamla",
-        notePrices: "Fiyatlar teklif ile — sipariş detayları onay için WhatsApp’tan gönderilir.",
-        revTitle: "Müşteri Yorumları",
-        revDesc: "Tarh Bledna ile yerelde ve ihracatta çalışan müşterilerden geri bildirimler.",
-        contactTitle: "İletişim",
-        contactDesc: "Yerli sipariş ve ihracat için — fiyat teklifi ile.",
-        contactPhone2: "İletişim",
-        serviceTitle: "Hizmetlerimiz",
-        s1: "İşleme • Ambalaj • Tedarik",
-        s2: "Mısır genelinde teslimat",
-        s3: "Dünya çapında ihracat",
-        s4: "50/25 kg çuval + 10 kg vakum kolisi",
-        visits: "ziyaret",
-        items: "sepet ürünü",
-        footerNote: "İşleme • Ambalaj • Tedarik • İhracat | Fiyat teklifi ile"
+        brandName:"Tarh Bledna Tarımsal Ürünler Şirketi",
+        brandSub:"Abu Youssef – Yer Fıstığı ve Kırık Fıstık Ticareti",
+        sales:"Satış",
+        whatsApp:"WhatsApp",
+        cart:"Sepet",
+        openCart:"Sepeti Aç",
+        kicker:"Yerli Tedarik • Dünya Çapında İhracat",
+        heroTitle1:"Kaliteli Yer Fıstığı",
+        heroTitle2:"Fabrika Standartlarında",
+        heroTitle3:"… Garantili Kalite",
+        heroDesc:"50/25 kg çuvallar ve 10 kg kolide vakumlu ambalaj. Mısır genelinde teslimat ve tüm dünyaya ihracat. Fiyat teklifi ile.",
+        ctaProducts:"Ürünleri Gör",
+        ctaQuote:"Teklif Al",
+        ctaCall:"Satışı Ara",
+        location:"Abu Rawash – Giza – Mısır",
+        delivery:"Hızlı Teslimat",
+        export:"Dünya Çapında İhracat",
+        visitors:"Ziyaret",
+        quickTitle:"Ambalaj & İşleme",
+        pack1:"50 kg & 25 kg çuvallar",
+        pack2:"10 kg kolide vakumlu ambalaj",
+        pack3:"Talebe göre özel ambalaj",
+        priceNote:"Fiyat teklifi ile",
+        whyTitle:"Neden Biz?",
+        whyDesc:"Tecrübe, kalite, rekabetçi fiyat ve güvenilir teslimat — yerel ve ihracat için kurumsal standartlar.",
+        w1t:"Uzun Tecrübe", w1d:"Fabrika ve şirketlere yönelik güçlü tecrübe.",
+        w2t:"Garantili Kalite", w2d:"Sıkı eleme, işleme ve paketleme standartları.",
+        w3t:"Rekabetçi Fiyat", w3d:"Esnek miktar ve anlaşmalarla en iyi değer.",
+        w4t:"Hızlı Teslimat", w4d:"Mısır içinde zamanında teslimat ve hızlı ihracata hazırlık.",
+        prodTitle:"Ürünler",
+        prodDesc:"Fabrikalar, oteller ve mağazalar için uygun, kaliteli ürünler.",
+        contactTitle:"İletişim",
+        contactDesc:"Yerli sipariş ve ihracat için — fiyat teklifi ile.",
+        contactPhone2:"İletişim",
+        serviceTitle:"Hizmetlerimiz",
+        s1:"İşleme • Ambalaj • Tedarik",
+        s2:"Mısır genelinde teslimat",
+        s3:"Dünya çapında ihracat",
+        s4:"50/25 kg çuval + 10 kg vakum kolisi",
+        footerNote:"İşleme • Ambalaj • Tedarik • İhracat | Fiyat teklifi ile",
+        tTitle:"Müşteri Yorumları",
+        tDesc:"Tarh Bledna ile çalışmış müşterilerden bazı yorumlar.",
+        addToCart:"Sepete Ekle",
+        clearCart:"Sepeti Boşalt",
+        sendOrder:"Siparişi Gönder",
+        cartHint:"Miktarları seçin, sonra \"Siparişi Gönder\" ile WhatsApp'ta hazır mesaj açılsın.",
+        cartNote:"Sepet, ürün seçip siparişi WhatsApp'tan göndermenize yardımcı olur.",
+        cartEmpty:"Sepetiniz şu an boş.",
+        added:"Eklendi"
       }
     };
 
-    // =============================
-    // Products Data (6)
-    // =============================
+    // ---- Products data (titles per language) ----
     const PRODUCTS = [
-      { id:"p1", tag:["export","factory"], ar:{t:"فول بقشره", d:"مناسب للتحميص والتعبئة والتصدير."}, en:{t:"Peanuts in Shell", d:"Ideal for roasting, packing, and export."}, tr:{t:"Kabuklu Yer Fıstığı", d:"Kavurma, paketleme ve ihracat için ideal."}},
-      { id:"p2", tag:["factory"], ar:{t:"فول مقشر", d:"جاهز للتصنيع أو التعبئة — مناسب للمكسرات والمقالى."}, en:{t:"Shelled Peanuts", d:"Ready for manufacturing or packaging."}, tr:{t:"Kabuksuz Yer Fıstığı", d:"Üretim ve paketleme için hazır."}},
-      { id:"p3", tag:["factory"], ar:{t:"فول حلواني (أنصاص)", d:"مخصص للحلويات والمنتجات الغذائية عالية الجودة."}, en:{t:"Confectionery Peanuts (Halves)", d:"High-grade peanuts for sweets and premium food products."}, tr:{t:"Şekerleme Tipi (Yarım)", d:"Tatlı ve premium gıda üretimi için."}},
-      { id:"p4", tag:["factory"], ar:{t:"فول مجروش", d:"مناسب للحلويات والطعوم والتغطية."}, en:{t:"Crushed Peanuts", d:"Perfect for toppings and confectionery."}, tr:{t:"Kırık Yer Fıstığı", d:"Kaplama, aroma ve tatlılar için."}},
-      { id:"p5", tag:["factory"], ar:{t:"فول لشغل الطعوم والشيكولاتة", d:"مثالي للمصانع المتخصصة في الطعوم والشيكولاتة."}, en:{t:"For Coating & Chocolate", d:"Ideal for coating and chocolate factories."}, tr:{t:"Çikolata & Kaplama", d:"Çikolata ve kaplama üretimi için ideal."}},
-      { id:"p6", tag:["factory","export"], ar:{t:"فول بيور لعمل زبدة الفول", d:"جودة نقية 100% مناسبة لإنتاج زبدة الفول السوداني."}, en:{t:"Pure for Peanut Butter", d:"100% pure quality for peanut butter production."}, tr:{t:"Fıstık Ezmesi İçin Saf", d:"Fıstık ezmesi üretimi için %100 saf kalite."}},
+      { key:"p1", ar:{t:"فول بقشره", d:"مناسب للتحميص والتعبئة والتصدير."},
+                 en:{t:"Peanuts in Shell", d:"Ideal for roasting, packing, and export."},
+                 tr:{t:"Kabuklu Yer Fıstığı", d:"Kavurma, paketleme ve ihracat için ideal."} },
+      { key:"p2", ar:{t:"فول مقشر", d:"جاهز للتصنيع أو التعبئة — مناسب للمكسرات والمقالى."},
+                 en:{t:"Shelled Peanuts", d:"Ready for manufacturing or packaging."},
+                 tr:{t:"Kabuksuz Yer Fıstığı", d:"Üretim ve paketleme için hazır."} },
+      { key:"p3", ar:{t:"فول حلواني (أنصاص)", d:"مخصص للحلويات والمنتجات الغذائية عالية الجودة."},
+                 en:{t:"Confectionery Peanuts (Halves)", d:"High-grade for sweets and premium food products."},
+                 tr:{t:"Şekerleme Tipi (Yarım)", d:"Tatlı ve premium gıda üretimi için."} },
+      { key:"p4", ar:{t:"فول مجروش", d:"مناسب للحلويات والطعوم والتغطية."},
+                 en:{t:"Crushed Peanuts", d:"Perfect for toppings and flavors."},
+                 tr:{t:"Kırık Yer Fıstığı", d:"Kaplama, aroma ve tatlılar için."} },
+      { key:"p5", ar:{t:"فول لشغل الطعوم والشيكولاتة", d:"مثالي للمصانع المتخصصة في الطعوم والشيكولاتة."},
+                 en:{t:"For Coating & Chocolate", d:"Ideal for coating and chocolate factories."},
+                 tr:{t:"Çikolata & Kaplama İçin", d:"Kaplama ve çikolata için ideal."} },
+      { key:"p6", ar:{t:"فول بيور لعمل زبدة الفول", d:"جودة نقية 100% مناسبة لإنتاج زبدة الفول السوداني."},
+                 en:{t:"Pure for Peanut Butter", d:"100% pure quality for peanut butter production."},
+                 tr:{t:"Fıstık Ezmesi İçin Saf", d:"%100 saf kalite."} },
     ];
 
+    // ---- Testimonials (no facebook scraping, just high-quality text) ----
     const TESTIMONIALS = [
-      { name:{ar:"مصنع حلويات – القاهرة", en:"Sweets Factory – Cairo", tr:"Tatlı Fabrikası – Kahire"}, role:{ar:"توريد شهري", en:"Monthly supply", tr:"Aylık tedarik"}, stars:5,
-        text:{ar:"الخامات ممتازة وثابتة في الجودة، والتجهيز بيكون سريع جدًا. التعامل محترم.", en:"Excellent raw material with consistent quality and fast preparation. Professional dealing.", tr:"Kalite çok iyi ve stabil, hazırlık hızlı. Profesyonel iletişim."},
-        avatar:"https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=200&q=60"
-      },
-      { name:{ar:"تاجر مكسرات – الجيزة", en:"Nuts Shop – Giza", tr:"Kuruyemiş – Giza"}, role:{ar:"توريد محلي", en:"Local supply", tr:"Yerli tedarik"}, stars:5,
-        text:{ar:"الفرز والنظافة واضحين جدًا، والسعر كويس مقابل الجودة. بنرشحهم.", en:"Sorting and cleanliness are clearly premium. Great value for quality.", tr:"Eleme ve temizlik çok iyi. Kaliteye göre fiyat çok uygun."},
-        avatar:"https://images.unsplash.com/photo-1544723795-3fb6469f5b39?auto=format&fit=crop&w=200&q=60"
-      },
-      { name:{ar:"مستورد – الخليج", en:"Importer – GCC", tr:"İthalatçı – Körfez"}, role:{ar:"تصدير", en:"Export", tr:"İhracat"}, stars:5,
-        text:{ar:"تجهيز الشحنة والتعبئة ممتازين، والالتزام بالمواعيد فرق معانا جدًا.", en:"Shipment preparation & packaging were excellent, and deadlines were met perfectly.", tr:"Sevkiyat hazırlığı ve ambalaj çok iyi, terminlere tam uyum."},
-        avatar:"https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=60"
-      },
+      { name:"عميل مصانع", txt:{ar:"جودة ممتازة وفرز نظيف وتسليم في الميعاد. تعامل راقي واحترافي.", en:"Excellent quality, clean sorting and on-time delivery. Professional service.", tr:"Mükemmel kalite, temiz ayıklama ve zamanında teslimat. Profesyonel hizmet."} },
+      { name:"عميل توريد محلي", txt:{ar:"الطلب وصل بسرعة والتعبئة ممتازة. أنصح بالتعامل مع شركة طرح بلدنا.", en:"Fast delivery and great packaging. Highly recommended.", tr:"Hızlı teslimat ve çok iyi ambalaj. Tavsiye ederim."} },
+      { name:"عميل تصدير", txt:{ar:"تجهيز للتصدير باحتراف واستجابة سريعة على واتساب. منتج مطابق للمواصفات.", en:"Export preparation is professional with fast WhatsApp response. Spec-compliant product.", tr:"İhracata hazırlık profesyonel, WhatsApp yanıtı hızlı. Ürün standartlara uygun."} },
+      { name:"عميل محلات", txt:{ar:"أفضل قيمة مقابل الجودة، وكميات مرنة حسب الطلب.", en:"Best value for quality with flexible quantities.", tr:"Kaliteye göre en iyi değer ve esnek miktarlar."} },
     ];
 
-    // =============================
-    // Helpers
-    // =============================
-    const $ = (s, p=document) => p.querySelector(s);
-    const $$ = (s, p=document) => Array.from(p.querySelectorAll(s));
-
-    function waLink(message){
-      return `https://wa.me/${CONFIG.whatsappDigits}?text=${encodeURIComponent(message)}`;
-    }
-
-    // =============================
-    // Render products (no "6 منتجات" text)
-    // =============================
+    // ---- Helpers ----
     let currentLang = "ar";
-    let activeFilter = "all";
-    let searchTerm = "";
+    const $ = (s)=>document.querySelector(s);
+    const $$ = (s)=>Array.from(document.querySelectorAll(s));
+    const fmtStars = ()=>`<span class="tStars">★★★★★</span>`;
+    const initials = (name)=> (name||"C").trim().split(/\s+/).slice(0,2).map(x=>x[0]).join("").toUpperCase();
 
-    function renderProducts(){
-      const grid = $("#productsGrid");
-      grid.innerHTML = "";
-
-      const items = PRODUCTS
-        .filter(p => activeFilter==="all" ? true : p.tag.includes(activeFilter))
-        .filter(p => {
-          const t = p[currentLang]?.t || p.ar.t;
-          const d = p[currentLang]?.d || p.ar.d;
-          return (t + " " + d).toLowerCase().includes(searchTerm.toLowerCase());
-        });
-
-      items.forEach(p=>{
-        const t = p[currentLang]?.t || p.ar.t;
-        const d = p[currentLang]?.d || p.ar.d;
-        const imgs = CONFIG.images[p.id] || [];
-        const firstImg = imgs[0] || "";
-
-        const card = document.createElement("article");
-        card.className = "prod";
-        card.setAttribute("data-product", p.id);
-
-        card.innerHTML = `
-          <div class="prodTop">
-            <h3 class="prodTitle">${escapeHtml(t)}</h3>
-            <p class="prodSub">${escapeHtml(d)}</p>
-            <div class="priceRow">
-              <span class="price"><i class="fa-solid fa-circle-info"></i><span data-i18n="priceNote">${I18N[currentLang].priceNote}</span></span>
-              <button class="addBtn" type="button" data-add="${p.id}">
-                <i class="fa-solid fa-basket-shopping"></i>
-                <span data-i18n="addToCart">${I18N[currentLang].addToCart}</span>
-              </button>
-            </div>
-          </div>
-
-          <div class="gallery" data-gallery="${p.id}">
-            ${imgs.slice(0,4).map((u,idx)=>`
-              <div class="shot" data-open="${p.id}" data-idx="${idx}" title="${I18N[currentLang].view}">
-                <img src="${u}" alt="${p.id}-${idx+1}" loading="lazy" />
-              </div>
-            `).join("")}
-          </div>
-        `;
-
-        grid.appendChild(card);
-      });
-
-      // bind add to cart
-      $$("[data-add]").forEach(btn=>{
-        btn.onclick = () => addToCart(btn.getAttribute("data-add"), 1);
-      });
-
-      // bind lightbox
-      $$("[data-open]").forEach(el=>{
-        el.onclick = () => openLightbox(el.getAttribute("data-open"), Number(el.getAttribute("data-idx")||0));
-      });
-    }
-
-    function renderTestimonials(){
-      const g = $("#testGrid");
-      g.innerHTML = "";
-      TESTIMONIALS.forEach(t=>{
-        const card = document.createElement("div");
-        card.className = "tCard";
-        const name = t.name[currentLang] || t.name.ar;
-        const role = t.role[currentLang] || t.role.ar;
-        const text = t.text[currentLang] || t.text.ar;
-
-        card.innerHTML = `
-          <div class="tTop">
-            <div class="ava">${t.avatar ? `<img src="${t.avatar}" alt="${escapeHtml(name)}" loading="lazy" />` : escapeHtml((name||"A").slice(0,1))}</div>
-            <div>
-              <div class="tName">${escapeHtml(name)}</div>
-              <div class="tMeta">${escapeHtml(role)}</div>
-            </div>
-            <div class="stars">${new Array(t.stars).fill(0).map(()=>`<i class="fa-solid fa-star"></i>`).join("")}</div>
-          </div>
-          <div class="tText">“${escapeHtml(text)}”</div>
-        `;
-        g.appendChild(card);
-      });
-    }
-
-    function escapeHtml(str){
-      return String(str||"").replace(/[&<>"']/g, s => ({
-        "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"
-      }[s]));
-    }
-
-    // =============================
-    // Lightbox
-    // =============================
-    let lbState = { pid:null, idx:0 };
-
-    function openLightbox(pid, idx=0){
-      const imgs = CONFIG.images[pid] || [];
-      if(!imgs.length) return;
-      lbState = { pid, idx: Math.max(0, Math.min(idx, imgs.length-1)) };
-
-      $("#lb").classList.add("show");
-      $("#lb").setAttribute("aria-hidden","false");
-
-      const prod = PRODUCTS.find(x=>x.id===pid);
-      const title = prod ? (prod[currentLang]?.t || prod.ar.t) : pid;
-      $("#lbTitle").textContent = title;
-
-      renderLb(imgs);
-    }
-
-    function renderLb(imgs){
-      $("#lbImg").src = imgs[lbState.idx];
-      $("#lbIndex").textContent = `${lbState.idx+1} / ${imgs.length}`;
-
-      const thumbs = $("#lbThumbs");
-      thumbs.innerHTML = "";
-      imgs.forEach((u,i)=>{
-        const th = document.createElement("div");
-        th.className = "lbThumb" + (i===lbState.idx ? " active":"");
-        th.innerHTML = `<img src="${u}" alt="thumb-${i+1}" loading="lazy" />`;
-        th.onclick = ()=>{ lbState.idx=i; renderLb(imgs); };
-        thumbs.appendChild(th);
-      });
-    }
-
-    function closeLightbox(){
-      $("#lb").classList.remove("show");
-      $("#lb").setAttribute("aria-hidden","true");
-    }
-
-    $("#lbClose").onclick = closeLightbox;
-    $("#lb").addEventListener("click",(e)=>{ if(e.target.id==="lb") closeLightbox(); });
-
-    $("#lbPrev").onclick = ()=> navLb(-1);
-    $("#lbNext").onclick = ()=> navLb(1);
-
-    function navLb(step){
-      const imgs = CONFIG.images[lbState.pid] || [];
-      if(!imgs.length) return;
-      lbState.idx = (lbState.idx + step + imgs.length) % imgs.length;
-      renderLb(imgs);
-    }
-
-    document.addEventListener("keydown",(e)=>{
-      if(!$("#lb").classList.contains("show")) return;
-      if(e.key==="Escape") closeLightbox();
-      if(e.key==="ArrowLeft") navLb(document.documentElement.dir==="rtl" ? 1 : -1);
-      if(e.key==="ArrowRight") navLb(document.documentElement.dir==="rtl" ? -1 : 1);
-    });
-
-    // =============================
-    // Cart (LocalStorage)
-    // =============================
-    const CART_KEY = "tarhbladna_cart_v1";
-
-    function getCart(){
-      try{ return JSON.parse(localStorage.getItem(CART_KEY) || "{}"); }
-      catch{ return {}; }
-    }
-    function setCart(cart){
-      localStorage.setItem(CART_KEY, JSON.stringify(cart));
-    }
-
-    function addToCart(pid, qty=1){
-      const cart = getCart();
-      cart[pid] = (cart[pid]||0) + qty;
-      if(cart[pid] <= 0) delete cart[pid];
-      setCart(cart);
-      updateCartUI(true);
-    }
-
-    function removeFromCart(pid){
-      const cart = getCart();
-      delete cart[pid];
-      setCart(cart);
-      updateCartUI();
-    }
-
-    function clearCart(){
-      setCart({});
-      updateCartUI();
-    }
-
-    function cartCount(){
-      const cart = getCart();
-      return Object.values(cart).reduce((a,b)=>a+b,0);
-    }
-
-    function updateCartUI(openIfAdd=false){
-      const count = cartCount();
-      $("#cartCount").textContent = count;
-      $("#cartMini").textContent = count;
-
-      const body = $("#cartBody");
-      const cart = getCart();
-      const keys = Object.keys(cart);
-
-      if(!keys.length){
-        body.innerHTML = `<div class="empty">${currentLang==="ar" ? "السلة فارغة حالياً. اختار منتج واضفه للسلة." : currentLang==="tr" ? "Sepet boş. Ürün ekleyin." : "Cart is empty. Add products to continue."}</div>`;
-        $("#totalItems").textContent = "0";
-      }else{
-        body.innerHTML = "";
-        let total = 0;
-
-        keys.forEach(pid=>{
-          const qty = cart[pid];
-          total += qty;
-          const prod = PRODUCTS.find(x=>x.id===pid);
-          const title = prod ? (prod[currentLang]?.t || prod.ar.t) : pid;
-          const sub = prod ? (prod[currentLang]?.d || prod.ar.d) : "";
-          const img = (CONFIG.images[pid]||[])[0] || "";
-
-          const item = document.createElement("div");
-          item.className = "cItem";
-          item.innerHTML = `
-            <div class="cImg"><img src="${img}" alt="${escapeHtml(title)}" loading="lazy" /></div>
-            <div>
-              <div class="cTitle">${escapeHtml(title)}</div>
-              <div class="cMeta">${escapeHtml(sub)}</div>
-              <div class="cControls">
-                <div class="qtyBox">
-                  <button class="qBtn" type="button" data-qminus="${pid}" aria-label="minus"><i class="fa-solid fa-minus"></i></button>
-                  <span style="min-width:24px;text-align:center;display:inline-block">${qty}</span>
-                  <button class="qBtn" type="button" data-qplus="${pid}" aria-label="plus"><i class="fa-solid fa-plus"></i></button>
-                </div>
-                <button class="rmBtn" type="button" data-rm="${pid}"><i class="fa-solid fa-trash"></i>${currentLang==="ar" ? "حذف" : currentLang==="tr" ? "Sil" : "Remove"}</button>
-              </div>
-            </div>
-          `;
-          body.appendChild(item);
-        });
-
-        $("#totalItems").textContent = String(total);
-
-        $$("[data-qminus]").forEach(b=> b.onclick = ()=> addToCart(b.getAttribute("data-qminus"), -1));
-        $$("[data-qplus]").forEach(b=> b.onclick = ()=> addToCart(b.getAttribute("data-qplus"), +1));
-        $$("[data-rm]").forEach(b=> b.onclick = ()=> removeFromCart(b.getAttribute("data-rm")));
-      }
-
-      if(openIfAdd) openDrawer();
-    }
-
-    function buildWhatsAppOrderText(){
-      const cart = getCart();
-      const keys = Object.keys(cart);
-      const lines = [];
-      lines.push(`${CONFIG.brandAR}`);
-      lines.push(`طلب جديد (سلة مشتريات):`);
-      lines.push(`--------------------------------`);
-      keys.forEach(pid=>{
-        const prod = PRODUCTS.find(x=>x.id===pid);
-        const title = prod ? (prod.ar.t) : pid;
-        lines.push(`- ${title} × ${cart[pid]}`);
-      });
-      lines.push(`--------------------------------`);
-      lines.push(`الاسم: `);
-      lines.push(`المحافظة/الدولة: `);
-      lines.push(`نوع التعبئة المطلوبة: (50/25 كجم - فاكيوم 10 كجم)`);
-      lines.push(`ملاحظات: `);
-      lines.push(``);
-      lines.push(`اتصال: ${CONFIG.phoneSales} / ${CONFIG.phoneContact}`);
-      lines.push(`العنوان: ${CONFIG.addressAR}`);
-      return lines.join("\n");
-    }
-
-    function checkout(){
-      const cart = getCart();
-      if(!Object.keys(cart).length){
-        openDrawer();
-        return;
-      }
-      const msg = buildWhatsAppOrderText();
-      window.open(waLink(msg), "_blank", "noopener");
-    }
-
-    $("#checkoutBtn").onclick = checkout;
-    $("#checkoutBtn2").onclick = checkout;
-    $("#clearCart").onclick = clearCart;
-
-    // =============================
-    // Drawer open/close
-    // =============================
-    const overlay = $("#overlay");
-    const drawer = $("#drawer");
-
-    function openDrawer(){
-      overlay.classList.add("show");
-      drawer.classList.add("open");
-      document.body.style.overflow = "hidden";
-    }
-    function closeDrawer(){
-      overlay.classList.remove("show");
-      drawer.classList.remove("open");
-      document.body.style.overflow = "";
-    }
-
-    $("#openCart").onclick = openDrawer;
-    $("#openCart2").onclick = openDrawer;
-    $("#openCart3").onclick = openDrawer;
-    $("#closeCart").onclick = closeDrawer;
-    overlay.onclick = closeDrawer;
-
-    // =============================
-    // Filters + Search
-    // =============================
-    $("#search").addEventListener("input",(e)=>{
-      searchTerm = e.target.value || "";
-      renderProducts();
-    });
-
-    $$(".chip").forEach(ch=>{
-      ch.onclick = ()=>{
-        $$(".chip").forEach(x=>x.classList.remove("active"));
-        ch.classList.add("active");
-        activeFilter = ch.getAttribute("data-filter");
-        renderProducts();
-      };
-    });
-
-    // =============================
-    // Lang apply
-    // =============================
     function applyLang(lang){
       currentLang = lang;
       const isRTL = (lang === "ar");
@@ -1589,99 +1147,375 @@
       const dict = I18N[lang] || I18N.ar;
       $$("[data-i18n]").forEach(el=>{
         const key = el.getAttribute("data-i18n");
-        if(dict[key]) el.textContent = dict[key];
+        if (dict[key]) el.textContent = dict[key];
       });
 
-      // Placeholder search
-      $("#search").placeholder =
-        lang==="ar" ? "ابحث عن منتج..." : lang==="tr" ? "Ürün ara..." : "Search products...";
-
-      // Active lang button
       $$(".lang button").forEach(b=>{
         b.classList.toggle("active", b.getAttribute("data-lang") === lang);
       });
 
-      // Re-render dynamic sections
       renderProducts();
       renderTestimonials();
-      updateCartUI(false);
+      renderCart();
     }
 
+    // ---- Banner + Messenger + Year ----
+    $("#year").textContent = new Date().getFullYear();
+    $("#messengerBtn").href = CONFIG.messengerUrl || "#";
+    $("#messengerFab").href = CONFIG.messengerUrl || "#";
+    $("#heroBannerImg").src = CONFIG.bannerUrl || "";
+
+    // ---- Lightbox ----
+    const lbOverlay = $("#lbOverlay");
+    const lightbox = $("#lightbox");
+    const lbImg = $("#lbImg");
+    const lbTitle = $("#lbTitle");
+
+    function openLightbox(title, src){
+      lbTitle.textContent = title || "";
+      lbImg.src = src || "";
+      lbOverlay.classList.add("show");
+      lightbox.classList.add("show");
+      document.body.style.overflow = "hidden";
+    }
+    function closeLightbox(){
+      lbOverlay.classList.remove("show");
+      lightbox.classList.remove("show");
+      document.body.style.overflow = "auto";
+    }
+    $("#lbCloseBtn").addEventListener("click", closeLightbox);
+    lbOverlay.addEventListener("click", closeLightbox);
+
+    // ---- Products rendering ----
+    function renderProducts(){
+      const grid = $("#productsGrid");
+      const dict = I18N[currentLang] || I18N.ar;
+
+      grid.innerHTML = PRODUCTS.map(p=>{
+        const t = p[currentLang]?.t || p.ar.t;
+        const d = p[currentLang]?.d || p.ar.d;
+        const imgs = (CONFIG.productImages[p.key] || []);
+
+        const shots = imgs.map((src, idx)=>`
+          <div class="shot" data-lb-title="${escapeHtml(t)}" data-lb-src="${escapeHtml(src)}">
+            <img loading="lazy" alt="${p.key}-${idx+1}" src="${escapeHtml(src)}" onerror="this.src='data:image/svg+xml;charset=utf-8,${encodeURIComponent(svgFallback())}'" />
+          </div>
+        `).join("");
+
+        return `
+          <article class="prod" data-product="${p.key}">
+            <div class="prodTop">
+              <h3 class="prodTitle">${escapeHtml(t)}</h3>
+              <p class="prodSub">${escapeHtml(d)}</p>
+              <span class="price"><i class="fa-solid fa-circle-info"></i> <span data-i18n="priceNote">${escapeHtml(dict.priceNote)}</span></span>
+            </div>
+            <div class="gallery">${shots}</div>
+
+            <div class="prodActions">
+              <div class="qty" aria-label="qty">
+                <button type="button" data-qty-minus="${p.key}">-</button>
+                <span id="qty_${p.key}">${getQty(p.key)}</span>
+                <button type="button" data-qty-plus="${p.key}">+</button>
+              </div>
+              <button class="addBtn" type="button" data-add="${p.key}">
+                <i class="fa-solid fa-plus"></i>
+                <span data-i18n="addToCart">${escapeHtml(dict.addToCart)}</span>
+              </button>
+            </div>
+          </article>
+        `;
+      }).join("");
+
+      // gallery click
+      $$(".shot").forEach(s=>{
+        s.addEventListener("click", ()=>{
+          openLightbox(s.getAttribute("data-lb-title"), s.getAttribute("data-lb-src"));
+        });
+      });
+
+      // qty and add events
+      PRODUCTS.forEach(p=>{
+        const key = p.key;
+        const minus = document.querySelector(`[data-qty-minus="${key}"]`);
+        const plus = document.querySelector(`[data-qty-plus="${key}"]`);
+        const add = document.querySelector(`[data-add="${key}"]`);
+
+        minus.addEventListener("click", ()=> setQty(key, Math.max(0, getQty(key)-1)));
+        plus.addEventListener("click", ()=> setQty(key, getQty(key)+1));
+        add.addEventListener("click", ()=>{
+          const q = getQty(key);
+          if (q <= 0) setQty(key, 1);
+          addToCart(key, Math.max(1, q));
+          toast((I18N[currentLang]?.added || "Added"));
+        });
+      });
+    }
+
+    // ---- Testimonials rendering ----
+    function renderTestimonials(){
+      const grid = $("#tGrid");
+      grid.innerHTML = TESTIMONIALS.map(t=>{
+        const text = t.txt[currentLang] || t.txt.ar;
+        return `
+          <div class="tCard">
+            <div class="tHead">
+              <div class="avatar">${escapeHtml(initials(t.name))}</div>
+              <div>
+                <div class="tName">${escapeHtml(t.name)}</div>
+                ${fmtStars()}
+              </div>
+            </div>
+            <div class="tText">${escapeHtml(text)}</div>
+          </div>
+        `;
+      }).join("");
+    }
+
+    // ---- Cart storage ----
+    const CART_KEY = "tarh_cart_v1";
+    const QTY_KEY = "tarh_qty_v1";
+
+    function loadCart(){
+      try{ return JSON.parse(localStorage.getItem(CART_KEY) || "{}"); }catch(e){ return {}; }
+    }
+    function saveCart(cart){
+      localStorage.setItem(CART_KEY, JSON.stringify(cart || {}));
+    }
+    function loadQty(){
+      try{ return JSON.parse(localStorage.getItem(QTY_KEY) || "{}"); }catch(e){ return {}; }
+    }
+    function saveQty(qty){
+      localStorage.setItem(QTY_KEY, JSON.stringify(qty || {}));
+    }
+    function getQty(productKey){
+      const qty = loadQty();
+      return Number(qty[productKey] || 0);
+    }
+    function setQty(productKey, val){
+      const qty = loadQty();
+      qty[productKey] = Number(val || 0);
+      saveQty(qty);
+      const el = document.getElementById(`qty_${productKey}`);
+      if (el) el.textContent = qty[productKey];
+      renderCartCount();
+    }
+
+    function addToCart(productKey, amount){
+      const cart = loadCart();
+      cart[productKey] = Number(cart[productKey] || 0) + Number(amount || 0);
+      saveCart(cart);
+      renderCart();
+      renderCartCount();
+    }
+    function updateCart(productKey, newQty){
+      const cart = loadCart();
+      const v = Number(newQty || 0);
+      if (v <= 0) delete cart[productKey];
+      else cart[productKey] = v;
+      saveCart(cart);
+      renderCart();
+      renderCartCount();
+    }
+    function clearCart(){
+      saveCart({});
+      renderCart();
+      renderCartCount();
+    }
+
+    function cartTotalCount(){
+      const cart = loadCart();
+      return Object.values(cart).reduce((a,b)=>a+Number(b||0), 0);
+    }
+    function renderCartCount(){
+      $("#cartCount").textContent = String(cartTotalCount());
+    }
+
+    function productTitle(key){
+      const p = PRODUCTS.find(x=>x.key===key);
+      if (!p) return key;
+      return p[currentLang]?.t || p.ar.t;
+    }
+    function productImg(key){
+      const imgs = CONFIG.productImages[key] || [];
+      return imgs[0] || "";
+    }
+
+    function renderCart(){
+      const dict = I18N[currentLang] || I18N.ar;
+      const cart = loadCart();
+      const keys = Object.keys(cart);
+
+      const box = $("#cartItems");
+      if (!keys.length){
+        box.innerHTML = `<div class="note" style="padding:10px 2px">${escapeHtml(dict.cartEmpty)}</div>`;
+        return;
+      }
+      box.innerHTML = keys.map(k=>{
+        const qty = Number(cart[k] || 0);
+        return `
+          <div class="cartItem">
+            <div class="ciThumb">
+              <img src="${escapeHtml(productImg(k))}" alt="${escapeHtml(k)}" onerror="this.style.display='none'"/>
+            </div>
+            <div class="ciInfo">
+              <div class="ciTitle">${escapeHtml(productTitle(k))}</div>
+              <div class="ciMeta">${escapeHtml(dict.priceNote)}</div>
+              <div class="ciControls">
+                <button class="miniBtn" data-ci-minus="${k}">-</button>
+                <div class="qtyNum" id="ci_${k}">${qty}</div>
+                <button class="miniBtn" data-ci-plus="${k}">+</button>
+                <button class="miniBtn danger" data-ci-remove="${k}"><i class="fa-solid fa-trash"></i></button>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join("");
+
+      keys.forEach(k=>{
+        document.querySelector(`[data-ci-minus="${k}"]`).addEventListener("click", ()=> updateCart(k, Number(loadCart()[k]||0)-1));
+        document.querySelector(`[data-ci-plus="${k}"]`).addEventListener("click", ()=> updateCart(k, Number(loadCart()[k]||0)+1));
+        document.querySelector(`[data-ci-remove="${k}"]`).addEventListener("click", ()=> updateCart(k, 0));
+      });
+    }
+
+    // ---- Drawer open/close ----
+    function openDrawer(){
+      $("#overlay").classList.add("show");
+      $("#drawer").classList.add("open");
+      document.body.style.overflow = "hidden";
+    }
+    function closeDrawer(){
+      $("#overlay").classList.remove("show");
+      $("#drawer").classList.remove("open");
+      document.body.style.overflow = "auto";
+    }
+    $("#openCartBtn").addEventListener("click", openDrawer);
+    $("#openCartHero").addEventListener("click", openDrawer);
+    $("#openCartContact").addEventListener("click", openDrawer);
+    $("#closeCartBtn").addEventListener("click", closeDrawer);
+    $("#overlay").addEventListener("click", closeDrawer);
+
+    $("#clearCart").addEventListener("click", ()=>{ clearCart(); toast(I18N[currentLang]?.cartEmpty || "Cart cleared"); });
+
+    // WhatsApp order
+    $("#sendOrder").addEventListener("click", ()=>{
+      const cart = loadCart();
+      const keys = Object.keys(cart);
+      if (!keys.length){ toast(I18N[currentLang]?.cartEmpty || "Cart is empty"); return; }
+
+      const lines = keys.map(k=> `- ${productTitle(k)} × ${cart[k]}`);
+      const msgAr =
+`طلب جديد من موقع شركة طرح بلدنا:
+${lines.join("\n")}
+
+الاسم:
+رقم التواصل:
+المحافظة:
+ملاحظات:`;
+
+      const msgEn =
+`New order from Tarh Bledna website:
+${lines.join("\n")}
+
+Name:
+Phone:
+City:
+Notes:`;
+
+      const msgTr =
+`Tarh Bledna web sitesinden yeni sipariş:
+${lines.join("\n")}
+
+İsim:
+Telefon:
+Şehir:
+Notlar:`;
+
+      const msg = (currentLang==="en") ? msgEn : (currentLang==="tr" ? msgTr : msgAr);
+      const url = "https://wa.me/201126773698?text=" + encodeURIComponent(msg);
+      window.open(url, "_blank");
+    });
+
+    // ---- Language switch ----
     $$(".lang button").forEach(btn=>{
       btn.addEventListener("click", ()=> applyLang(btn.getAttribute("data-lang")));
     });
 
-    // =============================
-    // Init links + banner
-    // =============================
-    $("#year").textContent = new Date().getFullYear();
-
-    $("#heroBannerImg").src = CONFIG.heroBanner;
-
-    $("#salesPhoneTxt").textContent = CONFIG.phoneSales;
-    $("#salesCall").href = `tel:${CONFIG.phoneSales}`;
-    $("#salesPhoneLink").href = `tel:${CONFIG.phoneSales}`;
-    $("#salesPhoneLink").textContent = CONFIG.phoneSales;
-
-    $("#contactPhoneLink").href = `tel:${CONFIG.phoneContact}`;
-    $("#contactPhoneLink").textContent = CONFIG.phoneContact;
-
-    $("#emailTxt").innerHTML = `<a href="mailto:${CONFIG.email}">${CONFIG.email}</a>`;
-
-    const waHome = waLink(`${CONFIG.brandAR}\nالسلام عليكم، محتاج عرض سعر.`);
-    $("#whatsTop").href = waHome;
-    $("#whatsFab").href = waHome;
-    $("#whatsContact").href = waHome;
-
-    $("#callFab").href = `tel:${CONFIG.phoneSales}`;
-
-    $("#fbLink").href = CONFIG.facebookUrl;
-    $("#igLink").href = CONFIG.instagramUrl;
-    $("#msLink").href = CONFIG.messengerUrl;
-    $("#messengerFab").href = CONFIG.messengerUrl;
-
-    // =============================
-    // ToTop show/hide
-    // =============================
+    // ---- ToTop button ----
     const toTop = $("#toTop");
     window.addEventListener("scroll", ()=>{
       if (window.scrollY > 700) toTop.classList.add("show");
       else toTop.classList.remove("show");
     });
 
-    // =============================
-    // Visitor Counter (Global) via CounterAPI
-    // =============================
-    async function updateVisits(){
-      // CounterAPI: https://counterapi.dev/  (free unlimited)
-      // GET https://api.counterapi.dev/v1/{namespace}/{key}/up
+    // ---- Visitors counter (Local + CountAPI) ----
+    async function updateVisitorCounter(){
+      const localKey = "tarh_local_visits";
+      const local = Number(localStorage.getItem(localKey) || 0) + 1;
+      localStorage.setItem(localKey, String(local));
+
+      // show instantly (local)
+      $("#visitCount").textContent = String(local);
+
+      // Online counter (CountAPI public)
+      // Note: may be blocked by some browsers/network; local still works.
       try{
-        const url = `https://api.counterapi.dev/v1/${encodeURIComponent(CONFIG.counterNamespace)}/${encodeURIComponent(CONFIG.counterKey)}/up`;
-        const res = await fetch(url, { cache: "no-store" });
-        const data = await res.json();
-        // docs show result.data holds count
-        const v = (data && (data.data ?? data.value ?? data.count)) ?? null;
-        $("#visitCount").textContent = (v===null ? "—" : String(v));
-      }catch(err){
-        // fallback: local (per browser)
-        try{
-          const k = "tarhbladna_local_visits";
-          const v = (Number(localStorage.getItem(k)||"0") + 1);
-          localStorage.setItem(k, String(v));
-          $("#visitCount").textContent = String(v);
-        }catch{
-          $("#visitCount").textContent = "—";
+        const ns = encodeURIComponent(CONFIG.counterNamespace);
+        const key = encodeURIComponent(CONFIG.counterKey);
+
+        // hit increments
+        const r = await fetch(`https://api.countapi.xyz/hit/${ns}/${key}`, { cache:"no-store" });
+        const j = await r.json();
+        if (j && typeof j.value === "number"){
+          $("#visitCount").textContent = String(j.value);
         }
+      }catch(e){
+        // keep local count silently
       }
     }
 
-    // =============================
-    // Boot
-    // =============================
-    applyLang("ar");
+    // ---- Small toast ----
+    let toastTimer;
+    function toast(text){
+      clearTimeout(toastTimer);
+      let el = document.getElementById("toast");
+      if (!el){
+        el = document.createElement("div");
+        el.id = "toast";
+        el.style.position = "fixed";
+        el.style.left = "16px";
+        el.style.bottom = "16px";
+        el.style.zIndex = "3000";
+        el.style.padding = "12px 14px";
+        el.style.borderRadius = "14px";
+        el.style.border = "1px solid rgba(225,29,72,.25)";
+        el.style.background = "rgba(12,12,16,.92)";
+        el.style.boxShadow = "0 18px 48px rgba(0,0,0,.55)";
+        el.style.fontWeight = "900";
+        el.style.color = "rgba(243,244,246,.92)";
+        document.body.appendChild(el);
+      }
+      el.textContent = text;
+      el.style.opacity = "1";
+      toastTimer = setTimeout(()=>{ el.style.opacity = "0"; }, 1600);
+    }
+
+    function escapeHtml(s){
+      return String(s ?? "").replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+    }
+    function svgFallback(){
+      return `<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600">
+        <rect width="100%" height="100%" fill="#0b0b0f"/>
+        <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="#e11d48" font-size="28" font-family="Arial">Image not found</text>
+      </svg>`;
+    }
+
+    // ---- Init ----
+    renderCartCount();
+    renderProducts();
     renderTestimonials();
-    updateCartUI(false);
-    updateVisits();
+    applyLang("ar");
+    updateVisitorCounter();
   </script>
 </body>
 </html>
